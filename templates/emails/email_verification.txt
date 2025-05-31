@@ -1,0 +1,15 @@
+📧 E-posta Doğrulama
+
+Merhaba {{ user.first_name }}!
+
+Hesabını güvenli bir şekilde kullanabilmen için e-posta adresini doğrulamamız gerekiyor.
+
+E-posta doğrulama linki: {{ verification_url }}
+
+⚠️ Güvenlik Notu:
+Bu doğrulama linki 24 saat geçerlidir. 
+
+E-posta doğrulandıktan sonra platform özelliklerinin tamamına erişebileceksin! 🎉
+
+Bu e-posta {{ user.email }} adresine gönderildi.
+Eğer bu işlemi sen yapmadıysan, bu e-postayı görmezden gel.

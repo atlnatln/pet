@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🐾 Hoş geldin! Sevgi köprüsü kurmaya başlıyoruz</title>
+    <style>
+        body { font-family: 'Segoe UI', Arial, sans-serif; line-height: 1.6; color: #333; margin: 0; padding: 0; background-color: #f8f9fa; }
+        .container { max-width: 600px; margin: 0 auto; background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+        .header { background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%); color: white; padding: 40px 30px; text-align: center; }
+        .header h1 { margin: 0; font-size: 28px; font-weight: 600; }
+        .header p { margin: 10px 0 0; font-size: 16px; opacity: 0.9; }
+        .content { padding: 40px 30px; }
+        .welcome-message { font-size: 18px; margin-bottom: 25px; color: #4b5563; }
+        .highlight { background: #f3f4f6; padding: 25px; border-radius: 8px; margin: 25px 0; border-left: 4px solid #6366f1; }
+        .steps { margin: 30px 0; }
+        .step { margin: 15px 0; padding: 15px; background: #f8fafc; border-radius: 6px; display: flex; align-items: center; }
+        .step-number { background: #6366f1; color: white; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; margin-right: 15px; }
+        .cta-button { display: inline-block; background: #6366f1; color: white; padding: 15px 30px; text-decoration: none; border-radius: 8px; font-weight: 600; margin: 20px 0; }
+        .footer { background: #f8f9fa; padding: 25px 30px; text-align: center; color: #6b7280; font-size: 14px; }
+        .emoji { font-size: 24px; margin: 10px 0; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🐾 Hoş geldin {{ user.first_name }}!</h1>
+            <p>Sevgi köprüsü kurmaya başlıyoruz</p>
+        </div>
+        
+        <div class="content">
+            <p class="welcome-message">
+                Merhaba <strong>{{ user.get_display_name }}</strong>,
+            </p>
+            
+            <p>
+                <strong>{{ platform_name }}</strong> ailesine hoş geldin! Bugün sadece bir hesap açmadın, 
+                aynı zamanda sayısız canın hayatına dokunabilme şansı elde ettin.
+            </p>
+            
+            <div class="highlight">
+                <div class="emoji">💝</div>
+                <p>
+                    Sen buradayken, bir yerde bir köpek kuyruğunu sallıyor, bir kedi mırıldanıyor. 
+                    Çünkü platformumuz sadece bir web sitesi değil; sevgi köprülerinin kurulduğu, 
+                    yeni başlangıçların yazıldığı bir yuva.
+                </p>
+            </div>
+            
+            <h3>🎯 Sırada ne var?</h3>
+            <div class="steps">
+                <div class="step">
+                    <span class="step-number">1</span>
+                    <div>
+                        <strong>E-postanı doğrula</strong><br>
+                        <small>Güvenlik için e-posta adresini doğrulamayı unutma</small>
+                    </div>
+                </div>
+                <div class="step">
+                    <span class="step-number">2</span>
+                    <div>
+                        <strong>Profilini tamamla</strong><br>
+                        <small>Hikayeni anlat, fotoğrafını ekle</small>
+                    </div>
+                </div>
+                <div class="step">
+                    <span class="step-number">3</span>
+                    <div>
+                        <strong>Kategorileri keşfet</strong><br>
+                        <small>Dostunu bul veya sevgi dolu bir yuva ara</small>
+                    </div>
+                </div>
+                <div class="step">
+                    <span class="step-number">4</span>
+                    <div>
+                        <strong>İletişime geç</strong><br>
+                        <small>Sevgi başlasın, yeni hikayeler yazılsın</small>
+                    </div>
+                </div>
+            </div>
+            
+            <a href="{{ verification_url }}" class="cta-button">
+                ✨ E-postamı Doğrula ve Başla
+            </a>
+            
+            <div class="highlight">
+                <p>
+                    <strong>Unutma:</strong> Burada her tıklama bir umut, her mesaj bir gülümseme. 
+                    Sen de bu güzel hikayenin bir parçası ol!
+                </p>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>Sevgi dolu günler diliyoruz,<br>
+            <strong>🐾 {{ platform_name }} Ekibi</strong></p>
+            
+            <p style="margin-top: 20px; font-size: 12px;">
+                Bu e-posta {{ user.email }} adresine gönderildi.<br>
+                Eğer bu hesabı sen oluşturmadıysan, bu e-postayı görmezden gelebilirsin.
+            </p>
+        </div>
+    </div>
+</body>
+</html>

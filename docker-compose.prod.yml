@@ -1,0 +1,133 @@
+# ==============================================================================
+# 🐾 Evcil Hayvan Platformu - Production Docker Compose
+# ==============================================================================
+# Production-ready configuration with security and performance optimizations
+# ==============================================================================
+
+version: '3.8'
+
+services:
+  # ==============================================================================
+  # 🌐 WEB APPLICATION - Gunicorn production server
+  # ==============================================================================
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: production
+    container_name: pet_platform_web_prod
+    command: gunicorn --bind 0.0.0.0:8000 --workers 4 --worker-class gevent --worker-connections 1000 --max-requests 1000 --timeout 30 config.wsgi:application
+    volumes:
+      - static_volume:/app/staticfiles:ro
+      - media_volume:/app/media
+      - logs_volume:/app/logs
+    environment:
+      - DEBUG=False
+      - DJANGO_ENVIRONMENT=production
+      - DATABASE_URL=${DATABASE_URL}
+      - REDIS_URL=${REDIS_URL}
+      - SECRET_KEY=${SECRET_KEY}
+      - ALLOWED_HOSTS=${ALLOWED_HOSTS}
+      - SENTRY_DSN=${SENTRY_DSN}
+    depends_on:
+      - db
+      - redis
+    networks:
+      - pet_network
+    restart: always
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 1G
+        reservations:
+          cpus: '0.5'
+          memory: 512M
+
+  # ==============================================================================
+  # 🔄 NGINX - Reverse proxy ve static file serving
+  # ==============================================================================
+  nginx:
+    image: nginx:alpine
+    container_name: pet_platform_nginx
+    volumes:
+      - ./docker/nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
+      - static_volume:/app/staticfiles:ro
+      - media_volume:/app/media:ro
+      - ./docker/ssl:/etc/nginx/ssl:ro
+    ports:
+      - "80:80"
+      - "443:443"
+    depends_on:
+      - web
+    networks:
+      - pet_network
+    restart: always
+
+  # ==============================================================================
+  # 🗄️ DATABASE - PostgreSQL production
+  # ==============================================================================
+  db:
+    image: postgres:15-alpine
+    container_name: pet_platform_db_prod
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./docker/postgres/postgresql.conf:/etc/postgresql/postgresql.conf:ro
+    networks:
+      - pet_network
+    restart: always
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 2G
+
+  # ==============================================================================
+  # 🔴 REDIS - Production cache
+  # ==============================================================================
+  redis:
+    image: redis:7-alpine
+    container_name: pet_platform_redis_prod
+    command: redis-server /usr/local/etc/redis/redis.conf
+    volumes:
+      - redis_data:/data
+      - ./docker/redis/redis-prod.conf:/usr/local/etc/redis/redis.conf:ro
+    networks:
+      - pet_network
+    restart: always
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 512M
+
+networks:
+  pet_network:
+    driver: bridge
+    name: pet_platform_prod_network
+
+volumes:
+  postgres_data:
+    external: true
+    name: pet_platform_postgres_prod_data
+  
+  redis_data:
+    external: true
+    name: pet_platform_redis_prod_data
+  
+  static_volume:
+    external: true
+    name: pet_platform_static_prod
+  
+  media_volume:
+    external: true
+    name: pet_platform_media_prod
+  
+  logs_volume:
+    external: true
+    name: pet_platform_logs_prod

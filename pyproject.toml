@@ -1,0 +1,252 @@
+# ==============================================================================
+# 🐾 Evcil Hayvan Platformu - Project Configuration
+# ==============================================================================
+# Python project metadata ve tool configurations
+# ==============================================================================
+
+[build-system]
+requires = ["setuptools>=65.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "evcil-hayvan-platformu"
+version = "1.0.0"
+description = "🐾 Hayvan sahiplenme platformu - Sevgi köprüleri kuran dijital yuva"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [
+    {name = "Pet Platform Team", email = "team@evcilhayvanplatformu.com"}
+]
+maintainers = [
+    {name = "Pet Platform Team", email = "team@evcilhayvanplatformu.com"}
+]
+keywords = [
+    "django", "pet-adoption", "animal-welfare", "platform", 
+    "rescue", "shelter", "veterinary", "turkiye"
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Web Environment",
+    "Framework :: Django",
+    "Framework :: Django :: 4.2",
+    "Intended Audience :: End Users/Desktop",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Internet :: WWW/HTTP",
+    "Topic :: Internet :: WWW/HTTP :: Dynamic Content",
+    "Topic :: Other/Nonlisted Topic"
+]
+requires-python = ">=3.11"
+
+[project.urls]
+Homepage = "https://evcilhayvanplatformu.com"
+Documentation = "https://docs.evcilhayvanplatformu.com"
+Repository = "https://github.com/evcil-hayvan-platformu/platform"
+Issues = "https://github.com/evcil-hayvan-platformu/platform/issues"
+Changelog = "https://github.com/evcil-hayvan-platformu/platform/blob/main/CHANGELOG.md"
+
+# ==============================================================================
+# 🖤 BLACK CONFIGURATION - Code formatting
+# ==============================================================================
+[tool.black]
+line-length = 88
+target-version = ['py311']
+include = '\.pyi?$'
+extend-exclude = '''
+/(
+    migrations
+    | venv
+    | env
+    | node_modules
+    | \.git
+    | \.mypy_cache
+    | \.tox
+    | \.venv
+    | _build
+    | buck-out
+    | build
+    | dist
+)/
+'''
+
+# ==============================================================================
+# 📦 ISORT CONFIGURATION - Import organization
+# ==============================================================================
+[tool.isort]
+profile = "black"
+line_length = 88
+multi_line_output = 3
+include_trailing_comma = true
+force_grid_wrap = 0
+use_parentheses = true
+ensure_newline_before_comments = true
+skip_glob = ["*/migrations/*", "venv/*", "env/*"]
+
+# Django specific settings
+known_django = "django"
+known_first_party = ["apps", "config"]
+sections = ["FUTURE", "STDLIB", "DJANGO", "THIRDPARTY", "FIRSTPARTY", "LOCALFOLDER"]
+
+# Import order
+force_sort_within_sections = true
+lexicographical = true
+
+# ==============================================================================
+# 🔍 FLAKE8 CONFIGURATION - Linting
+# ==============================================================================
+[tool.flake8]
+max-line-length = 88
+extend-ignore = [
+    "E203",  # whitespace before ':'
+    "W503",  # line break before binary operator
+    "E501",  # line too long (handled by black)
+    "F401",  # imported but unused (in __init__.py)
+]
+exclude = [
+    "migrations",
+    "venv",
+    "env", 
+    ".venv",
+    ".env",
+    "__pycache__",
+    ".git",
+    ".tox",
+    "build",
+    "dist"
+]
+per-file-ignores = [
+    "__init__.py:F401",
+    "settings/*.py:F405,F403"
+]
+max-complexity = 10
+
+# ==============================================================================
+# 📊 MYPY CONFIGURATION - Type checking
+# ==============================================================================
+[tool.mypy]
+python_version = "3.11"
+check_untyped_defs = true
+ignore_missing_imports = true
+warn_unused_ignores = true
+warn_redundant_casts = true
+warn_unused_configs = true
+no_implicit_reexport = true
+strict_optional = false
+
+# Django specific
+plugins = ["mypy_django_plugin.main"]
+
+[[tool.mypy.overrides]]
+module = "*.migrations.*"
+ignore_errors = true
+
+[[tool.mypy.overrides]]
+module = "*.settings.*"
+ignore_errors = true
+
+[tool.django-stubs]
+django_settings_module = "config.settings.development"
+
+# ==============================================================================
+# 🧪 PYTEST CONFIGURATION - Testing
+# ==============================================================================
+[tool.pytest.ini_options]
+DJANGO_SETTINGS_MODULE = "config.settings.testing"
+python_files = ["tests.py", "test_*.py", "*_tests.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+testpaths = ["tests", "apps"]
+addopts = [
+    "--verbose",
+    "--tb=short",
+    "--strict-markers",
+    "--cov=apps",
+    "--cov=config",
+    "--cov-report=html",
+    "--cov-report=term-missing:skip-covered",
+    "--cov-fail-under=80",
+    "--reuse-db",
+    "--nomigrations"
+]
+markers = [
+    "slow: marks tests as slow (deselect with '-m \"not slow\"')",
+    "integration: marks tests as integration tests",
+    "unit: marks tests as unit tests",
+    "api: marks tests as API tests",
+    "models: marks tests as model tests",
+    "views: marks tests as view tests",
+    "forms: marks tests as form tests",
+    "utils: marks tests as utility tests"
+]
+filterwarnings = [
+    "ignore::django.utils.deprecation.RemovedInDjango50Warning",
+    "ignore::DeprecationWarning"
+]
+
+# ==============================================================================
+# 📊 COVERAGE CONFIGURATION - Test coverage
+# ==============================================================================
+[tool.coverage.run]
+source = ["apps", "config"]
+omit = [
+    "*/migrations/*",
+    "*/venv/*",
+    "*/env/*",
+    "*/tests/*",
+    "*/test_*",
+    "*/__pycache__/*",
+    "manage.py",
+    "*/settings/*",
+    "*/wsgi.py",
+    "*/asgi.py"
+]
+branch = true
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "raise AssertionError",
+    "raise NotImplementedError",
+    "if __name__ == .__main__.:"
+]
+show_missing = true
+skip_covered = true
+
+[tool.coverage.html]
+directory = "htmlcov"
+
+# ==============================================================================
+# 🛡️ BANDIT CONFIGURATION - Security scanning
+# ==============================================================================
+[tool.bandit]
+exclude_dirs = ["tests", "venv", "env", "migrations"]
+skips = ["B101", "B601"]  # Skip assert statements and shell injection (paramiko)
+severity = "medium"
+
+# ==============================================================================
+# 📄 PYDOCSTYLE CONFIGURATION - Docstring style
+# ==============================================================================
+[tool.pydocstyle]
+convention = "google"
+match_dir = "^(?!migrations).*"
+ignore = [
+    "D100",  # Missing docstring in public module
+    "D101",  # Missing docstring in public class
+    "D102",  # Missing docstring in public method
+    "D103",  # Missing docstring in public function
+    "D104",  # Missing docstring in public package
+    "D105",  # Missing docstring in magic method
+    "D106",  # Missing docstring in public nested class
+    "D107"   # Missing docstring in __init__
+]
+
+# ==============================================================================
+# 💝 PLATFORM CONFIGURATION MESSAGE
+# ==============================================================================
+# Bu configuration dosyası, platformun kod kalitesi ve 
+# development standards'larını tanımlar.
+# 🐾 Her ayar, daha iyi kod için optimize edilmiştir!

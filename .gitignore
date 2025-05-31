@@ -1,0 +1,314 @@
+# ==============================================================================
+# 🐾 Evcil Hayvan Platformu - Git Ignore Configuration
+# ==============================================================================
+# Comprehensive ignore patterns for Django, Docker, and development tools
+# ==============================================================================
+
+# ==============================================================================
+# 🔐 ENVIRONMENT & SECRETS - Asla commit edilmemeli
+# ==============================================================================
+.env
+.env.local
+.env.development
+.env.production
+.env.*.local
+config/settings/local.py
+*.key
+*.pem
+*.p12
+secrets/
+
+# ==============================================================================
+# 🐍 PYTHON SPECIFIC - Python çalışma dosyaları
+# ==============================================================================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# ==============================================================================
+# 🌐 DJANGO SPECIFIC - Django framework dosyaları
+# ==============================================================================
+*.log
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+media/
+staticfiles/
+static/collected/
+
+# Django migrations (keep structure, ignore actual migrations)
+# */migrations/*.py
+# */migrations/*.pyc
+# !*/migrations/__init__.py
+
+# Django cache
+django_cache/
+
+# Django sessions
+django_session/
+
+# Celery
+celerybeat-schedule
+celerybeat.pid
+
+# ==============================================================================
+# 🐳 DOCKER & CONTAINERIZATION - Docker dosyaları
+# ==============================================================================
+.dockerignore.bak
+docker-compose.override.yml
+.docker/
+volumes/
+
+# Docker volumes data
+**/postgres_data/
+**/redis_data/
+**/logs_volume/
+
+# ==============================================================================
+# 📝 DEVELOPMENT TOOLS - Geliştirme araçları
+# ==============================================================================
+
+# Virtual environments
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+.venv/
+.ENV/
+pipenv/
+
+# Poetry
+poetry.lock.bak
+
+# Pytest
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.nox/
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.cache
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# ==============================================================================
+# 💻 IDE & EDITORS - IDE ve editör dosyaları
+# ==============================================================================
+
+# VS Code
+.vscode/
+*.code-workspace
+
+# PyCharm
+.idea/
+*.iws
+*.iml
+*.ipr
+
+# Sublime Text
+*.sublime-workspace
+*.sublime-project
+
+# Vim
+*.swp
+*.swo
+*~
+.vim/
+
+# Emacs
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+auto-save-list
+tramp
+.\#*
+
+# ==============================================================================
+# 🖥️ OPERATING SYSTEMS - İşletim sistemi dosyaları
+# ==============================================================================
+
+# macOS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+.AppleDouble
+.LSOverride
+Icon
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msm
+*.msp
+*.lnk
+
+# Linux
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+.nfs*
+
+# ==============================================================================
+# 📊 LOGS & MONITORING - Log ve monitoring dosyaları
+# ==============================================================================
+logs/
+*.log
+*.log.*
+log/
+*.out
+*.err
+
+# Sentry
+.sentryclirc
+
+# ==============================================================================
+# 🎨 FRONTEND & ASSETS - Frontend ve asset dosyaları
+# ==============================================================================
+
+# Node.js (future frontend integration)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.npm
+.yarn-integrity
+
+# CSS/SASS
+.sass-cache/
+*.css.map
+*.sass.map
+*.scss.map
+
+# ==============================================================================
+# 📦 PACKAGE MANAGERS - Paket yöneticileri
+# ==============================================================================
+
+# pip
+pip-log.txt
+pip-delete-this-directory.txt
+
+# pipenv
+Pipfile.lock
+
+# poetry
+poetry.lock
+
+# conda
+.conda/
+
+# ==============================================================================
+# 🔧 TEMPORARY & CACHE - Geçici ve cache dosyaları
+# ==============================================================================
+tmp/
+temp/
+.tmp/
+.temp/
+cache/
+.cache/
+*.tmp
+*.temp
+*.bak
+*.backup
+*.old
+*.orig
+
+# ==============================================================================
+# 📋 DOCUMENTATION - Dokümantasyon (generated)
+# ==============================================================================
+docs/_build/
+docs/.doctrees/
+site/
+
+# Sphinx
+docs/_build
+docs/_static
+docs/_templates
+
+# ==============================================================================
+# 🧪 TESTING & QA - Test ve kalite kontrol
+# ==============================================================================
+.coverage.*
+.pytest_cache/
+test-results/
+test-reports/
+.tox/
+htmlcov/
+.scannerwork/
+
+# ==============================================================================
+# 🔍 LINTING & FORMATTING - Linting ve formatting
+# ==============================================================================
+.flake8
+.pre-commit-config.yaml.bak
+.isort.cfg.bak
+
+# ==============================================================================
+# 📱 MOBILE DEVELOPMENT - Mobil geliştirme (future)
+# ==============================================================================
+# React Native
+.expo/
+.expo-shared/
+
+# ==============================================================================
+# 🎯 PROJECT SPECIFIC - Proje özel dosyalar
+# ==============================================================================
+
+# Pet platform specific
+pet_data/
+uploaded_images/
+backup/
+exports/
+
+# Sample data
+sample_data/
+fixtures/sample/
+
+# Personal notes
+notes.md
+TODO.md
+NOTES.txt
+
+# ==============================================================================
+# 💝 HAYVAN REFAHI IÇIN YAZILDI
+# ==============================================================================
+# Bu .gitignore dosyası, platformun güvenli ve temiz
+# geliştirilmesi için özenle hazırlanmıştır.
+# 🐾 Her ignore pattern, daha iyi kod için!

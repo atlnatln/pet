@@ -1,0 +1,73 @@
+# ==============================================================================
+# 🐾 Docker Ignore - Optimize build context
+# ==============================================================================
+
+# Development files
+.env
+.env.local
+.env.*.local
+
+# Dependencies
+node_modules/
+venv/
+env/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Git
+.git/
+.gitignore
+
+# Documentation
+README.md
+docs/
+*.md
+
+# Test files
+.coverage
+.pytest_cache/
+.tox/
+htmlcov/
+
+# Docker
+Dockerfile*
+docker-compose*.yml
+.dockerignore
+
+# Logs
+logs/
+*.log
+
+# Database
+*.sqlite3
+db.sqlite3
+
+# Media files (in development)
+media/
+
+# Static files (will be collected in container)
+staticfiles/
+static/
+
+# Temporary files
+tmp/
+temp/

@@ -1,0 +1,227 @@
+# ==============================================================================
+# 🐾 Pre-commit Hooks - Code Quality Automation
+# ==============================================================================
+# Otomatik kod kalitesi kontrolü için pre-commit hooks
+# ==============================================================================
+
+repos:
+  # ==============================================================================
+  # 🔧 BASIC CHECKS - Temel kontroller
+  # ==============================================================================
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.4.0
+    hooks:
+      - id: trailing-whitespace
+        name: 🧹 Remove trailing whitespace
+        description: Satır sonlarındaki boşlukları temizle
+        
+      - id: end-of-file-fixer
+        name: 📄 Fix end of files
+        description: Dosya sonlarını düzelt
+        
+      - id: check-yaml
+        name: ✅ Check YAML syntax
+        description: YAML dosyalarının syntax'ını kontrol et
+        
+      - id: check-json
+        name: ✅ Check JSON syntax
+        description: JSON dosyalarının syntax'ını kontrol et
+        
+      - id: check-toml
+        name: ✅ Check TOML syntax
+        description: TOML dosyalarının syntax'ını kontrol et
+        
+      - id: check-merge-conflict
+        name: 🔀 Check merge conflicts
+        description: Merge conflict marker'larını kontrol et
+        
+      - id: check-added-large-files
+        name: 📦 Check large files
+        description: Büyük dosyaları kontrol et (>500KB)
+        args: ['--maxkb=500']
+        
+      - id: debug-statements
+        name: 🐛 Check debug statements
+        description: Debug statement'ları kontrol et
+
+  # ==============================================================================
+  # 🐍 PYTHON CODE FORMATTING - Python kod formatlama
+  # ==============================================================================
+  - repo: https://github.com/psf/black
+    rev: 23.3.0
+    hooks:
+      - id: black
+        name: 🖤 Format Python code (Black)
+        description: Python kodunu Black ile formatla
+        language_version: python3
+        args: [
+          "--line-length=88",
+          "--target-version=py311",
+          "--include=\\.pyi?$",
+          "--exclude=migrations/"
+        ]
+
+  # ==============================================================================
+  # 📦 IMPORT ORGANIZATION - Import düzenleme
+  # ==============================================================================
+  - repo: https://github.com/pycqa/isort
+    rev: 5.12.0
+    hooks:
+      - id: isort
+        name: 📦 Organize imports (isort)
+        description: Python import'larını düzenle
+        args: [
+          "--profile=black",
+          "--line-length=88",
+          "--multi-line=3",
+          "--skip-glob=*/migrations/*",
+          "--known-django=django",
+          "--known-first-party=apps,config",
+          "--section-default=THIRDPARTY"
+        ]
+
+  # ==============================================================================
+  # 🔍 PYTHON LINTING - Python kod analizi
+  # ==============================================================================
+  - repo: https://github.com/pycqa/flake8
+    rev: 6.0.0
+    hooks:
+      - id: flake8
+        name: 🔍 Lint Python code (Flake8)
+        description: Python kodunu Flake8 ile analiz et
+        args: [
+          "--max-line-length=88",
+          "--extend-ignore=E203,W503,E501",
+          "--exclude=migrations,venv,env,.venv,.env",
+          "--per-file-ignores=__init__.py:F401",
+          "--max-complexity=10"
+        ]
+
+  # ==============================================================================
+  # 🛡️ SECURITY CHECKS - Güvenlik kontrolleri
+  # ==============================================================================
+  - repo: https://github.com/pycqa/bandit
+    rev: 1.7.5
+    hooks:
+      - id: bandit
+        name: 🛡️ Security check (Bandit)
+        description: Python kodunda güvenlik açıklarını kontrol et
+        args: [
+          "-r", ".",
+          "-f", "json",
+          "-x", "*/tests/*,*/venv/*,*/env/*",
+          "-ll",
+          "-i"
+        ]
+        exclude: ^(tests/|venv/|env/|migrations/)
+
+  # ==============================================================================
+  # 📝 DJANGO SPECIFIC - Django özel kontroller
+  # ==============================================================================
+  - repo: local
+    hooks:
+      - id: django-check
+        name: 🎯 Django system check
+        description: Django sistem kontrolü
+        entry: python manage.py check
+        language: system
+        pass_filenames: false
+        always_run: true
+        
+      - id: django-check-migrations
+        name: 🗄️ Check Django migrations
+        description: Django migration'larını kontrol et
+        entry: python manage.py makemigrations --check --dry-run
+        language: system
+        pass_filenames: false
+        files: ^.*models\.py$
+
+  # ==============================================================================
+  # 🔐 SECRETS DETECTION - Sır tespit etme
+  # ==============================================================================
+  - repo: https://github.com/Yelp/detect-secrets
+    rev: v1.4.0
+    hooks:
+      - id: detect-secrets
+        name: 🔐 Detect secrets
+        description: Kodda sır/şifre tespiti
+        args: ['--baseline', '.secrets.baseline']
+        exclude: .*\.lock$|.*requirements.*\.txt$
+
+  # ==============================================================================
+  # 📄 DOCUMENTATION - Dokümantasyon kontrolleri
+  # ==============================================================================
+  - repo: https://github.com/pycqa/pydocstyle
+    rev: 6.3.0
+    hooks:
+      - id: pydocstyle
+        name: 📄 Check docstrings (pydocstyle)
+        description: Python docstring'lerini kontrol et
+        args: [
+          "--convention=google",
+          "--ignore=D100,D101,D102,D103,D104,D105,D106,D107",
+          "--match-dir=^(?!migrations).*"
+        ]
+
+  # ==============================================================================
+  # 🐳 DOCKER - Docker dosya kontrolleri
+  # ==============================================================================
+  - repo: https://github.com/hadolint/hadolint
+    rev: v2.12.0
+    hooks:
+      - id: hadolint-docker
+        name: 🐳 Lint Dockerfile (Hadolint)
+        description: Dockerfile'ları kontrol et
+        args: [
+          "--ignore", "DL3008",  # Pin package versions
+          "--ignore", "DL3009",  # Delete apt cache
+          "--ignore", "SC2046"   # Quote parameters
+        ]
+
+  # ==============================================================================
+  # 📊 TYPE CHECKING - Tip kontrolü
+  # ==============================================================================
+  - repo: https://github.com/pre-commit/mirrors-mypy
+    rev: v1.3.0
+    hooks:
+      - id: mypy
+        name: 📊 Type check (MyPy)
+        description: Python tip kontrolü
+        additional_dependencies: [
+          'django-stubs[compatible-mypy]',
+          'djangorestframework-stubs',
+          'types-requests',
+          'types-redis'
+        ]
+        args: [
+          "--ignore-missing-imports",
+          "--no-strict-optional",
+          "--warn-redundant-casts",
+          "--warn-unused-ignores"
+        ]
+        exclude: ^(migrations/|venv/|env/)
+
+# ==============================================================================
+# ⚙️ PRE-COMMIT CONFIGURATION
+# ==============================================================================
+default_stages: [commit, push]
+fail_fast: false
+
+# Exclude patterns
+exclude: |
+  (?x)^(
+      migrations/.*|
+      venv/.*|
+      env/.*|
+      node_modules/.*|
+      \.venv/.*|
+      staticfiles/.*|
+      media/.*
+  )$
+
+# ==============================================================================
+# 💝 PLATFORM MESSAGE
+# ==============================================================================
+# Bu pre-commit configuration, kod kalitesini otomatik olarak
+# kontrol eder ve platformun tutarlı development standartlarını sağlar.
+# 🐾 Her commit, kaliteli kod için!

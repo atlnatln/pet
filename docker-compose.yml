@@ -1,0 +1,207 @@
+# ==============================================================================
+# 🐾 Evcil Hayvan Platformu - Docker Compose Development
+# ==============================================================================
+# Complete development environment with all services
+# ==============================================================================
+
+version: '3.8'
+
+services:
+  # ==============================================================================
+  # 🌐 WEB APPLICATION - Django development server
+  # ==============================================================================
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: development
+    container_name: pet_platform_web
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/app
+      - static_volume:/app/staticfiles
+      - media_volume:/app/media
+      - logs_volume:/app/logs
+    ports:
+      - "8000:8000"
+    environment:
+      - DEBUG=True
+      - DJANGO_ENVIRONMENT=development
+      - DATABASE_URL=postgresql://pet_user:pet_password@db:5432/pet_platform_db
+      - REDIS_URL=redis://redis:6379/0
+      - CELERY_BROKER_URL=redis://redis:6379/0
+      - SECRET_KEY=django-development-secret-key-change-in-production
+      - ALLOWED_HOSTS=localhost,127.0.0.1,0.0.0.0,web
+    depends_on:
+      - db
+      - redis
+    networks:
+      - pet_network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  # ==============================================================================
+  # 🗄️ DATABASE - PostgreSQL
+  # ==============================================================================
+  db:
+    image: postgres:15-alpine
+    container_name: pet_platform_db
+    environment:
+      POSTGRES_DB: pet_platform_db
+      POSTGRES_USER: pet_user
+      POSTGRES_PASSWORD: pet_password
+      POSTGRES_INITDB_ARGS: "--encoding=UTF-8 --lc-collate=tr_TR.UTF-8 --lc-ctype=tr_TR.UTF-8"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./docker/init-db.sql:/docker-entrypoint-initdb.d/init-db.sql:ro
+    ports:
+      - "5432:5432"
+    networks:
+      - pet_network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U pet_user -d pet_platform_db"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # ==============================================================================
+  # 🔴 REDIS - Cache ve Celery message broker
+  # ==============================================================================
+  redis:
+    image: redis:7-alpine
+    container_name: pet_platform_redis
+    command: redis-server --appendonly yes --requirepass pet_redis_password
+    volumes:
+      - redis_data:/data
+      - ./docker/redis.conf:/usr/local/etc/redis/redis.conf:ro
+    ports:
+      - "6379:6379"
+    networks:
+      - pet_network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "redis-cli", "--raw", "incr", "ping"]
+      interval: 10s
+      timeout: 3s
+      retries: 5
+
+  # ==============================================================================
+  # 🔄 CELERY WORKER - Background task processor
+  # ==============================================================================
+  celery:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: development
+    container_name: pet_platform_celery
+    command: celery -A config worker -l info --concurrency=2
+    volumes:
+      - .:/app
+      - logs_volume:/app/logs
+    environment:
+      - DEBUG=True
+      - DJANGO_ENVIRONMENT=development
+      - DATABASE_URL=postgresql://pet_user:pet_password@db:5432/pet_platform_db
+      - REDIS_URL=redis://redis:6379/0
+      - CELERY_BROKER_URL=redis://redis:6379/0
+      - SECRET_KEY=django-development-secret-key-change-in-production
+    depends_on:
+      - db
+      - redis
+    networks:
+      - pet_network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "celery", "-A", "config", "inspect", "ping"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # ==============================================================================
+  # ⏰ CELERY BEAT - Periodic task scheduler
+  # ==============================================================================
+  celery-beat:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: development
+    container_name: pet_platform_celery_beat
+    command: celery -A config beat -l info --scheduler django_celery_beat.schedulers:DatabaseScheduler
+    volumes:
+      - .:/app
+      - logs_volume:/app/logs
+    environment:
+      - DEBUG=True
+      - DJANGO_ENVIRONMENT=development
+      - DATABASE_URL=postgresql://pet_user:pet_password@db:5432/pet_platform_db
+      - REDIS_URL=redis://redis:6379/0
+      - CELERY_BROKER_URL=redis://redis:6379/0
+      - SECRET_KEY=django-development-secret-key-change-in-production
+    depends_on:
+      - db
+      - redis
+    networks:
+      - pet_network
+    restart: unless-stopped
+
+  # ==============================================================================
+  # 📊 FLOWER - Celery monitoring
+  # ==============================================================================
+  flower:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: development
+    container_name: pet_platform_flower
+    command: celery -A config flower --port=5555
+    volumes:
+      - .:/app
+    ports:
+      - "5555:5555"
+    environment:
+      - DEBUG=True
+      - DJANGO_ENVIRONMENT=development
+      - CELERY_BROKER_URL=redis://redis:6379/0
+    depends_on:
+      - redis
+    networks:
+      - pet_network
+    restart: unless-stopped
+
+# ==============================================================================
+# 🌐 NETWORKS - Service communication
+# ==============================================================================
+networks:
+  pet_network:
+    driver: bridge
+    name: pet_platform_network
+
+# ==============================================================================
+# 💾 VOLUMES - Persistent data storage
+# ==============================================================================
+volumes:
+  postgres_data:
+    driver: local
+    name: pet_platform_postgres_data
+  
+  redis_data:
+    driver: local
+    name: pet_platform_redis_data
+  
+  static_volume:
+    driver: local
+    name: pet_platform_static
+  
+  media_volume:
+    driver: local
+    name: pet_platform_media
+  
+  logs_volume:
+    driver: local
+    name: pet_platform_logs

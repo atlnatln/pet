@@ -1,0 +1,24 @@
+🐾 Hoş geldin {{ user.first_name }}!
+
+Merhaba {{ user.get_display_name }},
+
+{{ platform_name }} ailesine hoş geldin! Bugün sadece bir hesap açmadın, aynı zamanda sayısız canın hayatına dokunabilme şansı elde ettin.
+
+Sen buradayken, bir yerde bir köpek kuyruğunu sallıyor, bir kedi mırıldanıyor. Çünkü platformumuz sadece bir web sitesi değil; sevgi köprülerinin kurulduğu, yeni başlangıçların yazıldığı bir yuva.
+
+🎯 Sırada ne var?
+1. E-postanı doğrula - Güvenlik için e-posta adresini doğrulamayı unutma
+2. Profilini tamamla - Hikayeni anlat, fotoğrafını ekle  
+3. Kategorileri keşfet - Dostunu bul veya sevgi dolu bir yuva ara
+4. İletişime geç - Sevgi başlasın, yeni hikayeler yazılsın
+
+E-posta doğrulama linki: {{ verification_url }}
+
+Unutma: Burada her tıklama bir umut, her mesaj bir gülümseme. Sen de bu güzel hikayenin bir parçası ol!
+
+Sevgi dolu günler diliyoruz,
+🐾 {{ platform_name }} Ekibi
+
+---
+Bu e-posta {{ user.email }} adresine gönderildi.
+Eğer bu hesabı sen oluşturmadıysan, bu e-postayı görmezden gelebilirsin.
