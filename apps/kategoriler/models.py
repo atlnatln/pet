@@ -58,7 +58,7 @@ class Kategori(TimestampedModel):
     # Kategori detayları
     pet_type = models.CharField(
         max_length=20,
-        choices=PetTypes.choices, # CHOICES yerine choices olarak düzeltildi
+        choices=PetTypes.choices,
         default=PetTypes.DIGER,
         verbose_name=_("Hayvan Türü"),
         help_text=_("Bu kategori hangi hayvan türü için geçerli?")
@@ -118,6 +118,29 @@ class Kategori(TimestampedModel):
             return f"{self.parent.ad} > {self.ad}"
         return self.ad
     
+    def clean(self):
+        """Model validasyonu - kategori tutarlılığı için"""
+        from django.core.exceptions import ValidationError
+        
+        # Ana kategori ise (parent=None) türü kontrol et
+        if not self.parent:
+            if self.pet_type not in [choice[0] for choice in PetTypes.choices]:
+                raise ValidationError(
+                    _("Ana kategoriler sadece temel hayvan türü olabilir (kedi, köpek, kuş vb.)")
+                )
+        
+        # Alt kategori ise, ana kategorinin türünü miras al
+        if self.parent:
+            self.pet_type = self.parent.pet_type
+            
+            # 2. seviyeden fazla derinlik olmamalı
+            if self.parent.parent:
+                raise ValidationError(
+                    _("En fazla bir alt kategori derinliği olabilir. Bu kategorinin ana kategorisi zaten bir alt kategoridir.")
+                )
+        
+        super().clean()
+    
     def save(self, *args, **kwargs):
         # Slug otomatik oluştur
         if not self.slug:
@@ -131,6 +154,10 @@ class Kategori(TimestampedModel):
                 counter += 1
             
             self.slug = slug
+
+        # Türü ana kategoriden miras al
+        if self.parent:
+            self.pet_type = self.parent.pet_type
         
         super().save(*args, **kwargs)
     

@@ -14,7 +14,7 @@ from apps.kategoriler.models import Kategori
 Kategori.objects.create(
     ad="Köpekler",
     aciklama="Sadakat ve dostluğun temsilcileri",
-    pet_type="dog",
+    pet_type="kopek",  # Güncellenmiş değer
     ikon_adi="fa-dog",
     renk_kodu="#f59e0b",
     sira=1
@@ -24,18 +24,66 @@ Kategori.objects.create(
 Kategori.objects.create(
     ad="Kediler",
     aciklama="Bağımsızlık ve zarafetin ustası",
-    pet_type="cat",
+    pet_type="kedi",  # Güncellenmiş değer
     ikon_adi="fa-cat",
     renk_kodu="#8b5cf6",
     sira=2
 )
 
-# Diğer ana kategoriler...
+# Kuşlar kategorisi
+Kategori.objects.create(
+    ad="Kuşlar",
+    aciklama="Özgürlüğün renkli elçileri",
+    pet_type="kus",  # Güncellenmiş değer
+    ikon_adi="fa-dove",
+    renk_kodu="#06b6d4",
+    sira=3
+)
+
+# Balıklar kategorisi
+Kategori.objects.create(
+    ad="Balıklar",
+    aciklama="Sessiz güzelliğin temsilcileri",
+    pet_type="balik",  # Güncellenmiş değer
+    ikon_adi="fa-fish",
+    renk_kodu="#3b82f6",
+    sira=4
+)
+
+# Kemirgenler kategorisi
+Kategori.objects.create(
+    ad="Kemirgenler",
+    aciklama="Minik dostların büyük kalpleri",
+    pet_type="kemirgen",  # Güncellenmiş değer
+    ikon_adi="fa-rabbit",
+    renk_kodu="#f97316",
+    sira=5
+)
+
+# Sürüngenler kategorisi
+Kategori.objects.create(
+    ad="Sürüngenler",
+    aciklama="Antik dünyanın gizemli temsilcileri",
+    pet_type="surungen",  # Güncellenmiş değer
+    ikon_adi="fa-turtle",
+    renk_kodu="#059669",
+    sira=6
+)
+
+# Egzotik Hayvanlar kategorisi
+Kategori.objects.create(
+    ad="Egzotik Hayvanlar",
+    aciklama="Farklılığın renkli dünyası",
+    pet_type="diger",  # Güncellenmiş değer
+    ikon_adi="fa-paw",
+    renk_kodu="#dc2626",
+    sira=7
+)
 ```
 
 ## 2️⃣ KATEGORİLER İÇİN YÖNETİM KOMUTU OLUŞTURMA
 
-Kategorileri otomatik oluşturan bir yönetim komutu ekleyelim:
+Kategorileri otomatik oluşturan bir yönetim komutu:
 
 ### `/home/akn/Genel/pet/apps/kategoriler/management/commands/create_categories.py` dosyası oluşturun:
 
@@ -50,23 +98,57 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         self.stdout.write('🏷️ Temel hayvan kategorilerini oluşturma...')
         
-        # Ana kategoriler
+        # Ana kategoriler - Güncellenmiş pet_type değerleri ile
         ana_kategoriler = {
-            'dog': {
+            'kopek': {
                 'ad': 'Köpekler',
                 'aciklama': 'Sadakat ve dostluğun temsilcileri',
                 'ikon_adi': 'fa-dog',
                 'renk_kodu': '#f59e0b',
                 'sira': 1
             },
-            'cat': {
+            'kedi': {
                 'ad': 'Kediler',
                 'aciklama': 'Bağımsızlık ve zarafetin ustası',
                 'ikon_adi': 'fa-cat',
                 'renk_kodu': '#8b5cf6',
                 'sira': 2
             },
-            # Diğer kategoriler...
+            'kus': {
+                'ad': 'Kuşlar',
+                'aciklama': 'Özgürlüğün renkli elçileri',
+                'ikon_adi': 'fa-dove',
+                'renk_kodu': '#06b6d4',
+                'sira': 3
+            },
+            'balik': {
+                'ad': 'Balıklar',
+                'aciklama': 'Sessiz güzelliğin temsilcileri',
+                'ikon_adi': 'fa-fish',
+                'renk_kodu': '#3b82f6',
+                'sira': 4
+            },
+            'kemirgen': {
+                'ad': 'Kemirgenler',
+                'aciklama': 'Minik dostların büyük kalpleri',
+                'ikon_adi': 'fa-rabbit',
+                'renk_kodu': '#f97316',
+                'sira': 5
+            },
+            'surungen': {
+                'ad': 'Sürüngenler',
+                'aciklama': 'Antik dünyanın gizemli temsilcileri',
+                'ikon_adi': 'fa-turtle',
+                'renk_kodu': '#059669',
+                'sira': 6
+            },
+            'diger': {
+                'ad': 'Egzotik Hayvanlar',
+                'aciklama': 'Farklılığın renkli dünyası',
+                'ikon_adi': 'fa-paw',
+                'renk_kodu': '#dc2626',
+                'sira': 7
+            }
         }
         
         created_count = 0
@@ -96,42 +178,24 @@ class Command(BaseCommand):
         ))
 ```
 
-## 3️⃣ KATEGORİ ÖZELLİKLERİNİ EKLEME
+## 3️⃣ KÖPEK IRKLARI VE KATEGORİ SENKRONİZASYONU
 
-Her kategori için gerekli özellikleri ekleyin:
+Köpek ırkları ve kategori sistemi artık otomatik senkronize:
 
-```python
-python manage.py shell
+```bash
+# Köpek ırklarını kategorilerle senkronize et
+python manage.py sync_dog_breeds
 
-# Shell içinde:
-from apps.kategoriler.models import Kategori, KategoriOzellik
+# Tüm ırkları senkronize et (popüler olmayanlar dahil)
+python manage.py sync_dog_breeds --all
 
-# Köpek kategorisi için özellikler
-kopek = Kategori.objects.get(ad='Köpekler')
-
-KategoriOzellik.objects.create(
-    kategori=kopek,
-    ad="Irk",
-    alan_tipi="select",
-    secenekler=["Golden Retriever", "Labrador", "Terrier", "Bulldog", "Pug", "Husky", "German Shepherd", "Diğer"],
-    zorunlu=True,
-    sira=1
-)
-
-KategoriOzellik.objects.create(
-    kategori=kopek,
-    ad="Yaş",
-    alan_tipi="range",
-    zorunlu=True,
-    sira=2
-)
-
-# Diğer özellikler...
+# Mevcut kategorileri de güncelle
+python manage.py sync_dog_breeds --force
 ```
 
-## 4️⃣ ALT KATEGORİLER OLUŞTURMA
+## 4️⃣ PET_TYPE DEĞERLERINI DÜZELTME
 
-Ana kategorilerin altına alt kategoriler ekleyin:
+Mevcut kategorilerin pet_type değerlerini güncelleyin:
 
 ```python
 python manage.py shell
@@ -139,103 +203,5 @@ python manage.py shell
 # Shell içinde:
 from apps.kategoriler.models import Kategori
 
-kopek = Kategori.objects.get(ad='Köpekler')
-
-# Alt kategoriler
-alt_kategoriler = [
-    "Golden Retriever", "Labrador", "Terrier", "Bulldog", "Pug", 
-    "Husky", "German Shepherd", "Poodle", "Beagle", "Boxer"
-]
-
-for i, alt in enumerate(alt_kategoriler):
-    Kategori.objects.create(
-        ad=alt,
-        parent=kopek,
-        pet_type="dog",
-        aciklama=f"{alt} köpek ırkı",
-        sira=i+1
-    )
-```
-
-## 5️⃣ KATEGORİ GÖRSELLERİ VE TEMA
-
-**Ana Kategori Görselleri:**
-
-Ana kategori temsili fotoğraflarını `/static/images/categories/` dizinine ekleyin:
-- dog-category.jpg
-- cat-category.jpg
-- bird-category.jpg
-- vb.
-
-**CSS Stilleri:**
-
-`/static/css/categories.css` dosyasında kategori kartları için stiller tanımlayın:
-
-```css
-.category-card {
-    border-radius: 10px;
-    overflow: hidden;
-    transition: transform 0.3s;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.category-card:hover {
-    transform: translateY(-5px);
-}
-
-.category-icon {
-    font-size: 2rem;
-    margin-bottom: 15px;
-}
-
-/* Her kategori için özel renkler */
-.category-dog { background-color: #f59e0b; color: white; }
-.category-cat { background-color: #8b5cf6; color: white; }
-/* diğer kategoriler... */
-```
-
-## 6️⃣ API TEST ETME
-
-Kategori API'larını test edin:
-
-```bash
-# Ana kategorileri listele
-curl http://localhost:8000/api/v1/kategoriler/ana_kategoriler/
-
-# Kategori ağacını al
-curl http://localhost:8000/api/v1/kategoriler/kategori_agaci/
-
-# Popüler kategoriler
-curl http://localhost:8000/api/v1/kategoriler/populer/
-```
-
-## 7️⃣ KATEGORİ İSTATİSTİKLERİ OLUŞTURMA
-
-```bash
-python manage.py shell
-
-# Shell içinde:
-from apps.kategoriler.models import Kategori
-from django.db.models import F
-
-# Kullanımı rastgele güncelle (test için)
-kategoriler = Kategori.objects.all()
-for i, kat in enumerate(kategoriler):
-    kat.kullanim_sayisi = i * 10  # Rastgele sayı
-    kat.save(update_fields=['kullanim_sayisi'])
-
-# İstatistikleri kontrol et
-from apps.kategoriler.servisler import KategoriService
-print(KategoriService.kategori_istatistikleri())
-```
-
-## 8️⃣ KATEGORİ YÖNETİM SAYFASI (ADMİN)
-
-Django admin panel üzerinden kategori yönetim sayfalarını ziyaret edin:
-
-```
-http://localhost:8000/admin/kategoriler/kategori/
-```
-
-Kategorileri düzenleyin, yeni kategoriler ekleyin ve mevcut kategorileri yönetin.
+# Mevcut kategorilerin pet_type değerini
 

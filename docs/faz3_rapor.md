@@ -212,6 +212,19 @@ Her kategori için özel form alanları tanımlanabilmektedir:
 - Özel İhtiyaçlar (text)
 - Ekipman Dahil (boolean)
 
+### 🗺️ Bölgesel Kategorilendirme: Türkiye İlleri
+
+Coğrafi konumlara göre filtreleme ve kategorizasyon için Türkiye'nin 81 ilinin standartlaştırılmış bir liste yapısı sisteme entegre edilmiştir. Bu veri yapısı `apps/ortak/constants.py` içerisinde `Iller` sınıfı olarak tanımlanmıştır:
+
+- **Veri Yapısı**: İl plaka kodu ve il adı eşleştirilmiştir
+- **Toplam İl Sayısı**: 81
+- **Örnek Kullanım Alanları**: 
+  - Hayvan konumu filtreleme
+  - Kullanıcı adres bilgileri
+  - Bölgesel istatistikler
+
+Bu veri yapısı sayesinde platform genelinde tutarlı il bilgisi kullanılabilecek ve iller arası filtreleme işlemleri standartlaştırılmış olacaktır.
+
 ## 🔄 SONRAKI ADIMLAR
 
 1. **Hayvan modeli geliştirme** (FAZ 4)

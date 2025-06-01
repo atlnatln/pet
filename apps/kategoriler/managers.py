@@ -171,12 +171,16 @@ class KategoriManager(models.Manager):
         try:
             kategori = self.get(id=kategori_id)
             
-            # Hayvan modeli oluşturulduktan sonra bu kısım implement edilecek
-            # from apps.hayvanlar.models import Hayvan
-            # hayvan_sayisi = Hayvan.objects.filter(kategori=kategori).count()
-            # kategori.kullanim_sayisi = hayvan_sayisi
-            # kategori.save(update_fields=['kullanim_sayisi'])
-            
+            # Hayvan modeli ile entegrasyon eklendi
+            try:
+                from apps.hayvanlar.models import Hayvan
+                hayvan_sayisi = Hayvan.objects.filter(kategori=kategori).count()
+                kategori.kullanim_sayisi = hayvan_sayisi
+                kategori.save(update_fields=['kullanim_sayisi'])
+            except ImportError:
+                # Hayvanlar modülü henüz import edilemiyorsa
+                pass
+                
             # Cache'i temizle
             cache.delete_many([
                 "kategoriler:ana_kategoriler",
