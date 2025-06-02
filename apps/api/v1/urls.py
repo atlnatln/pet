@@ -1,109 +1,58 @@
 """
-🐾 Pet API V1 URL Configuration
+🐾 API v1 Ana URL Yapılandırması
 ==============================================================================
-API v1 endpoint'lerini düzenleyen merkez
+Platformun tüm API endpoint'lerinin merkezi yönlendirmesi
 ==============================================================================
 """
 
 from django.urls import path, include
-from django.conf import settings
-from django.utils.translation import gettext_lazy as _
-from rest_framework import permissions
-from rest_framework.routers import DefaultRouter
-from rest_framework.authtoken.views import obtain_auth_token
 
-# Ana router
-router = DefaultRouter()
-
-# Swagger şema view (drf_yasg yoksa yorum olarak kalacak)
-try:
-    from drf_yasg.views import get_schema_view
-    from drf_yasg import openapi
-    
-    schema_view = get_schema_view(
-        openapi.Info(
-            title=_("🐾 Evcil Hayvan Platformu API"),
-            default_version='v1',
-            description=_("Evcil Hayvanlar için sevgi dolu API"),
-            terms_of_service="https://www.petplatform.com/terms/",
-            contact=openapi.Contact(email="contact@petplatform.com"),
-            license=openapi.License(name="Özel Lisans"),
-        ),
-        public=True,
-        permission_classes=(permissions.AllowAny,),
-    )
-    
-    has_swagger = True
-except ImportError:
-    has_swagger = False
+app_name = 'v1'
 
 urlpatterns = [
-    # API kök endpoint'i
-    path('', include(router.urls)),
+    # Kategoriler API
+    path('', include('apps.kategoriler.urls')),
     
-    # Token kimlik doğrulama
-    path('token/', obtain_auth_token, name='token_obtain'),
+    # Hayvanlar API  
+    path('', include('apps.hayvanlar.urls')),
     
-    # App-specific URL'ler
-    path('kullanicilar/', include('apps.kullanicilar.urls', namespace='kullanicilar')),
-    
-    # Kategoriler app'i URL'leri
-    path('kategoriler/', include('apps.kategoriler.urls', namespace='kategoriler')),
-    
-    # Hayvanlar app'i URL'leri
-    path('', include('apps.hayvanlar.urls', namespace='hayvanlar')),
+    # İlanlar API
+    path('', include('apps.ilanlar.urls')),
 ]
 
-# Swagger/OpenAPI dokümantasyonu (eğer drf_yasg yüklüyse)
-if has_swagger:
-    urlpatterns += [
-        path('docs/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
-        path('redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
-    ]
-
-# Debug toolbar sadece geliştirme ortamında ve yüklüyse
-if settings.DEBUG:
-    try:
-        import debug_toolbar
-        urlpatterns += [
-            path('__debug__/', include(debug_toolbar.urls)),
-        ]
-    except ImportError:
-        pass
-
 # ==============================================================================
-# 🌐 ENDPOINT INFO - API DOKÜMANTASYONU
+# 🌐 API ENDPOINT OZETI
 # ==============================================================================
 """
-📚 API V1 DOKÜMANTASYONU:
+📋 Platform API v1 Endpoint'leri:
 
-📁 Ana Endpointler:
-    - /api/v1/                   → API kök - mevcut kaynaklar
-    - /api/v1/docs/              → Interactive Swagger API dokümanı (requires drf-yasg)
-    - /api/v1/redoc/             → ReDoc API dokümanı (requires drf-yasg)
-    - /api/v1/token/             → Token based auth
+🏷️ KATEGORİLER (/api/v1/kategoriler/):
+   - GET /kategoriler/ - Tüm kategoriler
+   - GET /kategoriler/{id}/ - Kategori detayı
+   - GET /kategoriler/ana_kategoriler/ - Ana kategoriler
+   - GET /kategoriler/kategori_agaci/ - Hiyerarşik ağaç
+   - GET /kategoriler/populer/ - Popüler kategoriler
+   - GET /kategoriler/istatistikler/ - İstatistikler
 
-📁 Kullanıcılar API:
-    - /api/v1/kullanicilar/users/             → Kullanıcı listesi
-    - /api/v1/kullanicilar/users/{id}/        → Kullanıcı detayı
-    - /api/v1/kullanicilar/users/register/    → Kullanıcı kaydı
-    - /api/v1/kullanicilar/users/me/          → Giriş yapmış kullanıcı
-    - /api/v1/kullanicilar/users/login/       → Giriş
-    - /api/v1/kullanicilar/users/logout/      → Çıkış
+🐾 HAYVANLAR (/api/v1/hayvanlar/):
+   - GET /hayvanlar/ - Hayvan listesi
+   - GET /hayvanlar/{id}/ - Hayvan detayı
+   - POST /hayvanlar/ - Yeni hayvan ekle
+   - GET /hayvanlar/populer/ - Popüler hayvanlar
+   - GET /hayvanlar/son_eklenenler/ - Son eklenenler
+   
+🐕 KÖPEK IRKLARI (/api/v1/kopek-irklari/):
+   - GET /kopek-irklari/ - Irk listesi
+   - GET /kopek-irklari/populer/ - Popüler ırklar
+   - GET /kopek-irklari/yerli/ - Yerli ırklar
 
-📁 Kategoriler API:
-    - /api/v1/kategoriler/kategoriler/           → Kategori listesi
-    - /api/v1/kategoriler/kategoriler/{id}/      → Kategori detayı
-    - /api/v1/kategoriler/kategoriler/ana_kategoriler/ → Ana kategoriler
-    - /api/v1/kategoriler/kategoriler/kategori_agaci/  → Kategori ağacı
-    - /api/v1/kategoriler/kategoriler/populer/         → Popüler kategoriler
+📢 İLANLAR (/api/v1/ilanlar/):
+   - GET /ilanlar/ - İlan listesi
+   - GET /ilanlar/{id}/ - İlan detayı
+   - POST /ilanlar/ - Yeni ilan ekle
+   - GET /ilanlar/acil_ilanlar/ - Acil ilanlar
+   - GET /ilanlar/son_ilanlar/ - Son ilanlar
+   - POST /ilanlar/{id}/basvuru_yap/ - İlana başvur
 
-📁 Hayvanlar API:
-    - /api/v1/hayvanlar/                 → Hayvan listesi
-    - /api/v1/hayvanlar/{id}/            → Hayvan detayı
-    - /api/v1/hayvanlar/populer/         → Popüler hayvanlar
-    - /api/v1/hayvanlar/son_eklenenler/  → Son eklenen hayvanlar
-    - /api/v1/kopek-irklari/             → Köpek ırkları
-    - /api/v1/kopek-irklari/populer/     → Popüler köpek ırkları
-    - /api/v1/kopek-irklari/yerli/       → Yerli köpek ırkları
+🎯 MVP Sistemi Tamamlandı! Kategoriler → Hayvanlar → İlanlar
 """

@@ -7,6 +7,7 @@ API filtreleme ve arama işlevleri
 
 from django_filters import rest_framework as filters
 from django.utils.translation import gettext_lazy as _
+from django.db import models
 from .models import Hayvan
 
 

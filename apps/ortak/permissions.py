@@ -364,3 +364,31 @@ class CanApplyForAdoption(BasePermission):
 # için özenle tasarlandı. Hayvan refahı ve güvenli sahiplenme süreçleri
 # her zaman önceliğimizdir.
 # 🐾 Her yetki kontrolü, güvenli bir sahiplenme için! 💝
+
+# ==============================================================================
+# 🐾 Ortak İzin Sınıfları
+# ==============================================================================
+# Platform genelindeki izin kontrolleri
+# ==============================================================================
+
+class IsAdminOrReadOnly(permissions.BasePermission):
+    """
+    Sadece admin düzenleyebilir, diğerleri okuyabilir
+    """
+    
+    def has_permission(self, request, view):
+        # Okuma izinleri herkes için
+        if request.method in permissions.SAFE_METHODS:
+            return True
+        
+        # Yazma izinleri sadece admin için
+        return request.user and request.user.is_staff
+
+
+class IsActiveUser(permissions.BasePermission):
+    """
+    Sadece aktif kullanıcılar
+    """
+    
+    def has_permission(self, request, view):
+        return request.user and request.user.is_active

@@ -1,7 +1,7 @@
 """
-🐾 Evcil Hayvan Platformu - Kullanıcılar Modülü
+🐾 Kullanıcılar Modülü - Geçici
 ==============================================================================
-Dijital kimlik romanı - Her kullanıcının kendine ait hikayesi
+Gelecekte geliştirilecek kullanıcı sistemi için placeholder
 ==============================================================================
 """
 

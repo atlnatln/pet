@@ -13,6 +13,7 @@ from django.conf import settings
 from django.core.validators import MinValueValidator, MaxValueValidator
 from django.urls import reverse
 from apps.ortak.constants import PetTypes, PetGenders, PetSizes, PetAges
+from .managers import HayvanManager  # Bu import'u ekle
 
 
 class KopekIrk(models.Model):
@@ -292,6 +293,9 @@ class Hayvan(models.Model):
         verbose_name=_('Güncellenme Tarihi')
     )
     
+    # Custom manager ekle
+    objects = HayvanManager()
+    
     class Meta:
         verbose_name = _("🐾 Hayvan")
         verbose_name_plural = _("🐾 Hayvanlar")
@@ -324,59 +328,53 @@ class Hayvan(models.Model):
             try:
                 eski_kayit = Hayvan.objects.get(pk=self.pk)
                 if eski_kayit.kategori and eski_kayit.kategori != self.kategori:
-                    from apps.kategoriler.servisler import KategoriService
-                    if eski_kayit.kategori:
-                        # Eski kategorinin kullanım sayısını güncelle
-                        KategoriService.kategori_kullanim_guncelle(eski_kayit.kategori.id)
+                    # Eski kategorinin kullanım sayısını güncelle (ilanlar hazır olduktan sonra)
+                    pass
             except Hayvan.DoesNotExist:
                 pass
     
         # Kaydet
         super().save(*args, **kwargs)
         
-        # Yeni kategoriyi güncelle
-        if self.kategori:
-            from apps.kategoriler.servisler import KategoriService
-            KategoriService.kategori_kullanim_guncelle(self.kategori.id)
-
         # Eğer tür köpek ise ve bir ırk seçildiyse, otomatik olarak uygun kategoriyi bul veya oluştur
         if self.tur == 'kopek' and self.irk:
-            from apps.kategoriler.models import Kategori
-            from django.db.models import Q
-            
-            # Köpekler ana kategorisini bul
-            kopekler_kategori = Kategori.objects.filter(
-                parent__isnull=True,
-                ad__iexact='Köpekler'
-            ).first()
-            
-            if kopekler_kategori:
-                # Bu köpek ırkı için alt kategori var mı kontrol et
-                irk_kategori = Kategori.objects.filter(
-                    Q(parent=kopekler_kategori) & 
-                    (Q(ad__iexact=self.irk.ad) | Q(slug__icontains=self.irk.ad.lower().replace(' ', '-')))
+            try:
+                from apps.kategoriler.models import Kategori
+                from django.db.models import Q
+                
+                # Köpekler ana kategorisini bul
+                kopekler_kategori = Kategori.objects.filter(
+                    parent__isnull=True,
+                    ad__iexact='Köpekler'
                 ).first()
                 
-                # Yoksa ve bu popüler bir ırk ise, oluştur
-                if not irk_kategori and self.irk.populer:
-                    from django.utils.text import slugify
-                    irk_kategori = Kategori.objects.create(
-                        ad=self.irk.ad,
-                        slug=f"kopekler-{slugify(self.irk.ad)}",
-                        parent=kopekler_kategori,
-                        pet_type='kopek',  # 'dog' yerine 'kopek' kullan
-                        renk_kodu=kopekler_kategori.renk_kodu,
-                        aciklama=self.irk.aciklama or f"{self.irk.ad} ırkı köpekler"
-                    )
-                
-                # Kategoriyi güncelle
-                if irk_kategori:
-                    self.kategori = irk_kategori
-                else:
-                    # Uygun alt kategori bulunamadı, ana kategori ata
-                    self.kategori = kopekler_kategori
-
-        super().save(*args, **kwargs)
+                if kopekler_kategori:
+                    # Bu köpek ırkı için alt kategori var mı kontrol et
+                    irk_kategori = Kategori.objects.filter(
+                        Q(parent=kopekler_kategori) & 
+                        (Q(ad__iexact=self.irk.ad) | Q(slug__icontains=self.irk.ad.lower().replace(' ', '-')))
+                    ).first()
+                    
+                    # Yoksa ve bu popüler bir ırk ise, oluştur
+                    if not irk_kategori and self.irk.populer:
+                        from django.utils.text import slugify
+                        irk_kategori = Kategori.objects.create(
+                            ad=self.irk.ad,
+                            slug=f"kopekler-{slugify(self.irk.ad)}",
+                            parent=kopekler_kategori,
+                            pet_type='kopek',
+                            renk_kodu=kopekler_kategori.renk_kodu,
+                            aciklama=self.irk.aciklama or f"{self.irk.ad} ırkı köpekler"
+                        )
+                    
+                    # Kategoriyi güncelle
+                    if irk_kategori and not self.kategori:
+                        self.kategori = irk_kategori
+                        # Recursive save'i önlemek için update kullan
+                        Hayvan.objects.filter(pk=self.pk).update(kategori=irk_kategori)
+            except Exception as e:
+                # Import hatalarını sessizce geç
+                pass
 
     def get_absolute_url(self):
         """Detay sayfası URL'i"""

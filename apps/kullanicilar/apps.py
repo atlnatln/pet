@@ -1,7 +1,7 @@
 """
 🐾 Kullanıcılar App Configuration
 ==============================================================================
-Platform kahramanlarının dijital kimlik yönetimi
+Kullanıcı yönetimi sistemi - Şimdilik temel yapı
 ==============================================================================
 """
 
@@ -12,15 +12,11 @@ from django.utils.translation import gettext_lazy as _
 class KullanicilarConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
     name = 'apps.kullanicilar'
-    verbose_name = _('👤 Platform Kullanıcıları')
-    verbose_name_plural = _('👤 Platform Kullanıcıları')
+    verbose_name = _('👥 Kullanıcılar')
+    verbose_name_plural = _('👥 Kullanıcılar')
     
     def ready(self):
         """
         Uygulama hazır olduğunda çalışacak setup
         """
-        # Signals import edilecek
-        # import apps.kullanicilar.signals  # noqa
-        
-        # Kullanıcı sistem mesajı
-        print("👤 Kullanıcı sistemi hazır - Dijital kimlikler aktif!")
+        print("👥 Kullanıcılar sistemi hazır - Topluluk büyüyor!")

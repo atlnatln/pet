@@ -8,6 +8,7 @@ Hayvan kayıtları ve köpek ırkları yönetim arayüzü
 from django.contrib import admin
 from django.utils.html import format_html
 from django.utils.translation import gettext_lazy as _
+from django import forms  # Bu import'u ekle
 from .models import KopekIrk, Hayvan, HayvanFotograf
 
 
@@ -242,24 +243,26 @@ class HayvanAdmin(admin.ModelAdmin):
         
         # İl seçimi için Türkiye illeri dropdown
         if 'il' in form.base_fields:
-            from apps.ortak.constants import Iller
+            # Basit il seçenekleri
+            il_choices = [
+                ('', '------'),
+                ('istanbul', 'İstanbul'),
+                ('ankara', 'Ankara'),
+                ('izmir', 'İzmir'),
+                ('bursa', 'Bursa'),
+                ('antalya', 'Antalya'),
+                ('konya', 'Konya'),
+                ('adana', 'Adana'),
+                ('gaziantep', 'Gaziantep'),
+                ('mersin', 'Mersin'),
+                ('kayseri', 'Kayseri'),
+            ]
             form.base_fields['il'] = forms.ChoiceField(
-                choices=[('', '------')] + Iller.choices,
+                choices=il_choices,
                 required=False,
                 label='İl'
             )
         
-        # Eğer yeni oluşturma ise, slug alanını exclude et
-        if obj is None and 'slug' not in form.base_fields:
-            # Bu aşamada form içinde slug zaten yok, ek işlem gerekmez.
-            pass
-        
-        # Irk değiştiğinde kategoriyi güncelle
-        if form.base_fields.get('kategori') and form.base_fields.get('irk'):
-            form.base_fields['irk'].widget.attrs.update({
-                'onchange': 'updateCategoryBasedOnBreed(this.value);'
-            })
-            
         return form
     
     def change_view(self, request, object_id, form_url='', extra_context=None):
