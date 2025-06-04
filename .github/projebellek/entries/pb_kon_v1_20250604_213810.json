@@ -1,0 +1,15 @@
+{
+  "id": "pb_kon_v1_20250604_213810",
+  "title": "Dil Ayarları ve Lokalizasyon",
+  "content": "1. Dil Kodları:\n- LANGUAGE_CODES: Desteklenen dil kodları listesi\n- Varsayılan dil: tr-TR (Türkçe)\n- Desteklenen diğer diller: en-US (İngilizce)\n\n2. Lokalizasyon Kuralları:\n- Tüm kullanıcı arayüzü metinleri gettext ile işaretlenmeli\n- Tarihler Türkiye standardına göre formatlanmalı (DD.MM.YYYY)\n- Para birimleri TL olarak ve binlik ayırıcılar (.) ile gösterilmeli\n- Metinsel içeriklerin çevirisi için her uygulamada locale/ dizini kullanılmalı\n\n3. Django Settings:\n",
+  "tags": ["dil","localization","ayarlar","i18n","standart"],
+  "type": "konfigürasyon",
+  "status": "aktif",
+  "created_at": "2025-06-04T21:38:10+03:00",
+  "updated_at": "2025-06-04T21:38:10+03:00",
+  "author": "akn",
+  "version": 1,
+  "related_records": [],
+  "scope": "",
+  "expires_at": null
+}

@@ -1,0 +1,15 @@
+{
+  "id": "pb_kar_v1_20250604_212747",
+  "title": "Django Uygulamaları ve Görevleri",
+  "content": "1. raporlar: İstatistikler ve raporlama işlemleri\n2. bildirimler: Kullanıcı bildirimleri yönetimi\n3. favoriler: Favori ilanlar ve hayvanlar\n4. ilanlar: Sahiplendirme ilanları yönetimi\n5. etiketler: Hayvan ve ilanlar için etiket sistemi\n6. blog: Blog yazıları ve içerik yönetimi\n7. ortak: Ortak kullanılan modeller ve yardımcı araçlar\n8. kullanicilar: Kullanıcı profilleri ve yetkilendirme\n9. kategoriler: Hayvan kategorileri yönetimi\n10. basvurular: Sahiplendirme başvuruları\n11. hayvanlar: Hayvan profilleri ve bilgileri\n12. mesajlasma: Kullanıcılar arası mesajlaşma sistemi",
+  "tags": ["django","apps","mimari","yapı"],
+  "type": "karar",
+  "status": "aktif",
+  "created_at": "2025-06-04T21:27:47+03:00",
+  "updated_at": "2025-06-04T21:27:47+03:00",
+  "author": "akn",
+  "version": 1,
+  "related_records": [],
+  "scope": "",
+  "expires_at": null
+}

@@ -1,0 +1,15 @@
+{
+  "id": "pb_kar_v1_20250604_232849",
+  "title": "Etiketler Uygulaması Başarı Kriterleri",
+  "content": "Etiketler uygulamasının başarılı sayılması için aşağıdaki kriterlerin karşılanması gerekmektedir:\n\n1. Veri Modeli:\n   - Etiket modeli, tüm gerekli alanlar ve ilişkilerle eksiksiz oluşturulmalı\n   - Otomatik slug oluşturma ve büyük/küçük harf duyarsız benzersizlik sağlanmalı\n   - EtiketManager ile özel sorgular desteklenmeli\n\n2. API Fonksiyonelliği:\n   - Tüm CRUD işlemleri doğru çalışmalı\n   - Hayvanlar ve İlanlar ile ilişkilendirme düzgün işlemeli\n   - Filtreleme ve harfe göre listeleme çalışmalı\n   - Yetkisiz kullanıcılar sadece okuma işlemi yapabilmeli\n\n3. Servis Katmanı:\n   - etiket_olustur_veya_getir metodu var olan etiketleri düzgün ele almalı\n   - etiketleri_guncelle metodu atomic transaction ile çalışmalı\n   - benzer_etiketler_onerisi algoritması ilgili öneriler üretebilmeli\n\n4. Frontend Entegrasyonu:\n   - Hayvan ve İlan formlarında etiket seçimi/oluşturma ara yüzü bulunmalı\n   - Etiketlere göre filtreleme için frontend desteği sağlanmalı\n   - Etiketler görsel olarak renk kodlarıyla gösterilmeli\n\n5. Performans:\n   - Binlerce etiket ve ilişki içeren sistemde API yanıt süresi 300ms'nin altında olmalı\n   - İlişkili etiketleri getirme işlemi optimize edilmiş sorgu kullanmalı\n\nBu kriterler, etiketler uygulamasının tam işlevsel ve performanslı çalıştığını gösterecektir.",
+  "tags": ["etiketler","başarı-kriterleri","sprint9"],
+  "type": "karar",
+  "status": "aktif",
+  "created_at": "2025-06-04T23:28:49+03:00",
+  "updated_at": "2025-06-04T23:28:49+03:00",
+  "author": "akn",
+  "version": 1,
+  "related_records": [],
+  "scope": "",
+  "expires_at": null
+}

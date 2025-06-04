@@ -1,0 +1,15 @@
+{
+  "id": "pb_sta_v1_20250604_232747",
+  "title": "Etiketler Signal Handlers",
+  "content": "Etiketler uygulaması için aşağıdaki Django sinyal yakalayıcıları (signal handlers) tanımlanmıştır:\n\n1. etiket_kullanim_degisim_izle (m2m_changed):\n   - ManyToMany ilişkisi değiştiğinde tetiklenir\n   - Etiket-Hayvan veya Etiket-İlan ilişkilerindeki değişimleri izler\n   - Ekleme, çıkarma veya temizleme işlemlerini yakalar\n   - İşlem transaction ile tamamlandıktan sonra istatistikleri günceller\n\n2. etiket_silinme_oncesi (pre_delete):\n   - Etiket silinmeden önce kontroller yapar\n   - Kullanımda olan etiketlerin direkt silinmesini engeller\n   - Bunun yerine etiketi pasif hale getirir (yumuşak silme)\n   - Bu sayede ilişkili kayıtların bütünlüğü korunur\n\nBu sinyal yakalayıcıları, etiket kullanım istatistiklerinin otomatik güncellenmesini ve veri bütünlüğünün korunmasını sağlar.",
+  "tags": ["etiketler","signal","django","veri-bütünlüğü"],
+  "type": "standart",
+  "status": "aktif",
+  "created_at": "2025-06-04T23:27:47+03:00",
+  "updated_at": "2025-06-04T23:27:47+03:00",
+  "author": "akn",
+  "version": 1,
+  "related_records": [],
+  "scope": "",
+  "expires_at": null
+}

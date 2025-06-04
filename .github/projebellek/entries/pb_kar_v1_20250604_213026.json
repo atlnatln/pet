@@ -1,0 +1,15 @@
+{
+  "id": "pb_kar_v1_20250604_213026",
+  "title": "İlan ve Başvuru Durumları",
+  "content": "1. İlan Durumları:\n- DRAFT: Taslak\n- ACTIVE: Aktif\n- ADOPTED: Sahiplendirilmiş\n- INACTIVE: Pasif\n- EXPIRED: Süresi dolmuş\n\n2. Başvuru Durumları:\n- PENDING: Beklemede\n- UNDER_REVIEW: İnceleniyor\n- APPROVED: Onaylandı\n- REJECTED: Reddedildi\n- WITHDRAWN: Geri çekildi\n\n3. Sahiplenme Türleri:\n- ADOPTION: Kalıcı sahiplenme\n- FOSTERING: Geçici yuva\n- TEMPORARY_CARE: Geçici bakım",
+  "tags": ["ilanlar","başvurular","durumlar","model","enum"],
+  "type": "karar",
+  "status": "aktif",
+  "created_at": "2025-06-04T21:30:26+03:00",
+  "updated_at": "2025-06-04T21:30:26+03:00",
+  "author": "akn",
+  "version": 1,
+  "related_records": [],
+  "scope": "",
+  "expires_at": null
+}

@@ -23,7 +23,7 @@ sys.path.append(str(BASE_DIR))
 # ==============================================================================
 
 # Environment detection
-environment = os.getenv('DJANGO_ENVIRONMENT', 'production').lower()
+environment = os.getenv('DJANGO_ENVIRONMENT', 'development').lower()  # Varsayılan olarak development kullan
 
 # Production için settings modülü
 settings_modules = {

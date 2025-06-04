@@ -1,0 +1,15 @@
+{
+  "id": "pb_kar_v1_20250604_213043",
+  "title": "Kullanıcı Sistemi Sabitleri",
+  "content": "1. Kullanıcı Rolleri:\n- USER: Normal kullanıcı\n- SHELTER_STAFF: Barınak görevlisi\n- VETERINARY: Veteriner\n- VOLUNTEER: Gönüllü\n- MODERATOR: Moderatör\n- ADMIN: Yönetici\n\n2. Kullanıcı Durumları:\n- ACTIVE: Aktif\n- INACTIVE: Pasif\n- SUSPENDED: Askıya alınmış\n- BANNED: Yasaklanmış\n\n3. Bildirim Türleri:\n- APPLICATION_RECEIVED: Başvuru alındı\n- APPLICATION_APPROVED: Başvuru onaylandı\n- APPLICATION_REJECTED: Başvuru reddedildi\n- NEW_MESSAGE: Yeni mesaj\n- LISTING_EXPIRED: İlan süresi doldu\n- SYSTEM_ANNOUNCEMENT: Sistem duyurusu",
+  "tags": ["kullanıcılar","roller","durumlar","bildirimler","model","enum"],
+  "type": "karar",
+  "status": "aktif",
+  "created_at": "2025-06-04T21:30:43+03:00",
+  "updated_at": "2025-06-04T21:30:43+03:00",
+  "author": "akn",
+  "version": 1,
+  "related_records": [],
+  "scope": "",
+  "expires_at": null
+}

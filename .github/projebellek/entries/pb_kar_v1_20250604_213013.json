@@ -1,0 +1,15 @@
+{
+  "id": "pb_kar_v1_20250604_213013",
+  "title": "Hayvan Özellikleri Sabitleri",
+  "content": "1. Hayvan Türleri:\n- KEDI, KOPEK, KUS, BALIK, KEMIRGEN, SURUNGEN, DIGER\n\n2. Boyut Sabitleri:\n- EXTRA_SMALL, SMALL, MEDIUM, LARGE, EXTRA_LARGE\n\n3. Yaş Grupları:\n- BABY: Yavru/bebek\n- YOUNG: Genç\n- ADULT: Yetişkin\n- SENIOR: Yaşlı\n\n4. Cinsiyet Sabitleri:\n- MALE: Erkek\n- FEMALE: Dişi\n- UNKNOWN: Bilinmeyen",
+  "tags": ["sabitleri","hayvanlar","model","değişkenler","enum"],
+  "type": "karar",
+  "status": "aktif",
+  "created_at": "2025-06-04T21:30:13+03:00",
+  "updated_at": "2025-06-04T21:30:13+03:00",
+  "author": "akn",
+  "version": 1,
+  "related_records": [],
+  "scope": "",
+  "expires_at": null
+}

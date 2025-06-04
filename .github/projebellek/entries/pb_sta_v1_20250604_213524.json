@@ -1,0 +1,15 @@
+{
+  "id": "pb_sta_v1_20250604_213524",
+  "title": "Özel Validator'lar ve Doğrulama Kuralları",
+  "content": "1. Regex Validator'ları (apps/kullanicilar/validators.py)\n- TURKISH_PHONE_REGEX: Türkiye telefon formatı (05XX XXX XX XX)\n- NAME_REGEX: Ad/soyad doğrulaması (özel karakter içeremez)\n- INSTAGRAM_REGEX: Instagram kullanıcı adı doğrulaması\n\n2. İçerik Validator'ları (apps/ortak/validators.py)\n- FORBIDDEN_WORDS: Yasaklı kelimeler listesi (hakaret, uygunsuz içerik vs.)\n- TURKISH_CITIES: Türkiye şehirleri listesi (doğrulama için)\n\n3. Doğrulama Kuralları\n- E-posta aktivasyonu 48 saat içinde tamamlanmalıdır\n- Şifre min. 8 karakter, 1 büyük harf, 1 sayı, 1 özel karakter içermelidir\n- Kullanıcı adları 30 karakteri aşamaz ve özel karakter içeremez",
+  "tags": ["validator","doğrulama","güvenlik","kullanıcı"],
+  "type": "standart",
+  "status": "aktif",
+  "created_at": "2025-06-04T21:35:24+03:00",
+  "updated_at": "2025-06-04T21:35:24+03:00",
+  "author": "akn",
+  "version": 1,
+  "related_records": [],
+  "scope": "",
+  "expires_at": null
+}

@@ -1,0 +1,443 @@
+{
+  "entries": [
+    {
+      "id": "pb_kar_v2_20250604_212650",
+      "title": "Evcil Hayvan Platformu Ana Teknoloji Stack",
+      "content": "Bu projede kullanılan teknolojiler şunlardır:\n\n- **Backend**: Django 4.2.16 (LTS), Django REST Framework 3.14.0\n- **Frontend**: React 18, TypeScript 4.7.4, Redux Toolkit\n- **Veritabanı**: PostgreSQL 13+\n- **Cache**: Redis 5.0.1\n- **Güvenlik**: JWT, Content Security Policy, Rate Limiting\n- **Arama Motoru**: Elasticsearch 8.11\n- **Asenkron İşlemler**: Celery 5.5.0, RabbitMQ\n- **Depolama**: Django-Storages, AWS S3/MinIO\n- **CSS Framework**: Tailwind\n- **Test Araçları**: Pytest, Jest, React Testing Library",
+      "tags": [
+        "django",
+        "react",
+        "api",
+        "mimari",
+        "teknoloji",
+        "karar"
+      ],
+      "type": "karar",
+      "status": "aktif",
+      "created_at": "2025-06-04T21:26:50+03:00",
+      "updated_at": "2025-06-04T21:26:50+03:00",
+      "author": "akn",
+      "version": 2,
+      "related_records": ["pb_kar_v1_20250604_212511"],
+      "scope": "platform",
+      "expires_at": null
+    },
+    {
+      "id": "pb_kar_v2_20250604_212726",
+      "title": "Hayvan Kategori Sistemi Yapısı",
+      "content": "Hayvan kategori sistemimiz hiyerarşik bir yapıya sahiptir:\n\n1. **Ana Kategoriler**: Hayvanların genel türleri (Köpek, Kedi, Kuş, vb.)\n2. **Alt Kategoriler**: Her türün alt kategorileri (Köpek Irkları, Kedi Cinsleri)\n3. **Özel Özellikler**: Her alt kategori için özel özellikler\n\nKategori sistemi pet_type alanını kullanarak hayvanların sınıflandırılmasını sağlar. Kullanıcı arayüzünde kategoriler renk kodları ve özel ikonlarla temsil edilir.",
+      "tags": [
+        "kategoriler",
+        "hayvanlar",
+        "ui",
+        "pet_type",
+        "mimari",
+        "karar"
+      ],
+      "type": "karar",
+      "status": "aktif",
+      "created_at": "2025-06-04T21:27:26+03:00",
+      "updated_at": "2025-06-04T21:27:26+03:00",
+      "author": "akn",
+      "version": 2,
+      "related_records": ["pb_mim_v1_20250604_212524"],
+      "scope": "kategoriler",
+      "expires_at": null
+    },
+    {
+      "id": "pb_kar_v1_20250604_212747",
+      "title": "Django Uygulamaları ve Görevleri",
+      "content": "Django projemizde apps/ klasörü altında yer alan uygulamalar ve görevleri:\n\n- **ortak**: Tüm uygulamalar için ortak model, validator, constant ve helper'lar\n- **api**: API endpoints ve versiyon yönetimi (v1, v2)\n- **kullanicilar**: Kullanıcı yönetimi, profil ve kimlik doğrulama\n- **kategoriler**: Hayvan kategorileri ve özellikleri\n- **hayvanlar**: Hayvan kayıtları ve özellikleri\n- **ilanlar**: Sahiplendirme ilanları\n- **basvurular**: Sahiplendirme başvuruları\n- **bildirimler**: Kullanıcı bildirimleri\n- **mesajlasma**: Kullanıcılar arası mesajlaşma\n- **favoriler**: Favori ilanlar ve hayvanlar\n- **blog**: Blog yazıları ve içerik yönetimi\n- **etiketler**: Etiket sistemi\n- **raporlar**: Rapor ve istatistikler",
+      "tags": [
+        "django",
+        "apps",
+        "mimari",
+        "yapı"
+      ],
+      "type": "dokümantasyon",
+      "status": "aktif",
+      "created_at": "2025-06-04T21:27:47+03:00",
+      "updated_at": "2025-06-04T21:27:47+03:00",
+      "author": "akn",
+      "version": 1,
+      "related_records": [],
+      "scope": "django",
+      "expires_at": null
+    },
+    {
+      "id": "pb_kar_v1_20250604_212806",
+      "title": "Proje Klasör Yapısı ve Önemli Dosyalar",
+      "content": "Projemizin kök dizinindeki temel klasör yapısı:\n\n- **apps/**: Tüm Django uygulamaları\n- **celery/**: Celery yapılandırması ve görevleri\n- **config/**: Django settings ve URL yapılandırmaları\n- **deployment/**: Deployment için gerekli dosyalar\n- **docker/**: Docker yapılandırma dosyaları\n- **docs/**: Proje dokümantasyonu\n- **frontend/**: React uygulaması\n- **logs/**: Log dosyaları\n- **media/**: Kullanıcı yüklediği dosyalar\n- **monitoring/**: İzleme ve uyarı sistemleri\n- **scripts/**: Yardımcı scriptler\n- **static/**: Statik dosyalar\n- **templates/**: Django HTML templates\n- **tests/**: Global test dosyaları\n- **utils/**: Yardımcı fonksiyonlar",
+      "tags": [
+        "proje",
+        "yapı",
+        "dokümantasyon"
+      ],
+      "type": "dokümantasyon",
+      "status": "aktif",
+      "created_at": "2025-06-04T21:28:06+03:00",
+      "updated_at": "2025-06-04T21:28:06+03:00",
+      "author": "akn",
+      "version": 1,
+      "related_records": [],
+      "scope": "proje",
+      "expires_at": null
+    },
+    {
+      "id": "pb_kar_v1_20250604_212825",
+      "title": "Temel Proje Bağımlılıkları",
+      "content": "Projemizin temel bağımlılıkları:\n\n- **Django 4.2.16 LTS**: Temel web framework\n- **DRF 3.14.0**: REST API geliştirme\n- **PostgreSQL**: Veritabanı\n- **Redis**: Cache ve session yönetimi\n- **Celery**: Asenkron görevler\n- **Elasticsearch**: Arama motoru\n- **Pillow**: Resim işleme\n- **Django-storages**: Dosya depolama\n- **Django-filter**: Filtreleme\n- **JWT**: Kimlik doğrulama\n- **Django-environ**: Ortam değişkenleri\n\nDetaylı sürüm gereksinimleri requirements.txt dosyasında tanımlanmıştır.",
+      "tags": [
+        "teknoloji",
+        "bağımlılıklar",
+        "gereksinimler"
+      ],
+      "type": "dokümantasyon",
+      "status": "aktif",
+      "created_at": "2025-06-04T21:28:25+03:00",
+      "updated_at": "2025-06-04T21:28:25+03:00",
+      "author": "akn",
+      "version": 1,
+      "related_records": ["pb_kar_v2_20250604_212650"],
+      "scope": "proje",
+      "expires_at": null
+    },
+    {
+      "id": "pb_kar_v1_20250604_213013",
+      "title": "Hayvan Özellikleri Sabitleri",
+      "content": "Hayvan modelinde kullanılan temel sabitler:\n\n- **PetTypes**: Hayvan türleri (DOG, CAT, BIRD, vb.)\n- **PetGenders**: Hayvan cinsiyetleri (MALE, FEMALE, UNKNOWN)\n- **PetSizes**: Hayvan boyutları (SMALL, MEDIUM, LARGE, XLARGE)\n- **PetAges**: Hayvan yaş grupları (BABY, YOUNG, ADULT, SENIOR)\n\nBu sabitler apps/ortak/constants.py dosyasında tanımlanmıştır ve hayvan bilgilerini standartlaştırmak için kullanılır.",
+      "tags": [
+        "sabitleri",
+        "hayvanlar",
+        "model",
+        "değişkenler",
+        "enum"
+      ],
+      "type": "konfigürasyon",
+      "status": "aktif",
+      "created_at": "2025-06-04T21:30:13+03:00",
+      "updated_at": "2025-06-04T21:30:13+03:00",
+      "author": "akn",
+      "version": 1,
+      "related_records": [],
+      "scope": "hayvanlar",
+      "expires_at": null
+    },
+    {
+      "id": "pb_kar_v1_20250604_213026",
+      "title": "İlan ve Başvuru Durumları",
+      "content": "İlan ve başvuru işlemlerinde kullanılan durum sabitleri:\n\n- **İlan Durumları**: DRAFT, PENDING, ACTIVE, CLOSED, COMPLETED, REJECTED\n- **Başvuru Durumları**: PENDING, APPROVED, REJECTED, CANCELED, IN_PROCESS\n\nBu durum değerleri ilgili modellerde choices parametresi ile kullanılır ve sistemdeki iş akışını belirler.",
+      "tags": [
+        "ilanlar",
+        "başvurular",
+        "durumlar",
+        "model",
+        "enum"
+      ],
+      "type": "konfigürasyon",
+      "status": "aktif",
+      "created_at": "2025-06-04T21:30:26+03:00",
+      "updated_at": "2025-06-04T21:30:26+03:00",
+      "author": "akn",
+      "version": 1,
+      "related_records": [],
+      "scope": "ilanlar,basvurular",
+      "expires_at": null
+    },
+    {
+      "id": "pb_kar_v1_20250604_213043",
+      "title": "Kullanıcı Sistemi Sabitleri",
+      "content": "Kullanıcı sisteminde kullanılan temel sabitler:\n\n- **UserRoles**: user, shelter_staff, veterinary, volunteer, moderator, admin\n- **UserStatus**: ACTIVE, PENDING, BLOCKED, DEACTIVATED\n- **NotificationType**: SYSTEM, MESSAGE, APPLICATION, POST, WARNING\n- **NotificationPriority**: LOW, MEDIUM, HIGH, CRITICAL\n\nBu sabitler kullanıcı yönetiminde, izin kontrolünde ve bildirim sisteminde kullanılır.",
+      "tags": [
+        "kullanıcılar",
+        "roller",
+        "durumlar",
+        "bildirimler",
+        "model",
+        "enum"
+      ],
+      "type": "konfigürasyon",
+      "status": "aktif",
+      "created_at": "2025-06-04T21:30:43+03:00",
+      "updated_at": "2025-06-04T21:30:43+03:00",
+      "author": "akn",
+      "version": 1,
+      "related_records": [],
+      "scope": "kullanicilar",
+      "expires_at": null
+    },
+    {
+      "id": "pb_kar_v1_20250604_213236",
+      "title": "Hayvan Modeli Alan Standardı",
+      "content": "HayvanModeli için zorunlu ve opsiyonel alanlar:\n\n- **Zorunlu Alanlar**:\n  - isim (CharField, max_length=100)\n  - tür (ForeignKey, Kategori)\n  - cinsiyet (CharField, choices=PetGenders)\n  - yaş (PositiveIntegerField)\n  - boyut (CharField, choices=PetSizes)\n  - kısırlaştırma_durumu (BooleanField)\n  - sahiplendiren (ForeignKey, User)\n\n- **Opsiyonel Alanlar**:\n  - ırk (ForeignKey, KopekIrk) - Köpekler için\n  - renk (CharField, max_length=50)\n  - aşı_durumu (JSONField)\n  - özel_durumlar (TextField)\n  - fotoğraflar (ManyToMany, HayvanFotograf)\n\nBu yapılandırma, hayvanların tutarlı ve kapsamlı bir şekilde kayıt edilmesini sağlar.",
+      "tags": [
+        "hayvanlar",
+        "model",
+        "standart",
+        "alanlar",
+        "django"
+      ],
+      "type": "standart",
+      "status": "aktif",
+      "created_at": "2025-06-04T21:32:36+03:00",
+      "updated_at": "2025-06-04T21:32:36+03:00",
+      "author": "akn",
+      "version": 1,
+      "related_records": [],
+      "scope": "hayvanlar",
+      "expires_at": null
+    },
+    {
+      "id": "pb_sta_v1_20250604_213449",
+      "title": "Dosya Türleri ve Boyut Limitleri",
+      "content": "Platformda kullanılan dosya türleri ve boyut limitleri:\n\n- **Resimler**:\n  - Format: JPEG, PNG, WebP\n  - Maksimum boyut: 5MB\n  - Boyutlandırma: Otomatik (800x600, thumbnail: 200x200)\n\n- **Belgeler**:\n  - Format: PDF, DOC, DOCX\n  - Maksimum boyut: 10MB\n\n- **Video**:\n  - Format: MP4\n  - Maksimum boyut: 20MB\n  - Maksimum süre: 30 saniye\n\nBu limitler sistemin performansını ve depolama maliyetlerini optimize etmek için tasarlanmıştır.",
+      "tags": [
+        "dosya",
+        "limit",
+        "boyut",
+        "resim",
+        "belge",
+        "upload"
+      ],
+      "type": "standart",
+      "status": "aktif",
+      "created_at": "2025-06-04T21:34:49+03:00",
+      "updated_at": "2025-06-04T21:34:49+03:00",
+      "author": "akn",
+      "version": 1,
+      "related_records": [],
+      "scope": "media",
+      "expires_at": null
+    },
+    {
+      "id": "pb_kon_v1_20250604_213502",
+      "title": "API ve İşlem Rate Limitleri",
+      "content": "API ve işlem rate limitleri:\n\n- **Genel API Rate Limitleri**:\n  - Anonim: 60 istek/dakika\n  - Kayıtlı kullanıcı: 120 istek/dakika\n  - Premium üye: 300 istek/dakika\n\n- **Kritik İşlem Limitleri**:\n  - Giriş denemeleri: 5/saat\n  - SMS doğrulama: 3/saat\n  - Email gönderme: 10/saat\n  - İlan oluşturma: 5/gün (normal kullanıcı)\n\nBu limitler güvenliği artırır ve kaynakların adil kullanımını sağlar.",
+      "tags": [
+        "api",
+        "rate-limit",
+        "güvenlik",
+        "performans"
+      ],
+      "type": "konfigürasyon",
+      "status": "aktif",
+      "created_at": "2025-06-04T21:35:02+03:00",
+      "updated_at": "2025-06-04T21:35:02+03:00",
+      "author": "akn",
+      "version": 1,
+      "related_records": [],
+      "scope": "api",
+      "expires_at": null
+    },
+    {
+      "id": "pb_sta_v1_20250604_213524",
+      "title": "Özel Validator'lar ve Doğrulama Kuralları",
+      "content": "Sistemde kullanılan özel doğrulama kuralları:\n\n- **validate_strong_password**: Şifre karmaşıklık kontrolü (en az 8 karakter, büyük-küçük harf, rakam, özel karakter)\n- **validate_user_input_security**: XSS ve SQL injection kontrolü\n- **validate_phone_number**: Türkiye telefon formatı kontrol (5XX XXX XX XX)\n- **validate_file_size**: Dosya boyutu kontrolü\n- **validate_file_extension**: İzin verilen dosya uzantıları kontrolü\n- **validate_age_range**: Yaş aralığı kontrolü (0-30 yıl)\n\nBu validatörler apps/ortak/validators.py içerisinde tanımlanmıştır.",
+      "tags": [
+        "validator",
+        "doğrulama",
+        "güvenlik",
+        "kullanıcı"
+      ],
+      "type": "standart",
+      "status": "aktif",
+      "created_at": "2025-06-04T21:35:24+03:00",
+      "updated_at": "2025-06-04T21:35:24+03:00",
+      "author": "akn",
+      "version": 1,
+      "related_records": [],
+      "scope": "güvenlik",
+      "expires_at": null
+    },
+    {
+      "id": "pb_sta_v1_20250604_213542",
+      "title": "Base Model Alanları ve İçerik Durumları",
+      "content": "Tüm modellerde kullanılan base model alanları ve durumları:\n\n- **TimestampedModel**:\n  - created_at: Oluşturulma tarihi\n  - updated_at: Son güncelleme tarihi\n\n- **UUIDModel**:\n  - id: UUID4 tabanlı birincil anahtar\n\n- **SlugModel**:\n  - slug: SEO-friendly URL değeri\n\n- **ActiveModel**:\n  - aktif: Boolean durumu\n  - durum_degistirme_tarihi: Son durum değişikliği tarihi\n\n- **AuditModel**:\n  - olusturan: ForeignKey (User)\n  - guncelleyen: ForeignKey (User)\n\nBu abstract modeller, tüm uygulamalarda kod tekrarını önlemek için kullanılır.",
+      "tags": [
+        "model",
+        "base",
+        "standart",
+        "alan",
+        "django"
+      ],
+      "type": "standart",
+      "status": "aktif",
+      "created_at": "2025-06-04T21:35:42+03:00",
+      "updated_at": "2025-06-04T21:35:42+03:00",
+      "author": "akn",
+      "version": 1,
+      "related_records": [],
+      "scope": "ortak",
+      "expires_at": null
+    },
+    {
+      "id": "pb_sta_v1_20250604_213609",
+      "title": "Kullanıcı Modeli Alanları Standardı",
+      "content": "CustomUser modeli için standart alan yapılandırması:\n\n- **Temel Alanlar**:\n  - email (EmailField, unique=True)\n  - first_name (CharField, max_length=30)\n  - last_name (CharField, max_length=30)\n  - telefon (CharField, max_length=15, validators=[validate_phone_number])\n\n- **Durum Alanları**:\n  - rol (CharField, choices=UserRoles)\n  - durum (CharField, choices=UserStatus)\n  - email_dogrulanmis (BooleanField, default=False)\n  - uyelik_tarihi (DateTimeField)\n\n- **Profil Alanları**:\n  - biyografi (TextField, max_length=500)\n  - profil_resmi (ImageField)\n\nKullanıcı modelimiz AbstractUser'dan türetilmiştir ve email ile login yapar.",
+      "tags": [
+        "kullanıcı",
+        "model",
+        "alanlar",
+        "standart",
+        "django"
+      ],
+      "type": "standart",
+      "status": "aktif",
+      "created_at": "2025-06-04T21:36:09+03:00",
+      "updated_at": "2025-06-04T21:36:09+03:00",
+      "author": "akn",
+      "version": 1,
+      "related_records": [],
+      "scope": "kullanicilar",
+      "expires_at": null
+    },
+    {
+      "id": "pb_sta_v1_20250604_213644",
+      "title": "Kategori Modeli Standardı",
+      "content": "Kategori modeli alan ve özellik standardı:\n\n- **Kategori Alanları**:\n  - ad (CharField, max_length=100)\n  - slug (SlugField, unique=True)\n  - aciklama (TextField, blank=True)\n  - parent (ForeignKey, 'self', blank=True, null=True)\n  - pet_type (CharField, choices=PetTypes)\n  - ikon_adi (CharField, max_length=50)\n  - renk_kodu (CharField, max_length=7)\n  - aktif (BooleanField, default=True)\n  - sira (PositiveIntegerField, default=10)\n  - kullanim_sayisi (PositiveIntegerField, default=0)\n\nKategoriler ağaç yapısında düzenlenir ve admin panelinde hiyerarşik olarak görüntülenir.",
+      "tags": [
+        "kategori",
+        "model",
+        "alanlar",
+        "standart",
+        "django"
+      ],
+      "type": "standart",
+      "status": "aktif",
+      "created_at": "2025-06-04T21:36:44+03:00",
+      "updated_at": "2025-06-04T21:36:44+03:00",
+      "author": "akn",
+      "version": 1,
+      "related_records": [],
+      "scope": "kategoriler",
+      "expires_at": null
+    },
+    {
+      "id": "pb_sta_v1_20250604_213659",
+      "title": "Irk Modeli Standardı",
+      "content": "Köpek ve Kedi ırkları için model standardı:\n\n- **KopekIrk Modeli**:\n  - id (CharField, primary_key=True, max_length=10)\n  - ad (CharField, max_length=100)\n  - aciklama (TextField, blank=True, null=True)\n  - populer (BooleanField, default=False)\n  - yerli (BooleanField, default=False)\n  - aktif (BooleanField, default=True)\n\n- **KediIrk Modeli**: Benzer yapıda\n\nPopüler ırklar, otomatik olarak kategori sistemine de eklenir ve filtreleme için kullanılır.",
+      "tags": [
+        "ırk",
+        "hayvanlar",
+        "model",
+        "standart",
+        "django"
+      ],
+      "type": "standart",
+      "status": "aktif",
+      "created_at": "2025-06-04T21:36:59+03:00",
+      "updated_at": "2025-06-04T21:36:59+03:00",
+      "author": "akn",
+      "version": 1,
+      "related_records": [],
+      "scope": "hayvanlar",
+      "expires_at": null
+    },
+    {
+      "id": "pb_ref_v1_20250604_213725",
+      "title": "Türkiye Şehirleri ve Coğrafi Sabitler",
+      "content": "Türkiye'ye özgü coğrafi veriler:\n\n- **TURKISH_CITIES**: 81 il listesi (kısa kod ve tam isim)\n- **DISTRICTS**: İllere göre ilçe listesi\n- **NEIGHBORHOODS**: İlçelere göre mahalle listesi (büyük şehirler için)\n\nBu veriler adres seçimi, hayvan konum filtresi ve istatistik raporları için kullanılır.",
+      "tags": [
+        "şehir",
+        "il",
+        "ilçe",
+        "coğrafi",
+        "data"
+      ],
+      "type": "referans",
+      "status": "aktif",
+      "created_at": "2025-06-04T21:37:25+03:00",
+      "updated_at": "2025-06-04T21:37:25+03:00",
+      "author": "akn",
+      "version": 1,
+      "related_records": [],
+      "scope": "ortak",
+      "expires_at": null
+    },
+    {
+      "id": "pb_sta_v1_20250604_213744",
+      "title": "Öncelik Seviyeleri ve Etiketlendirme Standardı",
+      "content": "Platform genelinde kullanılan etiket ve öncelik standartları:\n\n- **Öncelik Seviyeleri**:\n  - LOW: #6c757d (gri)\n  - MEDIUM: #007bff (mavi)\n  - HIGH: #ffc107 (sarı)\n  - CRITICAL: #dc3545 (kırmızı)\n\n- **Etiketlendirme Renkleri**:\n  - Köpek: #5F4B8B (mor tonu)\n  - Kedi: #E69A8D (somon)\n  - Kuş: #42BFDD (açık mavi)\n  - Kemirgen: #00A878 (yeşil)\n  - Diğer: #F4D35E (sarı)\n\nBu renkler hem backend hem frontend'de tutarlı bir UI/UX için kullanılır.",
+      "tags": [
+        "öncelik",
+        "seviye",
+        "etiket",
+        "ui",
+        "standart"
+      ],
+      "type": "standart",
+      "status": "aktif",
+      "created_at": "2025-06-04T21:37:44+03:00",
+      "updated_at": "2025-06-04T21:37:44+03:00",
+      "author": "akn",
+      "version": 1,
+      "related_records": [],
+      "scope": "ui",
+      "expires_at": null
+    },
+    {
+      "id": "pb_kon_v1_20250604_213810",
+      "title": "Dil Ayarları ve Lokalizasyon",
+      "content": "Platform dil ve lokalizasyon ayarları:\n\n- **Desteklenen Diller**:\n  - Türkçe (tr): Varsayılan dil\n  - İngilizce (en): İkincil dil\n\n- **Tarih Formatı**: DD.MM.YYYY (Türkçe), MM/DD/YYYY (İngilizce)\n- **Saat Formatı**: 24 saat formatı (HH:MM)\n- **Para Birimi**: TL (₺)\n- **Zaman Dilimi**: Europe/Istanbul (UTC+3)\n\nBu ayarlar settings/base.py içerisinde ve ilgili middleware'lerde yapılandırılmıştır.",
+      "tags": [
+        "dil",
+        "localization",
+        "ayarlar",
+        "i18n",
+        "standart"
+      ],
+      "type": "konfigürasyon",
+      "status": "aktif",
+      "created_at": "2025-06-04T21:38:10+03:00",
+      "updated_at": "2025-06-04T21:38:10+03:00",
+      "author": "akn",
+      "version": 1,
+      "related_records": [],
+      "scope": "i18n",
+      "expires_at": null
+    },
+    {
+      "id": "pb_sta_v2_20250604_214130",
+      "title": "Django Model Kodlama Standartları",
+      "content": "Django model kodlama standartları:\n\n1. **İsimlendirme Kuralları**:\n   - Model isimleri PascalCase olmalıdır (örn: `HayvanModeli`)\n   - Alan isimleri lowercase_with_underscores olmalıdır (snake_case)\n   - Admin metodları için camelCase kullanılır\n\n2. **Model Alanları**:\n   - Her CharField için max_length belirtilmeli\n   - Her alan için verbose_name tanımlanmalı\n   - Alanların help_text özelliği kullanılmalı\n   - on_delete davranışı açıkça belirtilmeli\n\n3. **Meta Sınıfı**:\n   - verbose_name ve verbose_name_plural tanımlanmalı\n   - ordering ve/veya index_together belirtilmeli\n\n4. **Model Metodları**:\n   - clean() metodu validasyon için kullanılmalı\n   - __str__() metodu anlamlı bilgi döndürmeli\n   - get_absolute_url() tanımlanmalı\n\n5. **Kalıtım**:\n   - Her model `apps.ortak.models` içindeki abstract modelleri genişletmeli\n\nBu standartlar kodu daha okunabilir, anlaşılır ve bakımı kolay hale getirir.",
+      "tags": [
+        "django",
+        "model",
+        "standart",
+        "kodlama",
+        "mimari"
+      ],
+      "type": "standart",
+      "status": "aktif",
+      "created_at": "2025-06-04T21:41:30+03:00",
+      "updated_at": "2025-06-04T21:41:30+03:00",
+      "author": "akn",
+      "version": 2,
+      "related_records": ["pb_sta_v1_20250604_213830"],
+      "scope": "django",
+      "expires_at": null
+    },
+    {
+      "id": "pb_sta_v1_20250604_215412",
+      "title": "ProjeBellek Kayıt Standardı: Mükerrer Kontrol Prensibi",
+      "content": "ProjeBellek'e yeni kayıt eklenmeden önce her zaman mevcut bir mükerrer kaydın olup olmadığı kontrol edilmelidir:\n\n1. **Kontrol Adımları**:\n   - İlk adımda başlığa benzer bir kayıt için arama yapılır\n   - Benzer etiketlere sahip kayıtlar kontrol edilir\n   - Son 7 gün içinde ilgili alanda yapılan kayıtlar incelenir\n\n2. **Karar Mekanizması**:\n   - Tam eşleşme bulunursa, mevcut kaydı güncelleme önerilir\n   - Benzer kayıt bulunursa, ilişkilendirme önerilir\n   - Benzersiz içerikse yeni kayıt oluşturulur\n\n3. **Versiyon Yönetimi**:\n   - Önemli değişiklikler için versiyon numarası artırılır\n   - Minor değişiklikler aynı versiyon üzerinde yapılır\n   - Hem eski hem yeni versiyon korunur\n\nBu prensip, bilgi kirliliğinin önlenmesi ve ProjeBellek'in etkinliğinin korunması için kritik önem taşır.",
+      "tags": [
+        "proje",
+        "bellek",
+        "standart",
+        "pratik",
+        "dokümantasyon",
+        "süreç"
+      ],
+      "type": "standart",
+      "status": "aktif",
+      "created_at": "2025-06-04T21:54:12+03:00",
+      "updated_at": "2025-06-04T21:54:12+03:00",
+      "author": "akn",
+      "version": 1,
+      "related_records": [],
+      "scope": "projebellek",
+      "expires_at": null
+    }
+  ]
+}

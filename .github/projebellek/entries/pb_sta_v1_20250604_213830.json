@@ -1,0 +1,15 @@
+{
+  "id": "pb_sta_v1_20250604_213830",
+  "title": "Django Model Kodlama Standartları",
+  "content": "1. Genel Model Kuralları:\n- Her model mutlaka Meta sınıfı içermeli ve verbose_name/verbose_name_plural tanımlamalı\n- Tüm CharField'ler kesinlikle max_length parametresi içermeli\n- Çevirisi yapılacak alanlarda verbose_name kullanılmalı\n- Admin panelde görünmesi gereken alanlar için help_text tanımlanmalı\n\n2. Sınıf Yapısı:\n- Önce field tanımlamaları\n- Ardından Meta sınıfı\n- Sonra __str__ metodu\n- Daha sonra diğer metodlar (clean, save, vb.)\n- En son property metodları\n\n3. İlişki Kuralları:\n- ForeignKey ilişkilerde related_name tanımlanmalı\n- Cascade silme işlemi kritik modeller için kullanılmamalı (on_delete=models.PROTECT)\n- Çoka-çok ilişkilerde ara tablo adı belirtilmeli (through)\n\n4. Performans Optimizasyonu:\n- Sık sorgulanan alanlarda db_index=True kullanılmalı\n- Çoklu alan aramaları için meta.index_together kullanılmalı\n- Büyük TextField'lar için compressed=True kullanılabilir (PostgreSQL)",
+  "tags": ["django","model","standart","kodlama","mimari"],
+  "type": "standart",
+  "status": "aktif",
+  "created_at": "2025-06-04T21:38:30+03:00",
+  "updated_at": "2025-06-04T21:38:30+03:00",
+  "author": "akn",
+  "version": 1,
+  "related_records": [],
+  "scope": "",
+  "expires_at": null
+}

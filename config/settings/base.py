@@ -64,6 +64,7 @@ LOCAL_APPS = [
     'apps.kullanicilar',
     'apps.kategoriler',  # Hayvan kategorileri (tür, sınıflandırma)
     'apps.hayvanlar',    # Hayvanlar (ırk ve hayvan kayıtları)
+    'apps.etiketler',    # Hayvan etiketleri (özellikler, karakteristikler)
 ]
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS

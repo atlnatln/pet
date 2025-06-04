@@ -1,0 +1,15 @@
+{
+  "id": "pb_kon_v1_20250604_232724",
+  "title": "Etiketler Admin Panel Yapılandırması",
+  "content": "Django admin panelinde Etiket yönetimi için aşağıdaki özellikler yapılandırılmıştır:\n\n1. Görüntülenen alanlar (list_display):\n   - Etiket adı\n   - Slug\n   - Renk önizlemesi (HTML ile renkli gösterim)\n   - Kullanım sayısı\n   - Aktiflik durumu\n   - Oluşturulma tarihi\n\n2. Filtreleme seçenekleri:\n   - Aktiflik durumu\n   - Oluşturulma tarihi\n\n3. Arama alanları:\n   - Ad\n   - Açıklama\n   - Slug\n\n4. Fieldsets ile düzenli form yapısı:\n   - Temel bilgiler (ad, slug, açıklama)\n   - Görsel özellikler (renk kodu, ikon)\n   - Durum (aktif/pasif)\n   - Kullanım istatistikleri (salt okunur)\n   - Zaman bilgileri (salt okunur)\n\n5. Özel görselleştirmeler:\n   - Renk kodları için renkli önizleme kutusu\n   - CSS ile geliştirilmiş görünüm\n\nAdmin paneli, aktif olmayan etiketleri de gösterir (tum_etiketler manager'ı kullanılır).",
+  "tags": ["etiketler","admin","django","yönetim"],
+  "type": "konfigürasyon",
+  "status": "aktif",
+  "created_at": "2025-06-04T23:27:24+03:00",
+  "updated_at": "2025-06-04T23:27:24+03:00",
+  "author": "akn",
+  "version": 1,
+  "related_records": [],
+  "scope": "",
+  "expires_at": null
+}

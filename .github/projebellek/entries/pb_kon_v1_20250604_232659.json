@@ -1,0 +1,15 @@
+{
+  "id": "pb_kon_v1_20250604_232659",
+  "title": "Etiketler Filtreleme Sistemi",
+  "content": "Etiketler API'si için django-filter kütüphanesi kullanılarak aşağıdaki filtreleme özellikleri sağlanmaktadır:\n\n1. Ad filtresi (icontains): Etiket adı içerisinde arama yapar\n2. Harf filtresi: Belirli bir harfle başlayan etiketleri filtreler\n3. Minimum kullanım filtresi: Minimum kullanım sayısına sahip etiketleri filtreler\n4. Oluşturma tarihi filtresi: Belirli tarih aralığında oluşturulan etiketleri filtreler\n5. Renk kodu ve ikon filtresi: Görsel özelliklere göre etiketleri filtreler\n\nÖzel filtreler için özel metotlar (filter_harf_ile_baslayan, filter_min_kullanim) tanımlanmıştır.\nKullanım sayacı için hayvanlar ve ilanlar koleksiyonlarındaki toplam kullanım hesaplanır.\n\nFiltreleme, frontend tarafında kullanıcılara zengin bir arama deneyimi sağlar ve API kullanımını optimize eder.",
+  "tags": ["etiketler","filtreleme","api","django-filter"],
+  "type": "konfigürasyon",
+  "status": "aktif",
+  "created_at": "2025-06-04T23:26:59+03:00",
+  "updated_at": "2025-06-04T23:26:59+03:00",
+  "author": "akn",
+  "version": 1,
+  "related_records": [],
+  "scope": "",
+  "expires_at": null
+}

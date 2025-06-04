@@ -1,0 +1,15 @@
+{
+  "id": "pb_iş-_v1_20250604_232924",
+  "title": "Etiketler Uygulaması İş Kuralları",
+  "content": "Etiketler uygulaması için aşağıdaki iş kuralları tanımlanmıştır:\n\n1. Etiket Oluşturma/Düzenleme:\n   - Etiket adları benzersiz olmalı (büyük/küçük harf duyarsız)\n   - Etiket adı en az 2 karakter uzunluğunda olmalı\n   - Etiket adları @, #, $, %, ^, &, * gibi özel karakterler içermemeli\n   - Renk kodu geçerli bir HEX kodu olmalı (#RRGGBB formatında)\n\n2. Etiket Silme:\n   - Aktif kullanımda olan etiketler (hayvan veya ilanlarda kullanılan) silinmemeli\n   - Bunun yerine, pasif duruma getirilmeli (aktif=False)\n   - Hiç kullanılmamış etiketler tamamen silinebilmeli\n\n3. Etiket Kullanımı:\n   - Aynı nesne (hayvan/ilan) içinde bir etiket yalnızca bir kez kullanılabilir\n   - Pasif durumdaki etiketler, kullanıldığında otomatik olarak aktif duruma geçmeli\n   - Etiketlerin kullanım sayısı gerçek zamanlı olarak güncellenmelidir\n\n4. API Kısıtlamaları:\n   - Etiket listeleme/görüntüleme için kimlik doğrulama gerekmez\n   - Etiket oluşturma/düzenleme/silme işlemleri için oturum açılmalı\n   - Toplu etiket işlemleri (birden çok etiket ekleme/silme) atomik işlemler olarak gerçekleştirilmeli\n\n5. Filtreleme ve Sıralama:\n   - Etiketler varsayılan olarak alfabetik sıralanmalı\n   - API üzerinden kullanım sayısına göre sıralama yapılabilmeli\n   - Etiket adının bir kısmını içeren aramalar desteklenmeli\n\nBu kurallar, etiket sisteminin tutarlı ve kullanıcı dostu olmasını sağlayacaktır.",
+  "tags": ["etiketler","iş-kuralı","validasyon","api-kısıtlamaları"],
+  "type": "iş-kuralı",
+  "status": "aktif",
+  "created_at": "2025-06-04T23:29:24+03:00",
+  "updated_at": "2025-06-04T23:29:24+03:00",
+  "author": "akn",
+  "version": 1,
+  "related_records": [],
+  "scope": "",
+  "expires_at": null
+}

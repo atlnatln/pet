@@ -1,0 +1,15 @@
+{
+  "id": "pb_sta_v1_20250604_213542",
+  "title": "Base Model Alanları ve İçerik Durumları",
+  "content": "1. Temel Tarih Alanları (her modelde bulunmalı):\n- created_at: DateTimeField (auto_now_add=True)\n- updated_at: DateTimeField (auto_now=True)\n- published_at: DateTimeField (null=True, blank=True)\n- deleted_at: DateTimeField (null=True, blank=True)\n\n2. Base Model Standard Alanları:\n- id: UUIDField (primary_key=True, default=uuid.uuid4, editable=False)\n- title: CharField (max_length=255)\n- slug: SlugField (unique=True)\n- status: CharField (choices=STATUS_CHOICES)\n\n3. İçerik Durumları (ContentStatus):\n- DRAFT: Taslak\n- REVIEW: İncelemede\n- PUBLISHED: Yayınlanmış\n- REJECTED: Reddedilmiş\n- ARCHIVED: Arşivlenmiş\n\n4. Analytics Alanları (isteğe bağlı):\n- search_vector: SearchVectorField (PostgreSQL full-text search)\n- view_count: PositiveIntegerField (default=0)\n- like_count: PositiveIntegerField (default=0)\n- share_count: PositiveIntegerField (default=0)",
+  "tags": ["model","base","standart","alan","django"],
+  "type": "standart",
+  "status": "aktif",
+  "created_at": "2025-06-04T21:35:42+03:00",
+  "updated_at": "2025-06-04T21:35:42+03:00",
+  "author": "akn",
+  "version": 1,
+  "related_records": [],
+  "scope": "",
+  "expires_at": null
+}

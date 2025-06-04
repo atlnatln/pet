@@ -1,0 +1,15 @@
+{
+  "id": "pb_sta_v1_20250604_213659",
+  "title": "Irk Modeli Standardı",
+  "content": "1. Irk Modeli Alanları:\n- ad: CharField (max_length=100)\n- slug: SlugField (unique=True, blank=True)\n- aciklama: TextField (blank=True, null=True)\n- populer: BooleanField (default=False)\n- yerli: BooleanField (default=False)\n- aktif: BooleanField (default=True)\n- fotograf: ImageField (upload_to='irklar/', blank=True, null=True)\n- thumbnail: ImageField (upload_to='irklar/thumbnails/', blank=True, null=True)\n- kapak_fotografi: ImageField (upload_to='irklar/kapak/', blank=True, null=True)\n- sira: PositiveSmallIntegerField (default=0)\n- created_at: DateTimeField (auto_now_add=True)\n- updated_at: DateTimeField (auto_now=True)\n\n2. Önemli Irk Listeleri:\n- POPULER_IRKLAR: Popüler köpek ırkları listesi\n- YERLI_IRKLAR: Yerli köpek ırkları listesi",
+  "tags": ["ırk","hayvanlar","model","standart","django"],
+  "type": "standart",
+  "status": "aktif",
+  "created_at": "2025-06-04T21:36:59+03:00",
+  "updated_at": "2025-06-04T21:36:59+03:00",
+  "author": "akn",
+  "version": 1,
+  "related_records": [],
+  "scope": "",
+  "expires_at": null
+}

@@ -1,0 +1,15 @@
+{
+  "id": "pb_ref_v1_20250604_213725",
+  "title": "Türkiye Şehirleri ve Coğrafi Sabitler",
+  "content": "1. Şehir Sabitleri:\n- ADANA, ADIYAMAN, ISTANBUL, IZMIR vb. sabitler il kodlarını temsil eder\n- TURKISH_CITIES: Tüm Türkiye şehirlerinin adlarını ve kodlarını içeren liste\n\n2. Coğrafi Alan Kullanımı:\n- Kullanıcı ve Hayvan modellerinde il/ilce alanları TURKISH_CITIES listesinden seçilmelidir\n- Frontend'de il seçildiğinde ilçe listesi otomatik olarak güncellenir\n- Arama ve filtreleme işlemlerinde il bazlı gruplandırma yapılmalıdır\n\n3. Önerilen Şehir Yapısı:\n- İl kodu: int (1-81)\n- İl adı: string ("İstanbul")\n- İlçe listesi: array",
+  "tags": ["şehir","il","ilçe","coğrafi","data"],
+  "type": "referans",
+  "status": "aktif",
+  "created_at": "2025-06-04T21:37:25+03:00",
+  "updated_at": "2025-06-04T21:37:25+03:00",
+  "author": "akn",
+  "version": 1,
+  "related_records": [],
+  "scope": "",
+  "expires_at": null
+}

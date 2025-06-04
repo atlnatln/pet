@@ -1,0 +1,97 @@
+{
+  "id": "pb_dok_v1_20250604_225611",
+  "title": "Hayvan Modeli Tasarımı ve İmplementasyonu (FAZ 4-5)",
+  "content": "# 🐾 HAYVAN MODELİ TASARIMI - TEMEL MİMARİ
+
+## 📋 Ana Modeller
+
+1. SaglikDurumu
+- Aşı takibi (JSON)
+- Kısırlaştırma durumu
+- Veteriner kontrolleri
+- Özel bakım gereksinimleri
+
+2. HayvanFotograf
+- Çoklu fotoğraf desteği
+- Otomatik thumbnail
+- Kapak fotoğrafı seçimi
+- Sıralama özelliği
+
+3. KopekIrk
+- Irk veritabanı
+- Kategori senkronizasyonu
+- Popüler/yerli ırk işaretleme
+- Otomatik alt kategori oluşturma
+
+4. Hayvan (Ana Model)
+- Temel bilgiler (ad, yaş, cinsiyet)
+- Kategori ve etiket ilişkileri
+- Sağlık durumu bağlantısı
+- Coğrafi konum desteği
+- SEO dostu URL yapısı
+- Gelişmiş durum takibi
+
+## 🔍 Özel Özellikler
+
+1. Otomatik İşlemler:
+- Thumbnail oluşturma
+- Slug üretimi
+- Kategori sayaçları
+- Irk-kategori senkronizasyonu
+
+2. Veritabanı İndeksleri:
+- Tür bazlı arama
+- Durum filtreleme
+- Konum bazlı sorgulama
+- SEO URL araması
+
+3. Yardımcı Metodlar:
+- Yaş formatlaması
+- Fotoğraf yönetimi
+- Aşı durum kontrolü
+- Kategori güncellemeleri
+
+## 🔐 Güvenlik ve İlişkiler
+
+1. Model İlişkileri:
+- Kategori (PROTECT)
+- Sorumlu Kullanıcı (PROTECT)
+- Sağlık Durumu (CASCADE)
+- Fotoğraflar (CASCADE)
+- Irk Bilgisi (SET_NULL)
+
+2. Erişim Kontrolü:
+- Rol tabanlı yetkilendirme
+- Sahiplik kontrolü
+- Durum bazlı görünürlük
+
+## 🏗️ Gelecek Geliştirmeler
+
+1. API Katmanı:
+- DRF ViewSets
+- Özel filtreleme
+- Sayfalama
+- Nested serializers
+
+2. Servis Katmanı:
+- Fotoğraf işleme
+- E-posta bildirimleri
+- İstatistik güncelleme
+- Kategori senkronizasyonu
+
+3. Admin Paneli:
+- Özel eylemler
+- Inline düzenleme
+- Filtreleme ve arama
+- Toplu güncelleme",
+  "tags": ["hayvan","model","tasarim","django","api","mimari","implementasyon"],
+  "type": "dokumantasyon",
+  "status": "aktif",
+  "created_at": "2025-06-04T22:56:11+03:00",
+  "updated_at": "2025-06-04T22:56:11+03:00",
+  "author": "akn",
+  "version": 1,
+  "related_records": [],
+  "scope": "",
+  "expires_at": null
+}

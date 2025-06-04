@@ -1,0 +1,15 @@
+{
+  "id": "pb_sta_v1_20250604_232539",
+  "title": "Etiket Modeli Yapısı ve İlişkileri",
+  "content": "Etiket modeli aşağıdaki özelliklerle tasarlandı:\n\n1. Temel alanlar:\n- ad (CharField): Etiket adı, unique ve case-insensitive\n- slug (SlugField): SEO dostu URL, otomatik oluşturulur\n- aciklama (TextField): İsteğe bağlı açıklama metni\n- renk_kodu (CharField): HEX formatında görsel temsil için renk\n- ikon (CharField): İsteğe bağlı Font Awesome ikon adı\n- aktif (BooleanField): Etiketin aktiflik durumu\n- olusturma_tarihi, guncelleme_tarihi: Zaman takibi\n\n2. İlişkiler:\n- ManyToMany ilişki: Hayvanlar ve İlanlar modelleriyle\n- Kendi model manager sınıfı (EtiketManager) ile genişletilmiş fonksiyonlar\n\n3. Özel metodlar:\n- Otomatik slug üretme\n- Büyük/küçük harf duyarsız etiket kontrolü\n- Kullanım istatistikleri hesaplama",
+  "tags": ["etiketler","model","standart","django"],
+  "type": "standart",
+  "status": "aktif",
+  "created_at": "2025-06-04T23:25:39+03:00",
+  "updated_at": "2025-06-04T23:25:39+03:00",
+  "author": "akn",
+  "version": 1,
+  "related_records": [],
+  "scope": "",
+  "expires_at": null
+}

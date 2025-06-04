@@ -1,0 +1,15 @@
+{
+  "id": "pb_sta_v1_20250604_213744",
+  "title": "Öncelik Seviyeleri ve Etiketlendirme Standardı",
+  "content": "1. Öncelik Seviyeleri:\n- LOW: Düşük öncelik\n- NORMAL: Normal öncelik (varsayılan)\n- HIGH: Yüksek öncelik\n- URGENT: Acil durum\n\n2. Kullanım Alanları:\n- Bildirimler: Bildirimin aciliyet seviyesini belirtir\n- İlanlar: İlanın görünürlük önceliğini etkiler\n- Başvurular: Başvurunun incelenme sırasını belirler\n- Raporlar: Sorunların önem derecesini belirtir\n\n3. Etiketlendirme Standardı:\n- Sistem genelinde tutarlı renk kodları: LOW (#9ca3af), NORMAL (#60a5fa), HIGH (#f59e0b), URGENT (#dc2626)\n- Arayüzde görsel ayırt edilebilirlik (ikon ve renk kombinasyonu)",
+  "tags": ["öncelik","seviye","etiket","ui","standart"],
+  "type": "standart",
+  "status": "aktif",
+  "created_at": "2025-06-04T21:37:44+03:00",
+  "updated_at": "2025-06-04T21:37:44+03:00",
+  "author": "akn",
+  "version": 1,
+  "related_records": [],
+  "scope": "",
+  "expires_at": null
+}

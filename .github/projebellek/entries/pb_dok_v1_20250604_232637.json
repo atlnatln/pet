@@ -1,0 +1,15 @@
+{
+  "id": "pb_dok_v1_20250604_232637",
+  "title": "Etiketler API Endpoint Yapısı",
+  "content": "Etiketler uygulaması aşağıdaki API endpoint'lerini sağlar:\n\n1. /api/v1/etiketler/\n   - GET: Tüm etiketleri listeler, sayfalama ve sıralama destekler\n   - POST: Yeni etiket oluşturur (kimlik doğrulama gerektirir)\n\n2. /api/v1/etiketler/{id}/\n   - GET: Etiket detayını gösterir (ilişkili etiketler dahil)\n   - PUT/PATCH: Etiket bilgilerini günceller (kimlik doğrulama gerektirir)\n   - DELETE: Etiket siler (kimlik doğrulama gerektirir)\n\n3. /api/v1/etiketler/populer/\n   - GET: En çok kullanılan etiketleri döndürür\n\n4. /api/v1/etiketler/harfe_gore/?harf=s\n   - GET: Belirli bir harfle başlayan etiketleri listeler\n\nAPI yanıtları EtiketSerializer ile şekillendiriliyor.\nFiltreleme için django-filter kütüphanesi kullanılıyor.\nOkuma işlemleri için kimlik doğrulama gerekmez, ancak yazma işlemleri için gereklidir.",
+  "tags": ["etiketler","api","endpoint","django","rest-framework"],
+  "type": "dokümantasyon",
+  "status": "aktif",
+  "created_at": "2025-06-04T23:26:37+03:00",
+  "updated_at": "2025-06-04T23:26:37+03:00",
+  "author": "akn",
+  "version": 1,
+  "related_records": [],
+  "scope": "",
+  "expires_at": null
+}

@@ -1,0 +1,15 @@
+{
+  "id": "pb_sta_v1_20250604_213644",
+  "title": "Kategori Modeli Standardı",
+  "content": "1. Kategori Modeli Alanları:\n- ad: CharField (max_length=100)\n- slug: SlugField (unique=True)\n- aciklama: TextField (null=True, blank=True)\n- pet_type: CharField (choices=HAYVAN_TURLERI)\n- ikon_adi: CharField (max_length=50, default='paw')\n- renk_kodu: CharField (max_length=7, default='#3b82f6')\n- kullanim_sayisi: PositiveIntegerField (default=0)\n- aktif: BooleanField (default=True)\n- sira: PositiveSmallIntegerField (default=0)\n\n2. Form Alanı Modeli (Dinamik Form Oluşturma İçin):\n- ad: CharField (max_length=100)\n- alan_tipi: CharField (choices=ALAN_TIPLERI)\n- secenekler: JSONField (null=True, blank=True)\n- zorunlu: BooleanField (default=False)\n- aktif: BooleanField (default=True)\n- sira: PositiveSmallIntegerField (default=0)\n\n3. Kategori Hikayeleri:\nSabit metin içerikleri KATEGORI_HIKAYELERI sözlüğünde tutulmalıdır.",
+  "tags": ["kategori","model","alanlar","standart","django"],
+  "type": "standart",
+  "status": "aktif",
+  "created_at": "2025-06-04T21:36:44+03:00",
+  "updated_at": "2025-06-04T21:36:44+03:00",
+  "author": "akn",
+  "version": 1,
+  "related_records": [],
+  "scope": "",
+  "expires_at": null
+}

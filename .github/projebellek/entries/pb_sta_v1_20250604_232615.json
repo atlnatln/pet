@@ -1,0 +1,15 @@
+{
+  "id": "pb_sta_v1_20250604_232615",
+  "title": "Etiketler Servis Katmanı",
+  "content": "Etiketler uygulaması için tasarlanan EtiketService sınıfı aşağıdaki özellikleri sağlar:\n\n1. etiket_olustur_veya_getir() metodu:\n   - Büyük/küçük harf duyarsız etiket kontrolü yapar\n   - Eğer varsa mevcut etiketi döndürür, pasifse aktifleştirir\n   - Yoksa yeni etiket oluşturur\n\n2. etiketleri_guncelle() metodu:\n   - Bir nesnenin (Hayvan, İlan vb.) etiketlerini toplu şekilde günceller\n   - Değişikliklerin atomik olmasını sağlamak için transaction kullanır\n   - Eklenen, kaldırılan ve değişmeyen etiketleri raporlar\n\n3. benzer_etiketler_onerisi() metodu:\n   - Bir metin analizi yaparak içerikten etiket önerileri oluşturur\n   - Stopwords filtrelemesi ve kelime frekansı analizi yapar\n   - İçerikle ilgili veritabanında var olan etiketleri önerir\n\nBu servis katmanı, iş mantığını view'lardan ayırarak kodun daha test edilebilir ve yeniden kullanılabilir olmasını sağlar.",
+  "tags": ["etiketler","servis","iş-kuralı","django"],
+  "type": "standart",
+  "status": "aktif",
+  "created_at": "2025-06-04T23:26:15+03:00",
+  "updated_at": "2025-06-04T23:26:15+03:00",
+  "author": "akn",
+  "version": 1,
+  "related_records": [],
+  "scope": "",
+  "expires_at": null
+}

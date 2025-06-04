@@ -1,0 +1,15 @@
+{
+  "id": "pb_kar_v1_20250604_212825",
+  "title": "Temel Proje Bağımlılıkları",
+  "content": "Backend:\n- Django 4.2\n- Django REST Framework\n- Celery (görev yönetimi)\n- Redis (önbellek ve mesaj kuyruğu)\n- PostgreSQL (prod veritabanı)\n- pytest (testler için)\n- django-health-check (sağlık kontrolleri)\n- django-cachalot (ORM önbellek)\n\nFrontend (Planlanan):\n- React\n- TypeScript\n- Webpack\n\nDeployment:\n- Docker\n- Nginx\n- Prometheus (izleme)",
+  "tags": ["teknoloji","bağımlılıklar","gereksinimler"],
+  "type": "karar",
+  "status": "aktif",
+  "created_at": "2025-06-04T21:28:25+03:00",
+  "updated_at": "2025-06-04T21:28:25+03:00",
+  "author": "akn",
+  "version": 1,
+  "related_records": [],
+  "scope": "",
+  "expires_at": null
+}

@@ -1,0 +1,15 @@
+{
+  "id": "pb_sta_v1_20250604_232819",
+  "title": "Etiketler Uygulaması Test Stratejisi",
+  "content": "Etiketler uygulaması için kapsamlı test stratejisi aşağıdaki test türlerini içerir:\n\n1. Model Testleri (test_models.py):\n   - Temel etiket oluşturma ve alanlarını doğrulama\n   - Otomatik slug oluşturma işlevinin doğrulanması\n   - Benzersiz slug çakışma durumları\n   - Aynı isimde etiket eklendiğinde var olanı aktifleştirme davranışı\n   - Renk kodu validasyonu\n\n2. Servis Testleri (test_servisler.py):\n   - etiket_olustur_veya_getir metodu davranışları\n   - etiketleri_guncelle metodu ekleme/çıkarma senaryoları\n   - benzer_etiketler_onerisi algoritmasının doğruluğu\n\n3. API Testleri (test_views.py):\n   - Etiket listeleme ve detay görüntüleme\n   - Yetkisiz/yetkili etiket oluşturma denemeleri\n   - Etiket güncelleme\n   - Popüler etiketler ve harfe göre filtreleme endpoint'leri\n\n4. Serializer Testleri (test_serializers.py):\n   - Temel serileştirme işlemleri\n   - Validasyon kurallarının uygulanması\n   - Detay serileştiricisinin ek alanları\n\nTüm testler pytest ile yazılmış ve fixtures kullanılarak verimli test yapısı sağlanmıştır.",
+  "tags": ["etiketler","test","pytest","django"],
+  "type": "standart",
+  "status": "aktif",
+  "created_at": "2025-06-04T23:28:19+03:00",
+  "updated_at": "2025-06-04T23:28:19+03:00",
+  "author": "akn",
+  "version": 1,
+  "related_records": [],
+  "scope": "",
+  "expires_at": null
+}

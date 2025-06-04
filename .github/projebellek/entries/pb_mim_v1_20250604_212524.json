@@ -1,0 +1,15 @@
+{
+  "id": "pb_mim_v1_20250604_212524",
+  "title": "Hayvan Kategori Sistemi Yapısı",
+  "content": "Ana kategoriler:\n- Köpekler ('Sadakat ve dostluğun temsilcileri', fa-dog, #f59e0b)\n- Kediler ('Bağımsızlık ve zarafetin ustası', fa-cat, #8b5cf6)\n- Kuşlar ('Özgürlüğün renkli elçileri', fa-dove, #06b6d4)\n- Balıklar ('Sessiz güzelliğin temsilcileri', fa-fish, #3b82f6)\n- Kemirgenler ('Minik dostların büyük kalpleri', fa-rabbit, #f97316)\n- Sürüngenler ('Antik dünyanın gizemli temsilcileri', fa-turtle, #059669)\n- Egzotik Hayvanlar ('Farklılığın renkli dünyası', fa-paw, #dc2626)",
+  "tags": ["kategoriler","hayvanlar","ui","pet_type","karar"],
+  "type": "mimari",
+  "status": "aktif",
+  "created_at": "2025-06-04T21:25:24+03:00",
+  "updated_at": "2025-06-04T21:25:24+03:00",
+  "author": "akn",
+  "version": 1,
+  "related_records": [],
+  "scope": "",
+  "expires_at": null
+}

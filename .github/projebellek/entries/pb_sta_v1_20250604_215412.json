@@ -1,0 +1,15 @@
+{
+  "id": "pb_sta_v1_20250604_215412",
+  "title": "ProjeBellek Kayıt Standardı: Mükerrer Kontrol Prensibi",
+  "content": "ProjeBellek'e yeni bir kayıt eklemeden önce aşağıdaki standart kontroller yapılmalıdır:\n\n1. Mükerrer Kontrol:\n   - Anahtar kelimelerle sorgulama: pb_main pb-query "anahtar kelimeler"\n   - Etiketlerle sorgulama: pb_main pb-query "etiket:ilgili_etiket"\n   \n2. Sonuçları Değerlendirme:\n   - Tam eşleşme varsa: Güncelleme yapılmalı (yeni kayıt oluşturmak yerine)\n   - Benzer kayıt varsa: İlişkilendirme veya güncelleme yapılmalı\n   - İlgili kayıt yoksa: Ancak bu durumda yeni kayıt oluşturulmalı\n  \n3. Kayıt Güncelleme Stratejisi:\n   - related_records alanına mevcut kayıtların ID'leri eklenebilir\n   - İçeriği güncellemek için önce mevcut kaydın çıktısı alınmalı, güncellenmeli\n   - Geçici veya eski bilgiler için expires_at alanı kullanılabilir\n\nBu standardın amacı, ProjeBellek'te bilgi kirliliğini ve tekrarları önleyerek, daha tutarlı, bağlantılı ve güncel bir bilgi havuzu oluşturmaktır.",
+  "tags": ["proje","bellek","standart","pratik","dokümantasyon","süreç"],
+  "type": "standart",
+  "status": "aktif",
+  "created_at": "2025-06-04T21:54:12+03:00",
+  "updated_at": "2025-06-04T21:54:12+03:00",
+  "author": "akn",
+  "version": 1,
+  "related_records": [],
+  "scope": "",
+  "expires_at": null
+}

@@ -1,0 +1,15 @@
+{
+  "id": "pb_kar_v1_20250604_213236",
+  "title": "Hayvan Modeli Alan Standardı",
+  "content": "Tüm Hayvan modellerinde şu alanlar zorunlu olmalıdır:\n1. ad: CharField (max_length=100)\n2. slug: SlugField (unique=True)\n3. tur: CharField (choices=HAYVAN_TURLERI)\n4. yas: CharField (choices=YAS_GRUPLARI)\n5. cinsiyet: CharField (choices=CINSIYET)\n6. boyut: CharField (choices=BOYUT)\n7. created_at: DateTimeField (auto_now_add=True)\n8. updated_at: DateTimeField (auto_now=True)\n\nOpsiyonel ancak önerilen alanlar:\n1. renk: CharField (max_length=50)\n2. kisirlastirilmis: BooleanField (default=False)\n3. asilar_tamam: BooleanField (default=False)\n4. mikrocipli: BooleanField (default=False)\n5. il/ilce: CharField (TURKISH_CITIES listesinden seçimli)",
+  "tags": ["hayvanlar","model","standart","alanlar","django"],
+  "type": "karar",
+  "status": "aktif",
+  "created_at": "2025-06-04T21:32:36+03:00",
+  "updated_at": "2025-06-04T21:32:36+03:00",
+  "author": "akn",
+  "version": 1,
+  "related_records": [],
+  "scope": "",
+  "expires_at": null
+}

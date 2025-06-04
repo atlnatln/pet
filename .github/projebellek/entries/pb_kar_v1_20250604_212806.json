@@ -1,0 +1,15 @@
+{
+  "id": "pb_kar_v1_20250604_212806",
+  "title": "Proje Klasör Yapısı ve Önemli Dosyalar",
+  "content": "1. apps/: Django uygulamaları\n2. celery/: Celery görev yönetimi\n3. config/: Django ana yapılandırması\n4. deployment/: Deployment konfigürasyonları\n5. docker/: Docker yapılandırmaları\n6. docs/: Proje dokümantasyonu\n7. frontend/: React uygulaması\n8. logs/: Log dosyaları\n9. media/: Kullanıcı yüklemeleri\n10. monitoring/: Prometheus izleme\n11. scripts/: Yardımcı scriptler\n12. static/: Statik dosyalar\n13. templates/: Django şablonları\n14. tests/: Test dosyaları\n15. utils/: Yardımcı fonksiyonlar",
+  "tags": ["proje","yapı","dokümantasyon"],
+  "type": "karar",
+  "status": "aktif",
+  "created_at": "2025-06-04T21:28:06+03:00",
+  "updated_at": "2025-06-04T21:28:06+03:00",
+  "author": "akn",
+  "version": 1,
+  "related_records": [],
+  "scope": "",
+  "expires_at": null
+}

@@ -1,0 +1,15 @@
+{
+  "id": "pb_kon_v1_20250604_213502",
+  "title": "API ve İşlem Rate Limitleri",
+  "content": "1. API Erişim Rate Limitleri:\n- LOGIN_ATTEMPTS: 5 giriş denemesi / 15 dakika\n- MESSAGE_PER_HOUR: 30 mesaj / saat / kullanıcı\n- APPLICATION_PER_DAY: 10 başvuru / gün / kullanıcı\n- LISTING_PER_DAY: 5 ilan / gün / kullanıcı\n\n2. Ayarlar ve Doğrulama Bilgileri:\n- API Anahtarları günlük istek limiti: 10.000\n- Cache süreleri: 30 dakika (genel), 60 dakika (hayvan listeleme), 10 dakika (kullanıcı bilgileri)",
+  "tags": ["api","rate-limit","güvenlik","performans"],
+  "type": "konfigürasyon",
+  "status": "aktif",
+  "created_at": "2025-06-04T21:35:02+03:00",
+  "updated_at": "2025-06-04T21:35:02+03:00",
+  "author": "akn",
+  "version": 1,
+  "related_records": [],
+  "scope": "",
+  "expires_at": null
+}

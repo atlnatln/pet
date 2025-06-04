@@ -1,0 +1,15 @@
+{
+  "id": "pb_sta_v1_20250604_213609",
+  "title": "Kullanıcı Modeli Alanları Standardı",
+  "content": "1. Kullanıcı Temel Bilgileri:\n- email: EmailField (unique=True)\n- first_name: CharField (max_length=150)\n- last_name: CharField (max_length=150)\n- telefon: CharField (max_length=15, validators=[TURKISH_PHONE_REGEX])\n- sehir: CharField (max_length=50, choices=TURKISH_CITIES)\n- biyografi: TextField (null=True, blank=True)\n- profil_resmi: ImageField (upload_to='profil/', null=True, blank=True)\n- rol: CharField (choices=ROLLER, default=USER)\n- durum: CharField (choices=KULLANICI_DURUMLARI, default=ACTIVE)\n\n2. Doğrulama Bilgileri:\n- email_dogrulanmis: BooleanField (default=False)\n- email_dogrulama_token: CharField (max_length=100, blank=True, null=True)\n- email_dogrulama_tarihi: DateTimeField (blank=True, null=True)\n- kimlik_dogrulandi_mi: BooleanField (default=False)\n\n3. Kullanıcı Tercihleri:\n- sahiplendiren_mi: BooleanField (default=False)\n- sahiplenmek_istiyor_mu: BooleanField (default=False)\n- email_bildirimleri: BooleanField (default=True)\n- push_bildirimleri: BooleanField (default=True)\n\n4. İstatistikler:\n- son_giris_tarihi: DateTimeField (null=True, blank=True)\n- giris_sayisi: PositiveIntegerField (default=0)\n- uyelik_tarihi: DateTimeField (auto_now_add=True)\n- guncelleme_tarihi: DateTimeField (auto_now=True)",
+  "tags": ["kullanıcı","model","alanlar","standart","django"],
+  "type": "standart",
+  "status": "aktif",
+  "created_at": "2025-06-04T21:36:09+03:00",
+  "updated_at": "2025-06-04T21:36:09+03:00",
+  "author": "akn",
+  "version": 1,
+  "related_records": [],
+  "scope": "",
+  "expires_at": null
+}

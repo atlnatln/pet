@@ -1,0 +1,15 @@
+{
+  "id": "pb_sta_v1_20250604_213449",
+  "title": "Dosya Türleri ve Boyut Limitleri",
+  "content": "1. Dosya Türleri:\n- PROFILE_IMAGE: Profil resmi\n- PET_IMAGE: Hayvan resmi\n- DOCUMENT: Belge\n- DEFAULT: Varsayılan\n\n2. Boyut Limitleri:\n- SMALL: 1MB\n- LARGE: 5MB\n- MAX: 10MB\n\nUygulama genelinde, kullanıcı veya hayvan profil resimleri SMALL limiti içinde, belgeler LARGE limiti içinde ve tüm dosyalar MAX limitini aşamaz.",
+  "tags": ["dosya","limit","boyut","resim","belge","upload"],
+  "type": "standart",
+  "status": "aktif",
+  "created_at": "2025-06-04T21:34:49+03:00",
+  "updated_at": "2025-06-04T21:34:49+03:00",
+  "author": "akn",
+  "version": 1,
+  "related_records": [],
+  "scope": "",
+  "expires_at": null
+}

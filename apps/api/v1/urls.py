@@ -52,6 +52,9 @@ urlpatterns = [
     
     # Hayvanlar app'i URL'leri
     path('', include('apps.hayvanlar.urls', namespace='hayvanlar')),
+    
+    # Etiketler app'i URL'leri
+    path('etiketler/', include('apps.etiketler.urls', namespace='etiketler')),
 ]
 
 # Swagger/OpenAPI dokümantasyonu (eğer drf_yasg yüklüyse)
@@ -97,6 +100,12 @@ if settings.DEBUG:
     - /api/v1/kategoriler/kategoriler/ana_kategoriler/ → Ana kategoriler
     - /api/v1/kategoriler/kategoriler/kategori_agaci/  → Kategori ağacı
     - /api/v1/kategoriler/kategoriler/populer/         → Popüler kategoriler
+
+📁 Etiketler API:
+    - /api/v1/etiketler/            → Etiket listesi 
+    - /api/v1/etiketler/{id}/       → Etiket detayı
+    - /api/v1/etiketler/populer/    → Popüler etiketler
+    - /api/v1/etiketler/harfe_gore/ → Harfe göre etiket listesi
 
 📁 Hayvanlar API:
     - /api/v1/hayvanlar/                 → Hayvan listesi
