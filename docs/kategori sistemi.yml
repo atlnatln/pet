@@ -1,0 +1,1280 @@
+platform_kategori_sistemi
+    ucretsiz_ilan_kategorileri:
+      sahiplendirme:
+        temel_kimlik:
+          ad: "Sahiplendirme (Yuva Arayan Canlar)"
+          slug: "sahiplendirme-yuva-arayan-canlar"
+          aciklama: "Sevgi dolu bir yuvaya ihtiyaç duyan köpek, kedi, kuş ve diğer tüm canlar için açılan ilanlar. Onlara kalıcı ve mutlu bir yuva bulmak temel amacımızdır."
+          gorsel_kimlik:
+            renk_kodu: "#FFDAB9" # Şeftali Rengi (Sıcaklık ve Umut)
+            ikon_adi: "fas fa-heart-paw" # Font Awesome 6'da olabilir, yoksa fas fa-paw veya fas fa-home-heart
+            emoji: "🏠❤️"
+        arama_sistemi:
+          alternatif_kelimeler:
+            - "yuva arıyorum"
+            - "pet sahiplen"
+            - "ücretsiz hayvan"
+            - "satınalma sahiplen"
+            - "evcil hayvan sahiplenme"
+            - "kurtarılmış hayvan"
+            - "barınaktan sahiplen"
+            - "geçici yuvadan kalıcı yuvaya"
+            - "arkadaş arıyorum (hayvan)"
+            - "aileye can kat"
+            - "ömürlük dost"
+            - "ikinci şans"
+            - "terk edilmiş hayvan"
+            - "pati bul"
+            - "sevgiye muhtaç"
+            - "ev arkadaşı (hayvan)"
+            - "can dostu"
+            - "sokaktan kurtarılan"
+            - "melek arıyor"
+        akilli_filtreler:
+          ozel_filtre_alanlari:
+            - "hayvan_turu_sahiplendirme" # Select: Köpek, Kedi, Kuş, Kemirgen, Sürüngen, Balık, Diğer (Egzotik olmayan)
+            - "hayvan_irk_sahiplendirme" # Text (isteğe bağlı, kırma ise belirtilebilir)
+            - "hayvan_yas_sahiplendirme" # Select: Yavru (0-1 yaş), Genç (1-3 yaş), Yetişkin (3-7 yaş), Yaşlı (7+ yaş)
+            - "hayvan_cinsiyet_sahiplendirme" # Select: Erkek, Dişi
+            - "hayvan_boyut_sahiplendirme" # Select: Küçük, Orta, Büyük (türüne göre)
+            - "saglik_durumu_sahiplendirme" # Select: Sağlıklı, Özel Bakım Gerekiyor (açıklama), Engelli (açıklama)
+            - "kisirlastirma_durumu_sahiplendirme" # Select: Kısırlaştırılmış, Kısırlaştırılacak, Kısırlaştırılmamış (nedeni?), Bilinmiyor
+            - "asi_durumu_sahiplendirme" # Select: Aşıları Tam, Aşıları Eksik, Aşısız, Bilinmiyor
+            - "ic_dis_parazit_sahiplendirme" # Select: Yapıldı, Yapılacak, Bilinmiyor
+            - "karakter_ozellikleri_sahiplendirme" # MultiSelect: Oyuncu, Sakin, Uysal, Çocuklarla İyi, Diğer Hayvanlarla İyi, Yalnız Kalabilir, Enerjik, Kucakçı, Bağımsız, Ürkek
+            - "egitim_seviyesi_tuvalet_sahiplendirme" # Select: Tuvalet Eğitimi Var, Kısmen Var, Yok
+            - "egitim_seviyesi_temel_itaat_sahiplendirme" # Select: Var, Kısmen Var, Yok (Köpekler için)
+            - "bulundugu_yer_sahiplendirme" # Text: Şehir, İlçe (veya Geçici Yuva/Barınak Adı)
+            - "sahiplendirme_sartlari_sahiplendirme" # Text: Takip şartı, sözleşme, ev ziyareti vb.
+            - "neden_yuva_ariyor_sahiplendirme" # Text: Bulundu, Barınak kapasitesi, Sahibi vefat etti vb.
+            - "gecici_yuva_olur_mu_sahiplendirme" # Boolean: Kalıcı yuva öncelikli ama geçici de olur mu?
+            - "ozel_ihtiyac_detay_sahiplendirme" # Text: Varsa özel mama, ilaç, davranış problemi
+            - "cocuklu_aile_uygunlugu_sahiplendirme" # Select: Çok Uygun, Uygun (deneyimli aile), Dikkat Gerekir, Uygun Değil
+            - "apartman_hayatina_uygunluk_sahiplendirme" # Select: Uygun, Bahçeli Ev Tercihi, Uygun Değil
+            - "ilk_kez_hayvan_sahiplenecek_kisiye_uygunluk_sahiplendirme" # Select: Uygun, Deneyim Tercih Edilir, Uygun Değil
+            - "sahiplendiren_iletisim_tercihi_sahiplendirme" # MultiSelect: Platform Mesajı, Telefon (isteğe bağlı), E-posta (isteğe bağlı)
+            - "mikrocip_durumu_sahiplendirme" # Select: Var, Yok, Bilinmiyor
+            - "kopekler_icin_enerji_seviyesi_sahiplendirme" # Select (Köpekse): Düşük, Orta, Yüksek
+            - "kediler_icin_tuy_tipi_sahiplendirme" # Select (Kediyse): Kısa, Orta, Uzun
+            - "kuslar_icin_tur_sahiplendirme" # Text (Kuşsa)
+            - "fotograf_video_zorunlulugu_sahiplendirme" # Boolean: En az 3 net fotoğraf
+        platform_ayarlari:
+          varsayilan_ilan_suresi: "Sınırsız (ilan sahibi güncel tutmalı, periyodik kontrol)" # Veya 90 gün + yenileme
+          oncelik_katsayisi: 1.8 # Platformun ana misyonlarından biri
+          moderasyon_seviyesi: "Yüksek" # Hayvan refahı, sahte ilanlar, sahiplendirme şartları denetlenmeli
+          ozel_dogrulama_gerekliligi: "Evet, veteriner kayıtları (mümkünse), sahiplendirme sözleşmesi örneği, geçici yuva/barınak ise mekan fotoğrafları."
+        istatistikler:
+          beklenen_performans_metrikleri:
+            - "Ortalama ilan görüntülenme: Çok Yüksek"
+            - "Başarılı sahiplendirme oranı hedefi: %75 (doğru eşleşme ile)"
+            - "Ortalama sahiplendirme süresi: 15-45 gün (tür ve yaşa göre değişir)"
+            - "Topluluk katılımı ve paylaşımı: Çok Yüksek"
+
+      kayip_buluntu:
+        temel_kimlik:
+          ad: "Kayıp / Buluntu Hayvanlar"
+          slug: "kayip-buluntu-hayvanlar"
+          aciklama: "Kaybolan can dostlarımızı bulmak veya bulunan sahipsiz hayvanları sahiplerine kavuşturmak için açılan acil yardım ilanları."
+          gorsel_kimlik:
+            renk_kodu: "#FDE047" # Limon Sarısı (Dikkat ve Aciliyet)
+            ikon_adi: "fas fa-search-location"
+            emoji: "🔍"
+        arama_sistemi:
+          alternatif_kelimeler:
+            - "kayıp kedi"
+            - "kayıp köpek"
+            - "bulunan hayvan"
+            - "sahibi aranıyor"
+            - "evcil hayvanım kayboldu"
+            - "sokakta bulundu"
+            - "tasmalı bulundu"
+            - "yardım kayıp"
+            - "pet bul"
+            - "evini arıyor"
+            - "kayıp ilanları"
+            - "buluntu ilanları"
+            - "acil kayıp"
+            - "sahibine ulaştır"
+            - "afiş (kayıp hayvan)"
+            - "gören oldu mu"
+            - "nerede bu can"
+            - "kayıp kuş"
+            - "kayıp egzotik"
+        akilli_filtreler:
+          ozel_filtre_alanlari:
+            - "ilan_tipi_kb" # Select: Kayıp Hayvan Bildirimi, Buluntu Hayvan Bildirimi
+            - "hayvan_turu_kb" # Select: Köpek, Kedi, Kuş, Diğer
+            - "hayvan_irk_kb" # Text (belirginse)
+            - "hayvan_yas_tahmini_kb" # Text
+            - "hayvan_cinsiyet_kb" # Select: Erkek, Dişi, Bilinmiyor
+            - "hayvan_renk_desen_kb" # Text: Belirgin renk ve işaretleri
+            - "ayirt_edici_ozellikler_kb" # Text: Yara izi, özel tasma, davranış vb.
+            - "kayboldugu_bulundugu_tarih_saat_kb" # DateTimeInput
+            - "kayboldugu_bulundugu_adres_kb" # Text: Mahalle, Cadde, Önemli Nokta
+            - "kayboldugu_bulundugu_sehir_ilce_kb" # Selects
+            - "tasma_aksesuar_durumu_kb" # Text: Tasması var mıydı? Ne renk? Künyesi var mı?
+            - "mikrocip_bilgisi_kb" # Select: Var (numarası?), Yok, Bilinmiyor
+            - "son_goruldugu_yer_davranis_kb" # Text (Kayıp ise)
+            - "bulundugundaki_davranis_saglik_kb" # Text (Buluntu ise): Ürkek mi, cana yakın mı, yaralı mı?
+            - "iletisim_bilgileri_acil_kb" # Text: Telefon (zorunlu), Alternatif İletişim
+            - "kayip_ilani_icin_odul_kb" # NumberInput (isteğe bağlı, Kayıp ise)
+            - "buluntu_hayvan_gecici_bakim_durumu_kb" # Text (Buluntu ise): Nerede bakılıyor? Kliniğe götürüldü mü?
+            - "fotograf_video_kb" # FileUpload (Çok önemli, net fotoğraflar)
+            - "ilan_verenin_rolu_kb" # Select: Sahibiyim, Bulan Kişiyim, Şahit Oldum
+            - "hayvanin_genel_karakteri_kb" # Text (Sahibi biliyorsa)
+            - "yakalanma_zorlugu_kb" # Select (Buluntu ise): Kolay yakalanır, Ürkek kaçıyor, Profesyonel yardım gerekebilir
+            - "beslenme_durumu_kb" # Text (Buluntu ise): Aç mı görünüyor, ne yiyor?
+            - "ihbar_yapilan_kurumlar_kb" # MultiSelectText: Belediye, Barınak, Polis
+            - "sosyal_medya_paylasim_linkleri_kb" # Text (isteğe bağlı)
+            - "kayip_suresi_tahmini_kb" # Text (Kayıp ise)
+            - "insanlara_yaklasimi_kb" # Select (Buluntu ise): Cana yakın, Korkak, Agresif değil ama mesafeli
+            - "diger_hayvanlara_tepkisi_kb" # Text (Buluntu ise, gözlemlendiyse)
+        platform_ayarlari:
+          varsayilan_ilan_suresi: "Sınırsız (bulunana veya vazgeçilene kadar, periyodik 'hala kayıp/bulundu mu?' onayı)"
+          oncelik_katsayisi: 2.0 # Çok yüksek öncelik
+          moderasyon_seviyesi: "Yüksek" # Sahte iddialar, kötü niyetli kullanım engellenmeli. İletişim bilgileri doğrulanmalı.
+          ozel_dogrulama_gerekliligi: "Buluntu hayvanı sahiplenme iddiasında olanlardan sahiplik kanıtı (eski fotoğraflar, veteriner kayıtları, özel işaretler). Kayıp ilanında iletişim bilgilerinin doğruluğu."
+        istatistikler:
+          beklenen_performans_metrikleri:
+            - "Ortalama ilan görüntülenme: Çok Yüksek (özellikle ilk 48 saat)"
+            - "Başarılı kavuşma oranı hedefi: %50 (hızlı ve yaygın paylaşıma bağlı)"
+            - "Ortalama bulunma/kavuşma süresi: 1-7 gün (kritik)"
+            - "Topluluk dayanışmasının en güçlü olduğu alanlardan biri."
+
+      acil_durum:
+        temel_kimlik:
+          ad: "Acil Durum / İvedi Yardım Çağrısı"
+          slug: "acil-durum-ivedi-yardim-cagrisi"
+          aciklama: "Kaza, yaralanma, terk edilme, kötü muamele gibi acil müdahale gerektiren durumdaki hayvanlar için yardım talepleri. Hızlı ve etkili müdahale hayat kurtarır."
+          gorsel_kimlik:
+            renk_kodu: "#EF4444" # Parlak Kırmızı (ACİL!)
+            ikon_adi: "fas fa-ambulance" # veya fas fa-siren-on
+            emoji: "🚨"
+        arama_sistemi:
+          alternatif_kelimeler:
+            - "acil veteriner"
+            - "yaralı hayvan"
+            - "kaza geçiren hayvan"
+            - "hayvan kurtarma"
+            - "acil yardım pet"
+            - "ihbar (hayvana şiddet)"
+            - "terk edilmiş bebek hayvan"
+            - "acil klinik masrafı"
+            - "kan bağışı (hayvan)"
+            - "acil geçici yuva (travma)"
+            - "doğal afet mağduru hayvan"
+            - "zehirlenme şüphesi"
+            - "acil nakil aracı"
+            - "itfaiye (hayvan sıkışması)"
+            - "acil mama desteği (afet bölgesi)"
+            - "sokakta donmak üzere"
+            - "acil tedavi ihtiyacı"
+            - "hayvan hakları ihlali"
+            - "acil müdahale ekibi"
+        akilli_filtreler:
+          ozel_filtre_alanlari:
+            - "acil_durum_tipi" # Select: Kaza/Yaralanma, Hastalık Krizi, Terk Edilme (savunmasız), Kötü Muamele/İhmal, Doğal Afet, Yangın, Zehirlenme Şüphesi, Sıkışma/Mahsur Kalma
+            - "hayvan_turu_acil" # Text: Köpek, Kedi, Kuş, Yabani Hayvan (mümkünse türü)
+            - "hayvan_sayisi_acil" # NumberInput
+            - "olay_yeri_adres_acil" # Text: Net adres veya konum tarifi
+            - "olay_yeri_sehir_ilce_acil" # Selects
+            - "olay_tarih_saat_acil" # DateTimeInput
+            - "hayvanin_durumu_detay_acil" # Text: Gözlemlenen belirtiler, yaralanmanın boyutu
+            - "talep_edilen_yardim_turu_acil" # MultiSelect: Acil Veteriner Müdahalesi, Nakil Desteği, Geçici Güvenli Yuva, Maddi Destek (klinik masrafı), Mama/Malzeme Desteği, Yasal Yardım/İhbar, Kurtarma Ekibi
+            - "iletisim_bilgileri_cok_acil" # Text: Telefon (zorunlu), WhatsApp
+            - "fotograf_video_durum_acil" # FileUpload (Mümkünse, hayvanı ve durumu gösteren)
+            - "ihbar_yapan_kisi_rolu_acil" # Select: Gören Kişi, İlk Müdahaleyi Yapan, Hayvan Sahibi (eğer acilse)
+            - "yakinda_veteriner_klinik_bilgisi_acil" # Text (varsa)
+            - "hayvanin_tasinabilirlik_durumu_acil" # Select: Taşınabilir, Taşınamaz (yerinde müdahale gerekir), Bilinmiyor
+            - "cevrede_baska_tehdit_var_mi_acil" # Text: Trafik, saldırgan başka hayvan/insan
+            - "yapilan_ilk_mudahale_acil" # Text (yapıldıysa)
+            - "resmi_kurumlara_bildirim_acil" # Select: Yapıldı (Polis, Belediye), Yapılmadı, Yapılıyor
+            - "kan_grubu_ihtiyaci_acil" # Text (Veteriner belirlediyse)
+            - "maddi_destek_icin_hesap_bilgileri_acil" # Text (Şeffaflık ve güvenilirlik önemli, platform politikasına göre)
+            - "guncel_durum_takip_acil" # Text (İlan sahibi periyodik olarak güncellemeli)
+            - "yardim_eden_gonullu_sayisi_ihtiyaci_acil" # NumberInput
+            - "uzmanlik_gerektiren_mudahale_acil" # Text: örn. Yılan ısırması, yüksekten düşme
+            - "hava_kosullari_etkisi_acil" # Text: Yağmur, soğuk, sıcak vb.
+            - "hayvanin_kimlik_bilgisi_varsa_acil" # Text: Tasma, küpe, mikrocip (okunabildiyse)
+            - "acil_durum_seviyesi_tahmini_acil" # Select: Çok Kritik, Kritik, Acil Ama Stabilize Edilebilir
+            - "toplanma_noktasi_gonulluler_icin_acil" # Text (Gerekirse)
+        platform_ayarlari:
+          varsayilan_ilan_suresi: "7 gün (durum çözülene veya güncellenene kadar, otomatik kapanabilir)"
+          oncelik_katsayisi: 2.5 # En yüksek öncelik
+          moderasyon_seviyesi: "Çok Yüksek" # Gerçek acil durumların teyidi, kötüye kullanımın engellenmesi. Hızlı onay süreci.
+          ozel_dogrulama_gerekliligi: "Evet, mümkünse fotoğraf/video kanıtı. Maddi destek taleplerinde veteriner raporu veya klinik proforması. İhbarı yapan kişinin güvenilirliği (platform geçmişi vb.)."
+        istatistikler:
+          beklenen_performans_metrikleri:
+            - "Ortalama ilan görüntülenme: Anlık olarak çok yüksek (özellikle bildirimlerle)"
+            - "Başarılı müdahale/yardım oranı hedefi: %80 (hızlı koordinasyona bağlı)"
+            - "Ortalama müdahale başlama süresi: 1-3 saat (kritik)"
+            - "Platformun sosyal sorumluluk ve hayat kurtarma misyonunun zirvesi."
+
+      topluluk:
+        temel_kimlik:
+          ad: "Topluluk Etkinlikleri ve Buluşmaları"
+          slug: "topluluk-etkinlikleri-bulusmalari"
+          aciklama: "Hayvanseverleri bir araya getiren etkinlikler, eğitim seminerleri, köpek gezdirme grupları, barınak ziyaretleri ve diğer sosyal aktiviteler."
+          gorsel_kimlik:
+            renk_kodu: "#A3E635" # Açık Yeşil (Canlılık ve Birliktelik)
+            ikon_adi: "fas fa-users"
+            emoji: "🧑‍🤝‍🧑" # veya 💕
+        arama_sistemi:
+          alternatif_kelimeler:
+            - "hayvansever buluşması"
+            - "pet etkinliği"
+            - "köpek parkı buluşması"
+            - "barınak gönüllülüğü"
+            - "eğitim semineri (hayvan)"
+            - "online hayvan sohbeti"
+            - "ırk özel buluşması"
+            - "pati festivali"
+            - "hayvan hakları yürüyüşü"
+            - "kermes (hayvan yararına)"
+            - "grup gezisi (hayvanlarla)"
+            - "sosyal sorumluluk projesi (hayvan)"
+            - "atölye çalışması (pet)"
+            - "webinar (hayvan sağlığı)"
+            - "yerel hayvansever grubu"
+            - "pet fuarı"
+            - "tanışma etkinliği"
+            - "ortak ilgi alanı"
+            - "dayanışma etkinliği"
+        akilli_filtreler:
+          ozel_filtre_alanlari:
+            - "etkinlik_tipi_topluluk" # Select: Buluşma/Tanışma, Eğitim/Seminer, Gönüllülük Aktivitesi, Protesto/Farkındalık, Bağış Etkinliği, Online Etkinlik, Spor/Gezi, Festival/Fuar
+            - "etkinlik_adi_topluluk" # Text
+            - "etkinlik_tarihi_baslangic_topluluk" # DateTimeInput
+            - "etkinlik_tarihi_bitis_topluluk" # DateTimeInput (isteğe bağlı)
+            - "etkinlik_yeri_adres_topluluk" # Text (Fiziksel ise)
+            - "etkinlik_yeri_sehir_ilce_topluluk" # Selects (Fiziksel ise)
+            - "online_etkinlik_platformu_link_topluluk" # URL (Online ise)
+            - "hedef_kitle_topluluk" # Text: Köpek sahipleri, Kedi severler, Tüm hayvanseverler, Belirli ırk sahipleri
+            - "katilim_ucreti_topluluk" # NumberInput (0 ise ücretsiz)
+            - "ucret_kullanim_amaci_topluluk" # Text (Ücretli ise, örn: barınak bağışı)
+            - "kontenjan_siniri_topluluk" # NumberInput (varsa)
+            - "kayit_gerekliligi_link_topluluk" # URL (Kayıt gerekiyorsa)
+            - "etkinlik_aciklamasi_detay_topluluk" # Text
+            - "konusmacilar_egitmenler_topluluk" # Text (varsa)
+            - "sponsorlar_destekciler_topluluk" # Text (varsa)
+            - "hayvan_katilimi_uygun_mu_topluluk" # Select: Evet (tür belirtin), Hayır (sadece insanlar), Özel Koşullarla
+            - "hayvan_katilim_kurallari_topluluk" # Text (Hayvan katılımı uygunsa)
+            - "iletisim_organizator_topluluk" # Text: Telefon veya e-posta
+            - "etkinlik_tekrar_sikligi_topluluk" # Select: Tek Seferlik, Haftalık, Aylık, Yıllık
+            - "yas_siniri_katilimci_topluluk" # Text (varsa)
+            - "getirilmesi_gerekenler_topluluk" # Text: örn. Tasma, su kabı, not defteri
+            - "etkinlik_kategorisi_alt_topluluk" # MultiSelect: Sağlık, Davranış, Beslenme, Irk Bilgisi, Yasalar, Eğlence
+            - "erisim_engelli_uygunlugu_topluluk" # Boolean
+            - "fotograf_video_cekim_izni_topluluk" # Text: İzinli, Kısıtlı, Yasak
+            - "hava_durumu_etkisi_plan_b_topluluk" # Text (Açıkhava ise)
+            - "ulasim_park_yeri_bilgisi_topluluk" # Text
+        platform_ayarlari:
+          varsayilan_ilan_suresi: "Etkinlik tarihine kadar + 7 gün (geçmiş etkinlik olarak listelenebilir)"
+          oncelik_katsayisi: 1.2
+          moderasyon_seviyesi: "Orta" # Etkinliğin amacı, güvenliği, yanıltıcı bilgi olmaması
+          ozel_dogrulama_gerekliligi: "Büyük çaplı veya ücretli etkinliklerde organizatör kimliği ve etkinliğin meşruluğu teyit edilebilir."
+        istatistikler:
+          beklenen_performans_metrikleri:
+            - "Ortalama ilan görüntülenme: Orta-Yüksek (ilgili kitleye göre)"
+            - "Katılım oranı hedefi: Kontenjana göre değişken"
+            - "Topluluk içi etkileşim ve ağ oluşturma: Yüksek"
+            - "Platformun sosyal ve birleştirici yönünü güçlendirir."
+
+      destek_hizmeti:
+        temel_kimlik:
+          ad: "Gönüllü Destek Hizmetleri (Ücretsiz)"
+          slug: "gonullu-destek-hizmetleri-ucretsiz"
+          aciklama: "Hayvanseverlerin birbirlerine ücretsiz olarak sunduğu destekler: geçici bakım (acil olmayan), köpek gezdirme, deneyim paylaşımı, basit bakım yardımı vb."
+          gorsel_kimlik:
+            renk_kodu: "#FDBA74" # Açık Turuncu (Yardımlaşma ve Dostluk)
+            ikon_adi: "fas fa-hands-helping"
+            emoji: "🤝"
+        arama_sistemi:
+          alternatif_kelimeler:
+            - "gönüllü pet sitter"
+            - "ücretsiz köpek gezdirme"
+            - "deneyim paylaşımı (hayvan)"
+            - "komşu yardımı (pet)"
+            - "karşılıksız hayvan bakımı"
+            - "gönüllü geçici yuva (kısa süreli)"
+            - "hayvansever dayanışması"
+            - "ücretsiz danışmanlık (deneyimli sahip)"
+            - "acil olmayan bakım yardımı"
+            - "mama paylaşımı"
+            - "oyuncak değişimi"
+            - "hayvansever ağı"
+            - "yardım eli uzat"
+            - "gönüllü refakatçi (veteriner ziyareti)"
+            - "paylaşım ekonomisi (pet)"
+            - "iyilik hareketi"
+            - "gönüllü nakil (kısa mesafe)"
+            - "bilgi aktarımı"
+            - "manevi destek"
+        akilli_filtreler:
+          ozel_filtre_alanlari:
+            - "destek_tipi_gonullu" # Select: Geçici Bakım (Evde), Köpek Gezdirme, Kedi/Diğer Hayvan Ev Ziyareti (Besleme/Oyun), Deneyim/Bilgi Paylaşımı, Basit Tıbbi Olmayan Bakım Yardımı (yaşlı/hasta hayvan için), Malzeme Paylaşımı (mama, oyuncak)
+            - "destek_sunulan_hayvan_turu_gonullu" # MultiSelect: Köpek, Kedi, Kuş, Kemirgen, Diğer
+            - "destek_sunulan_bolge_sehir_ilce_gonullu" # Selects
+            - "destek_sunulan_gunler_saatler_gonullu" # Text: Müsaitlik durumu (örn: Hafta sonları, Akşamları 18-20 arası)
+            - "deneyim_seviyesi_gonullu" # Text: İlgili hayvan türüyle ne kadar deneyimli olduğu
+            - "referans_verebilirlik_gonullu" # Boolean (isteğe bağlı)
+            - "sunulan_destek_detay_gonullu" # Text: Ne tür bir yardım sunabileceği
+            - "kabul_edilen_hayvan_ozellikleri_gonullu" # Text (Geçici bakım için): örn. Sadece küçük ırk köpek, kısırlaştırılmış kedi
+            - "kendi_evcil_hayvani_var_mi_gonullu" # Boolean (Geçici bakım için önemli)
+            - "ev_ortami_bilgisi_gonullu" # Text (Geçici bakım için): Apartman, bahçeli ev, çocuk var/yok
+            - "maksimum_destek_suresi_gonullu" # Text (Geçici bakım için): örn. 1 hafta, 1 ay
+            - "iletisim_tercihi_gonullu" # Text
+            - "gonullu_olma_motivasyonu_gonullu" # Text (isteğe bağlı)
+            - "acil_durum_kontagi_gonullu" # Text (Gönüllünün, bir sorun olursa ulaşılacak yakını)
+            - "beklentiler_karsilikli_gonullu" # Text: Destek alacak kişiden beklentileri (mama temini, veteriner masrafı vb.)
+            - "sigara_kullanimi_ev_gonullu" # Select (Geçici bakım için): Kullanılıyor, Kullanılmıyor, Balkonda
+            - "cocuk_yas_araligi_ev_gonullu" # Text (Geçici bakım ve çocuklu ev ise)
+            - "daha_once_gonulluluk_deneyimi_gonullu" # Text
+            - "hayvan_korkusu_alerjisi_olan_birey_evde_gonullu" # Boolean
+            - "guvenlik_onlemleri_ev_gonullu" # Text: Pencerelerde sineklik, güvenli balkon vb.
+            - "gecici_bakim_icin_ucret_talebi_gonullu" # Platform ilkesi ücretsiz, ancak mama/masraf karşılanması beklenebilir. Bu alan "Masraf Paylaşımı Beklentisi" olabilir. Select: Sadece Mama/Kum, Veteriner Masrafı (acilse), Yok.
+            - "gonullu_kimlik_dogrulamasi_onayi_gonullu" # Boolean: Platformun güvenliği için kimlik doğrulamasına açık mı?
+            - "tanisma_gorusmesi_sarti_gonullu" # Boolean
+            - "sozlesme_kullanimi_gonullu_destek" # Boolean: Basit bir sorumluluk anlaşması
+        platform_ayarlari:
+          varsayilan_ilan_suresi: "60 gün (periyodik güncelleme teşviki)"
+          oncelik_katsayisi: 1.0
+          moderasyon_seviyesi: "Orta-Yüksek" # Güvenlik ve iyi niyet esastır. Kimlik doğrulama ve referans kontrolü önemli olabilir.
+          ozel_dogrulama_gerekliligi: "Geçici bakım sunanlar için ev ortamı fotoğrafları/videoları, kimlik doğrulaması. Deneyim paylaşımı için platformdaki aktivite/itibar."
+        istatistikler:
+          beklenen_performans_metrikleri:
+            - "Ortalama ilan görüntülenme: Orta (ihtiyaca göre)"
+            - "Başarılı eşleşme/yardım oranı hedefi: %60"
+            - "Topluluk içi güven ve dayanışma artışı: Çok Yüksek"
+            - "Platformun 'sevgi' ve 'yardımlaşma' misyonunu pekiştirir."
+
+      bilgi_egitim:
+        temel_kimlik:
+          ad: "Bilgi Paylaşımı ve Eğitim (Ücretsiz Kaynaklar)"
+          slug: "bilgi-paylasimi-egitim-ucretsiz-kaynaklar"
+          aciklama: "Hayvan bakımı, sağlığı, davranışı, eğitimi ve hakları konularında ücretsiz bilgi notları, rehberler, makaleler, faydalı linkler ve deneyimlerin paylaşıldığı bölüm."
+          gorsel_kimlik:
+            renk_kodu: "#93C5FD" # Açık Mavi (Bilgi ve Huzur)
+            ikon_adi: "fas fa-book-open-reader" # veya fas fa-graduation-cap
+            emoji: "📚"
+        arama_sistemi:
+          alternatif_kelimeler:
+            - "hayvan bakımı rehberi"
+            - "köpek eğitimi ipuçları"
+            - "kedi sağlığı bilgileri"
+            - "pet davranış sorunları"
+            - "hayvan hakları"
+            - "ücretsiz pet eğitimi"
+            - "doğru mama seçimi"
+            - "yavru hayvan bakımı"
+            - "yaşlı hayvan bakımı"
+            - "pozitif eğitim metotları"
+            - "türlere özel bakım"
+            - "ilk yardım (hayvan)"
+            - "faydalı makaleler (pet)"
+            - "uzman görüşleri (özet)"
+            - "eğitici videolar (link)"
+            - "soru-cevap (deneyim)"
+            - "yerel veteriner listesi (tavsiye)"
+            - "güvenilir kaynaklar"
+            - "bilinçli hayvan sahipliği"
+        akilli_filtreler:
+          ozel_filtre_alanlari:
+            - "bilgi_kategorisi_ana_be" # Select: Bakım, Sağlık, Davranış/Eğitim, Beslenme, Hayvan Hakları/Yasalar, Irk Bilgileri, Genel Bilgiler, Ekipman/Malzeme Önerileri
+            - "hedef_hayvan_turu_be" # MultiSelect: Köpek, Kedi, Kuş, Kemirgen, Sürüngen, Balık, Tüm Hayvanlar
+            - "icerik_formati_be" # Select: Makale/Yazı, Rehber/Kontrol Listesi, Video Linki, Podcast Linki, İnfografik Linki, Soru-Cevap Başlığı, Deneyim Paylaşımı
+            - "zorluk_seviyesi_bilgi_be" # Select: Başlangıç Seviyesi, Orta Seviye, İleri Seviye
+            - "kaynak_guvenilirligi_beyan_be" # Select: Kişisel Deneyim, Uzman Makalesi (linkli), Bilimsel Araştırma (linkli), Resmi Kurum Bilgisi (linkli)
+            - "bilgi_basligi_be" # Text
+            - "bilgi_ozeti_kisa_be" # Text
+            - "bilgi_icerigi_detay_be" # Text (Uzun içerik veya link)
+            - "anahtar_kelimeler_etiketler_be" # Text (virgülle ayrılmış)
+            - "hedef_kitle_ozel_be" # Text: örn. İlk kez köpek sahiplenecekler, Davranış sorunu yaşayan kedi sahipleri
+            - "gorsel_kullanimi_link_be" # URL (İçerikle ilgili görsel varsa)
+            - "paylasan_kullanici_deneyimi_be" # Text (Paylaşanın konuyla ilgili kısa deneyimi)
+            - "interaktif_soru_sorma_imkani_be" # Boolean: Paylaşım altında yorum/soru kabul ediyor mu?
+            - "bilginin_guncelligi_tarih_be" # DateInput (Paylaşıldığı veya son güncellendiği tarih)
+            - "pratik_uygulama_onerileri_be" # Boolean: İçerik pratik ipuçları içeriyor mu?
+            - "kullanilan_dil_be" # Select: Türkçe, İngilizce (çeviri ise belirtilmeli)
+            - "yas_grubuna_uygunluk_bilgi_be" # Text: Çocuklar için uygun mu?
+            - "telif_hakki_durumu_beyan_be" # Text: Kendi özgün içeriği mi, alıntı mı (kaynak gösterilmeli)?
+            - "farkli_goruslere_yer_verilmis_mi_be" # Boolean (Tartışmalı konularda)
+            - "yerel_kosullara_uygunluk_be" # Text: Türkiye şartlarına özel mi, genel mi?
+            - "bilimsel_dayanak_linkleri_be" # Text (varsa)
+            - "okuma_suresi_tahmini_be" # Text
+            - "ilgili_diger_kaynaklar_oneriler_be" # Text
+            - "yanlis_bilgi_duzeltme_mekanizmasi_be" # Text: Yorumlarla veya editöryel notla
+        platform_ayarlari:
+          varsayilan_ilan_suresi: "Sınırsız (içerik güncel kaldığı sürece)"
+          oncelik_katsayisi: 0.8
+          moderasyon_seviyesi: "Orta" # Yanlış, zararlı veya ticari amaçlı içeriklerin filtrelenmesi. Kaynak gösterimi.
+          ozel_dogrulama_gerekliligi: "Tıbbi veya yasal konularda paylaşılan bilgilerin doğruluğu ve kaynağı konusunda dikkat. Uzman olmayan kişilerin kesin tıbbi tavsiye vermesi engellenmeli."
+        istatistikler:
+          beklenen_performans_metrikleri:
+            - "Ortalama ilan görüntülenme: İçeriğin kalitesine ve popülerliğine göre değişken"
+            - "Faydalı bulunma ve paylaşılma oranı: Yüksek (kaliteli içerik için)"
+            - "Topluluğun bilinçlenmesi ve hayvan refahına katkı: Çok Yüksek"
+            - "Platformun güvenilir bir bilgi kaynağı olarak konumlanmasını sağlar."
+
+    ticari_ilan_kategorileri:      uretici:        temel_kimlik:
+          ad: "Üretici / Yetiştirici"
+          slug: "uretici-yetistirici"
+          aciklama: "Profesyonel hayvan yetiştiricileri, evcil hayvan ürünleri veya mama üreticileri için özel kategori. Kalite, sağlık ve standartlar ön plandadır."
+          gorsel_kimlik:
+            renk_kodu: "#1E3A8A" # Koyu Mavi (Güven ve Profesyonellik)
+            ikon_adi: "fas fa-industry"
+            emoji: "🏭"
+        arama_sistemi:
+          alternatif_kelimeler:
+            - "yetiştirici"
+            - "breeder"
+            - "kennel"
+            - "cattery"
+            - "fabrika"
+            - "imalatçı"
+            - "profesyonel üretim"
+            - "safkan üretimi"
+            - "pet food üreticisi"
+            - "aksesuar imalatı"
+            - "kaliteli üretim"
+            - "sertifikalı üretici"
+            - "damızlık"
+            - "show quality"
+            - "çiftlik" # Hayvan üretimi bağlamında
+            - "üretim tesisi"
+            - "marka sahibi"
+            - "orijinal ekipman üreticisi (OEM)"
+            - "lisanslı yetiştirici"
+        akilli_filtreler:
+          ozel_filtre_alanlari:
+            - "uretici_tipi" # Select: Hayvan Yetiştiricisi, Mama Üreticisi, Aksesuar Üreticisi, İlaç/Bakım Ürünü Üreticisi
+            - "uzmanlik_alani_hayvan_uretici" # Text (Hayvan ise): örn. Golden Retriever, Siyam Kedisi, Egzotik Kuşlar
+            - "urun_kategorisi_pet_uretici" # Text (Ürün ise): örn. Premium Kuru Mama, Ortopedik Yataklar, Akıllı Oyuncaklar
+            - "marka_adi_uretici" # Text
+            - "kurulus_yili_uretici" # NumberInput
+            - "sertifikasyonlar_belgeler_uretici" # MultiSelectText: ISO, HACCP, FCI, WCF, Yerel Dernek Üyelikleri
+            - "uretim_kapasitesi_aylik_uretici" # Text
+            - "uretim_yeri_uretici" # Text: Şehir, Ülke
+            - "referanslar_musteri_yorumlari_uretici" # Text veya URL
+            - "secere_soy_agaci_bilgisi_uretici" # Boolean (Hayvan ise): Var, Yok, Talep Üzerine
+            - "saglik_garantisi_suresi_uretici" # Text (Hayvan ise): örn. 1 Yıl Genetik Hastalık Garantisi
+            - "urun_garanti_suresi_uretici" # Text (Ürün ise): örn. 2 Yıl Üretim Hatalarına Karşı
+            - "minimum_siparis_miktari_uretici" # NumberInput (Toptan satış yapıyorsa)
+            - "fiyat_araligi_urun_hayvan_uretici" # Text: örn. 1000-5000 TL (Hayvan), 50-200 TL (Ürün)
+            - "uluslararasi_gonderim_uretici" # Boolean
+            - "yerel_teslimat_secenekleri_uretici" # Text
+            - "katildigi_fuar_yarismalar_uretici" # Text
+            - "oduller_basarilar_uretici" # Text
+            - "uretim_felsefesi_etik_yaklasim_uretici" # Text
+            - "web_sitesi_sosyal_medya_uretici" # URL
+            - "randevu_sistemi_ziyaret_uretici" # Boolean
+            - "eğitim_danismanlik_hizmeti_uretici" # Boolean (Hayvan yetiştiricisi ise)
+            - "geri_alim_politikasi_uretici" # Text (Hayvan yetiştiricisi ise)
+            - "beslenme_programi_onerileri_uretici" # Text (Hayvan/Mama ise)
+            - "kullanilan_hammaddeler_kalite_uretici" # Text (Mama/Ürün ise)
+            - "teknolojik_altyapi_uretici" # Text (Üretim tesisi için)
+            - "ar_ge_calismalari_uretici" # Boolean
+        platform_ayarlari:
+          varsayilan_ilan_suresi: "90 gün"
+          oncelik_katsayisi: 1.4 # Profesyonel ve güvenilir kaynak
+          moderasyon_seviyesi: "Yüksek" # Sertifikalar, üretim koşulları, sağlık garantileri denetlenmeli
+          ozel_dogrulama_gerekliligi: "Evet, ticari sicil, üretim izinleri, sertifikalar, varsa dernek üyelikleri."
+          kredi_maliyeti_katsayisi: 1.8
+        istatistikler:
+          beklenen_performans_metrikleri:
+            - "Ortalama ilan görüntülenme: Yüksek (kalite arayanlar için)"
+            - "Satış/Sahiplendirme oranı hedefi: %60 (güvene dayalı)"
+            - "Ortalama işlem süresi: Değişken (hayvan/ürün türüne göre)"
+            - "Platformun kalite ve güvenilirlik algısını yükseltir."
+
+
+      ev_uretimi:        temel_kimlik:
+          ad: "Ev Üretimi / Hobi Yetiştiriciliği"
+          slug: "ev-uretimi-hobi-yetistiriciligi"
+          aciklama: "Ev ortamında, daha küçük ölçekli ve genellikle hobi amaçlı hayvan yetiştirenler veya el yapımı evcil hayvan ürünleri sunanlar için."
+          gorsel_kimlik:
+            renk_kodu: "#EC4899" # Pembe (Sevgi ve Şefkatli Üretim)
+            ikon_adi: "fas fa-home"
+            emoji: "🏡"
+        arama_sistemi:
+          alternatif_kelimeler:
+            - "hobi yetiştiricisi"
+            - "evde üretim"
+            - "küçük ölçekli üretim"
+            - "butik üretim"
+            - "aile yanı yetiştirme"
+            - "sınırlı sayıda"
+            - "anne altından"
+            - "el yapımı ürün"
+            - "doğal ürünler"
+            - "organik pet malzemeleri"
+            - "kişiye özel tasarım"
+            - "evcil hayvan için el işi"
+            - "sevgiyle üretildi"
+            - "sosyalleşmiş yavrular"
+            - "ev ortamına alışkın"
+            - "hobi amaçlı"
+            - "ek gelir"
+            - "yerel üretici"
+            - "minyatür üretim"
+        akilli_filtreler:
+          ozel_filtre_alanlari:
+            - "uretim_tipi_ev" # Select: Hayvan Yetiştirme, El Yapımı Oyuncak, El Yapımı Aksesuar, Ev Yapımı Mama/Ödül, Özel Tasarım Kıyafet
+            - "hayvan_turu_ev_uretimi" # Text (Hayvan ise): örn. Mini Lop Tavşanı, Egzotik Muhabbet Kuşu Varyetesi
+            - "urun_tipi_ev_yapimi" # Text (Ürün ise): örn. Örgü Kedi Yatağı, Doğal Ahşap Kuş Salıncağı
+            - "uretim_ortami_kosullari_ev" # Text: Ev içi, bahçeli ev, özel ayrılmış oda vb.
+            - "ebeveyn_hayvan_bilgileri_ev" # Text (Hayvan ise): Anne-baba fotoğrafları, sağlık durumları
+            - "sosyallesme_durumu_yavru_ev" # Text (Hayvan ise): İnsanlara, çocuklara, diğer hayvanlara alışkınlık seviyesi
+            - "kullanilan_malzemeler_urun_ev" # Text (Ürün ise): Organik pamuk, doğal ahşap, gıda sınıfı boya vb.
+            - "uretim_suresi_siparis_ev" # Text (Sipariş üzerine ise)
+            - "stok_durumu_limitli_ev" # NumberInput
+            - "fiyat_ev_uretimi" # NumberInput
+            - "teslimat_secenekleri_yerel_ev" # MultiSelect: Elden teslim, Yakın çevreye teslimat (ücretli/ücretsiz)
+            - "referans_onceki_alicilar_ev" # Text (isteğe bağlı)
+            - "saglik_kontrolu_yavru_ev" # Text (Hayvan ise): Veteriner kontrolünden geçti mi?
+            - "el_yapimi_ozellikleri_detay_ev" # Text: Ürünün benzersiz yönleri
+            - "fotograf_video_uretim_sureci_ev" # URL (isteğe bağlı)
+            - "hobi_amacli_oldugunun_beyani_ev" # Boolean
+            - "geri_iade_politikasi_ev" # Text
+            - "bakim_kullanim_onerileri_ev" # Text
+            - "siparis_icin_iletisim_tercihi_ev" # Text
+            - "mevcut_yavru_sayisi_ev" # NumberInput (Hayvan ise)
+            - "renk_varyasyonlari_ev" # Text
+            - "boyut_secenekleri_urun_ev" # Text (Ürün ise)
+            - "hediye_paketi_imkani_ev" # Boolean
+            - "mevsimlik_ozel_urunler_ev" # Boolean
+            - "yerel_etkinlik_katilimi_ev" # Text: Pazarlarda satış yapıyor mu?
+            - "rezervasyon_sistemi_yavru_ev" # Boolean (Hayvan ise)
+        platform_ayarlari:
+          varsayilan_ilan_suresi: "90 gün"
+          oncelik_katsayisi: 1.1 # Samimi ve özel ürün/hayvan arayanlar için
+          moderasyon_seviyesi: "Orta" # Hayvan refahı, ürün güvenliği ve hijyen koşulları önemli
+          ozel_dogrulama_gerekliligi: "Hayvan refahı odaklı fotoğraflar/videolar, eğer sık üretim yapılıyorsa yerel yönetmeliklere uygunluk."
+          kredi_maliyeti_katsayisi: 0.8 # Daha küçük ölçekli olduğu için
+        istatistikler:
+          beklenen_performans_metrikleri:
+            - "Ortalama ilan görüntülenme: Orta"
+            - "Satış/Sahiplendirme oranı hedefi: %70 (güven ve şeffaflığa bağlı)"
+            - "Ortalama işlem süresi: 15-30 gün"
+            - "Topluluk içinde güçlü bağlar oluşturabilir."
+
+
+      ithalat:
+        temel_kimlik:
+          ad: "İthalat / Yurt Dışı Tedarik"
+          slug: "ithalat-yurt-disi-tedarik"
+          aciklama: "Yurt dışından özel hayvan ırkları, benzersiz evcil hayvan ürünleri veya özel mamalar ithal etmek veya bu konuda hizmet almak isteyenler için."
+          gorsel_kimlik:
+            renk_kodu: "#0D9488" # Turkuaz (Uluslararası ve Güvenilir)
+            ikon_adi: "fas fa-globe-americas"
+            emoji: "🌍"
+        arama_sistemi:
+          alternatif_kelimeler:
+            - "yurt dışı pet"
+            - "ithal hayvan"
+            - "ithal mama"
+            - "ithal aksesuar"
+            - "uluslararası tedarikçi"
+            - "gümrük işlemleri (pet)"
+            - "CITES belgeli ithalat"
+            - "özel ırk getirme"
+            - "yabancı pet shop ürünleri"
+            - "global pet market"
+            - "import"
+            - "overseas pet"
+            - "uluslararası pet nakliyesi"
+            - "karantina hizmetleri (ithalat)"
+            - "yurt dışı üretici temsilcisi"
+            - "Avrupa pet ürünleri"
+            - "Amerika pet ürünleri"
+            - "Asya pet ürünleri"
+            - "ithalat danışmanlığı (pet)"
+        akilli_filtreler:
+          ozel_filtre_alanlari:
+            - "ithalat_kategorisi" # Select: Canlı Hayvan İthalatı, Mama/Yem İthalatı, Aksesuar/Ekipman İthalatı, İlaç/Bakım Ürünü İthalatı, İthalat Danışmanlık Hizmeti
+            - "ithal_edilecek_hayvan_urun_adi_ithalat" # Text
+            - "menşei_ulke_ithalat" # SelectCountry
+            - "hedef_ulke_ithalat" # SelectCountry (Türkiye ise sabit)
+            - "marka_model_bilgisi_ithalat" # Text (Ürün ise)
+            - "hayvan_irk_ozellikleri_ithalat" # Text (Hayvan ise)
+            - "gerekli_belgeler_sertifikalar_ithalat" # MultiSelectText: CITES, Sağlık Sertifikası, Menşe Şahadetnamesi, Pedigree
+            - "gumruk_prosedurleri_bilgisi_ithalat" # Select: İthalatçı halleder, Alıcı destek olur, Danışmanlık Gerekli
+            - "tahmini_maliyet_araligi_ithalat" # Text: Ürün/Hayvan + Nakliye + Vergiler
+            - "tahmini_teslim_suresi_ithalat" # Text
+            - "nakliye_yontemi_ithalat" # Select: Hava Kargo, Deniz Kargo, Kara Yolu
+            - "karantina_gerekliligi_uygulamasi_ithalat" # Text (Hayvan ise)
+            - "referans_onceki_ithalatlar_ithalat" # Text (Hizmet sunan için)
+            - "dil_bilgisi_tedarikci_iletisim_ithalat" # Text
+            - "odeme_yontemleri_uluslararasi_ithalat" # Text: Banka Transferi, Akreditif (L/C)
+            - "sigorta_secenekleri_ithalat" # Text
+            - "minimum_siparis_miktari_degeri_ithalat" # Text
+            - "ithalatci_firma_bilgileri_ithalat" # Text (Eğer bir firma aracılığıyla yapılıyorsa)
+            - "riskler_ve_onlemler_ithalat" # Text
+            - "yasal_mevzuat_danismanligi_ihtiyaci_ithalat" # Boolean
+            - "yerel_distributorluk_anlasmasi_ithalat" # Boolean (Ürünler için)
+            - "satış_sonrasi_destek_turkiye_ithalat" # Text
+            - "numune_talebi_ithalat" # Boolean (Ürünler için)
+            - "fiyat_gecerlilik_suresi_ithalat" # Text
+            - "para_birimi_ithalat" # Select: USD, EUR, TRY vb.
+        platform_ayarlari:
+          varsayilan_ilan_suresi: "90 gün"
+          oncelik_katsayisi: 1.1 # Özel ve bulunması zor ürün/hayvanlar
+          moderasyon_seviyesi: "Çok Yüksek" # Yasal uygunluk, CITES, sağlık ve karantina şartları çok önemli
+          ozel_dogrulama_gerekliligi: "Evet, ithalat izinleri, CITES belgeleri, tedarikçi güvenilirliği, önceki referanslar."
+          kredi_maliyeti_katsayisi: 1.9
+        istatistikler:
+          beklenen_performans_metrikleri:
+            - "Ortalama ilan görüntülenme: Düşük (çok spesifik ve niş)"
+            - "Başarılı işlem oranı hedefi: %25 (karmaşık süreç)"
+            - "Ortalama işlem süresi: 60+ gün"
+            - "Platforma uluslararası bir boyut ve çeşitlilik katar."
+
+      ihtiyac:
+        temel_kimlik:
+          ad: "İhtiyaç Bildirimi / Talep İlanı"
+          slug: "ihtiyac-bildirimi-talep-ilani"
+          aciklama: "Belirli bir hayvanı, ürünü veya hizmeti arayan kullanıcıların ticari taleplerini yayınlayabilecekleri kategori. Tedarikçiler bu taleplere yanıt verebilir."
+          gorsel_kimlik:
+            renk_kodu: "#FACC15" # Sarı (Dikkat Çekici Talep)
+            ikon_adi: "fas fa-bullhorn"
+            emoji: "📢"
+        arama_sistemi:
+          alternatif_kelimeler:
+            - "arıyorum"
+            - "talep ediyorum"
+            - "ihtiyacım var"
+            - "satın almak istiyorum"
+            - "tedarikçi aranıyor"
+            - "hizmet arayışı"
+            - "hayvan arayışı (ticari)"
+            - "ürün talebi (ticari)"
+            - "özel istek"
+            - "acil ihtiyaç (ticari)"
+            - "teklif bekliyorum"
+            - "işbirliği çağrısı"
+            - "partner aranıyor"
+            - "malzeme talebi"
+            - "personel arayışı (pet sektörü)"
+            - "eğitmen arıyorum (profesyonel)"
+            - "bakıcı arıyorum (ticari, uzun vadeli)"
+            - "pet otel arayışı (uzun konaklama)"
+            - "klinik hizmet talebi (özel operasyon)"
+        akilli_filtreler:
+          ozel_filtre_alanlari:
+            - "ihtiyac_kategorisi_ana" # Select: Hayvan Arayışı, Ürün Talebi, Hizmet Arayışı, İşbirliği/Ortaklık Talebi, Personel Arayışı
+            - "aranan_hayvan_irk_cins_ihtiyac" # Text (Hayvan ise)
+            - "aranan_hayvan_yas_cinsiyet_ihtiyac" # Text (Hayvan ise)
+            - "aranan_urun_marka_model_ihtiyac" # Text (Ürün ise)
+            - "aranan_urun_miktar_ihtiyac" # Text (Ürün ise)
+            - "aranan_hizmet_detay_ihtiyac" # Text (Hizmet ise)
+            - "aranan_personel_pozisyon_deneyim_ihtiyac" # Text (Personel ise)
+            - "butce_araligi_ihtiyac" # Text
+            - "acilim_seviyesi_ihtiyac" # Select: Çok Acil, Acil, Normal, Esnek
+            - "lokasyon_tercihi_tedarikci_ihtiyac" # Text: Şehir, Bölge, Türkiye Geneli, Yurt Dışı
+            - "istenilen_kalite_standart_ihtiyac" # Text
+            - "istenilen_belgeler_sertifikalar_ihtiyac" # Text
+            - "son_teklif_verme_tarihi_ihtiyac" # DateInput
+            - "iletisim_tercihi_teklifler_icin_ihtiyac" # Text
+            - "gizlilik_seviyesi_talep_ihtiyac" # Select: Herkese Açık, Sadece Kayıtlı Tedarikçilere
+            - "referans_beklentisi_tedarikci_ihtiyac" # Boolean
+            - "uzun_vadeli_isbirligi_potansiyeli_ihtiyac" # Boolean
+            - "numune_talebi_urun_ihtiyac" # Boolean (Ürün ise)
+            - "odeme_sartlari_teklifi_ihtiyac" # Text: Nasıl bir ödeme planı düşündüğünüz
+            - "teslimat_suresi_beklentisi_ihtiyac" # Text
+            - "kurumsal_mi_bireysel_mi_talep_ihtiyac" # Select
+            - "proje_detaylari_isbirligi_ihtiyac" # Text (İşbirliği ise)
+            - "beklenen_sonuc_metrikleri_ihtiyac" # Text
+            - "dil_gereksinimi_tedarikci_ihtiyac" # Text
+            - "mevcut_sorun_cozum_arayisi_ihtiyac" # Text
+            - "alternatif_cozumlere_aciklik_ihtiyac" # Boolean
+            - "teklif_degerlendirme_kriterleri_ihtiyac" # Text
+        platform_ayarlari:
+          varsayilan_ilan_suresi: "30 gün" # Talepler genellikle daha kısa süreli olabilir
+          oncelik_katsayisi: 1.0 # Standart
+          moderasyon_seviyesi: "Orta" # Talebin netliği ve gerçekçiliği kontrol edilir
+          ozel_dogrulama_gerekliligi: "Yüksek bütçeli veya karmaşık talepler için kimlik doğrulaması ve talebin ciddiyeti teyit edilebilir."
+          kredi_maliyeti_katsayisi: 0.7 # Talep olduğu için daha düşük olabilir
+        istatistikler:
+          beklenen_performans_metrikleri:
+            - "Ortalama ilan görüntülenme: Değişken (talebin popülerliğine göre)"
+            - "Başarılı eşleşme (teklif alma) oranı hedefi: %50"
+            - "Ortalama yanıt alma süresi: 7-15 gün"
+            - "Platformda B2B ve B2C talepler için bir pazar yeri oluşturur, tedarikçilere fırsat sunar."
+
+    hayvan_kategorileri:
+      kopek:
+        temel_kimlik:
+          ad: "Köpek"
+          slug: "kopek"
+          aciklama: "İnsanın en sadık dostu olarak bilinen, çeşitli ırkları ve karakter özellikleriyle öne çıkan evcil hayvanlardır. Ailelerin neşe kaynağı ve koruyucusudurlar."
+          gorsel_kimlik:
+            renk_kodu: "#f59e0b"
+            ikon_adi: "fas fa-dog"
+            emoji: "🐕"
+        arama_sistemi:
+          alternatif_kelimeler:
+            - "it"
+            - "kuçu kuçu"
+            - "doggo"
+            - "canine"
+            - "köpke"
+            - "sadık dost"
+            - "ev köpeği"
+            - "sokak köpeği"
+            - "çoban köpeği"
+            - "av köpeği"
+            - "süs köpeği"
+            - "yavru köpek"
+            - "pati"
+            - "hav hav"
+            - "koruyucu"
+            - "arkadaş"
+            - "kangal"
+            - "golden"
+            - "terrier"
+            - "doberman"
+        akilli_filtreler:
+          ozel_filtre_alanlari:
+            - "irk_secimi" # Select: Golden Retriever, Alman Çoban, Terrier, Poodle, Bulldog, Beagle, Dachshund, vb.
+            - "yas_grubu_kopek" # Select: Yavru (0-1 yaş), Genç (1-3 yaş), Yetişkin (3-7 yaş), Yaşlı (7+ yaş)
+            - "cinsiyet" # Select: Erkek, Dişi
+            - "boyut_kopek" # Select: Çok Küçük (Toy), Küçük, Orta, Büyük, Dev
+            - "enerji_seviyesi_kopek" # Select: Düşük, Orta, Yüksek, Çok Yüksek
+            - "egitim_seviyesi_kopek" # Select: Eğitimsiz, Temel İtaat, İleri İtaat, Özel Eğitimli (örn: terapi köpeği)
+            - "cocuk_uyumu_kopek" # Select: Çok İyi, İyi, Dikkatli Olunmalı, Tavsiye Edilmez
+            - "diger_kopek_uyumu" # Select: Çok İyi, İyi, Dikkatli Olunmalı, Tek Yaşamalı
+            - "diger_hayvan_uyumu_kopek" # Select: Çok İyi (kedi, kuş vb.), İyi, Dikkatli Olunmalı, Tavsiye Edilmez
+            - "apartman_uyumu_kopek" # Select: Uygun, Orta Düzeyde Uygun, Uygun Değil
+            - "bahce_ihtiyaci_kopek" # Select: Yok, Küçük Bahçe Yeterli, Geniş Bahçe Gerekli
+            - "tuy_dokme_seviyesi_kopek" # Select: Yok/Çok Az, Az, Orta, Çok
+            - "bakim_ihtiyaci_kopek" # Select: Düşük (haftalık fırçalama), Orta (düzenli fırçalama/traş), Yüksek (profesyonel bakım)
+            - "saglik_durumu_genel_kopek" # Select: Sağlıklı, Kronik Rahatsızlığı Var (açıklama gerekli), Özel Bakım Gerekiyor
+            - "saglik_durumu_ozel_not_kopek" # Text
+            - "kisirlastirilmis_kopek" # Boolean: Evet, Hayır, Bilinmiyor
+            - "asi_durumu_kopek" # Select: Tam, Eksik, Bilinmiyor
+            - "tuvalet_aliskanligi_kopek" # Select: Var (dışarı/ped), Kısmen Var, Yok
+            - "yalniz_kalma_toleransi_kopek" # Select: İyi (4+ saat), Orta (2-4 saat), Zayıf (sürekli ilgi)
+            - "oyunculuk_seviyesi_kopek" # Select: Düşük, Orta, Yüksek
+            - "koruma_icgudusu_kopek" # Select: Düşük, Orta, Yüksek
+            - "havlama_egilimi_kopek" # Select: Az, Orta, Çok
+            - "seyahat_uyumu_kopek" # Select: İyi, Orta, Zayıf
+            - "ilk_sahip_uygunlugu_kopek" # Select: Uygun, Deneyim Gerektirir, Uygun Değil
+            - "hipoalerjenik_kopek" # Boolean: Evet, Hayır, Bilinmiyor
+            - "renk_kopek" # Text: örn. Siyah, Beyaz, Kahverengi, Benekli, Altın Sarısı
+            - "karakter_ozellikleri_kopek" # MultiSelect: Sevecen, Bağımsız, Zeki, Sakin, Korkak, Meraklı, İnatçı, Lider
+            - "egzersiz_ihtiyaci_gunluk_kopek" # Select: 30dk az, 30-60dk, 60+ dk
+            - "isirma_gecmisi_kopek" # Select: Yok, Savunma Amaçlı (açıklama gerekli), Bilinmiyor
+            - "mikrocip_durumu_kopek" # Boolean: Var, Yok
+        platform_ayarlari:
+          varsayilan_ilan_suresi: "45 gün"
+          oncelik_katsayisi: 1.5 # Popüler kategori
+          moderasyon_seviyesi: "Orta" # Irk ve geçmişe göre dikkat
+          ozel_dogrulama_gerekliligi: "Yasaklı veya özel statülü ırklar için evet (örn: Pitbull, Dogo Argentino için ek belgeler)."
+        istatistikler:
+          beklenen_performans_metrikleri:
+            - "Ortalama ilan görüntülenme: Çok Yüksek"
+            - "Sahiplenme oranı hedefi: %70"
+            - "Ortalama sahiplenme süresi: 20 gün"
+            - "Popüler ırklar için başvuru sayısı: Yüksek"
+
+      kedi:
+        temel_kimlik:
+          ad: "Kedi"
+          slug: "kedi"
+          aciklama: "Bağımsızlıkları, oyunculukları ve sevecenlikleriyle bilinen, gizemli ve zarif evcil hayvanlardır. Evlere sıcaklık ve eğlence katarlar."
+          gorsel_kimlik:
+            renk_kodu: "#8b5cf6"
+            ikon_adi: "fas fa-cat"
+            emoji: "🐱"
+        arama_sistemi:
+          alternatif_kelimeler:
+            - "pisi"
+            - "miyav"
+            - "pisi pisi"
+            - "feline"
+            - "tekir"
+            - "sarman"
+            - "minnoş"
+            - "kedicik"
+            - "ev kedisi"
+            - "sokak kedisi"
+            - "yavru kedi"
+            - "mırnav"
+            - "aslan parçası"
+            - "pati dostu"
+            - "mistik"
+            - "van kedisi"
+            - "british shorthair"
+            - "scottish fold"
+            - "siyam"
+            - "iran kedisi"
+        akilli_filtreler:
+          ozel_filtre_alanlari:
+            - "irk_secimi_kedi" # Select: Tekir, Van Kedisi, British Shorthair, Scottish Fold, Siyam, İran Kedisi, Sphynx vb.
+            - "yas_grubu_kedi" # Select: Yavru (0-6 ay), Genç (6 ay-2 yaş), Yetişkin (2-8 yaş), Yaşlı (8+ yaş)
+            - "cinsiyet" # Select: Erkek, Dişi
+            - "kil_uzunlugu_kedi" # Select: Kısa, Orta, Uzun, Tüysüz
+            - "sosyallik_seviyesi_kedi" # Select: Çok Sosyal (herkese yakın), Sosyal (tanıdıklara yakın), Utangaç (zamanla alışır), Bağımsız (kendi halinde)
+            - "dis_mekan_uyumu_kedi" # Select: Sadece İç Mekan, Güvenli Dış Alan Erişimi (balkon, bahçe), Dış Mekana Alışkın
+            - "cocuk_uyumu_kedi" # Select: Çok İyi, İyi, Dikkatli Olunmalı (özellikle küçük çocuklarla), Tavsiye Edilmez
+            - "diger_kedi_uyumu" # Select: Çok İyi, İyi, Dikkatli Olunmalı, Tek Kedi Olmalı
+            - "diger_hayvan_uyumu_kedi" # Select: Çok İyi (köpek, vb.), İyi, Dikkatli Olunmalı, Tavsiye Edilmez
+            - "enerji_seviyesi_kedi" # Select: Düşük (sakin), Orta (oyuncu), Yüksek (çok hareketli)
+            - "oyunculuk_seviyesi_kedi" # Select: Sakin, Orta Derecede Oyuncu, Çok Oyuncu
+            - "bakim_ihtiyaci_kedi" # Select: Düşük (kısa tüylü), Orta (orta/uzun tüylü, düzenli fırçalama), Yüksek (özel bakım, banyo)
+            - "saglik_durumu_genel_kedi" # Select: Sağlıklı, Kronik Rahatsızlığı Var (açıklama gerekli), Özel Diyet Gerekiyor
+            - "saglik_durumu_ozel_not_kedi" # Text
+            - "kisirlastirilmis_kedi" # Boolean: Evet, Hayır, Bilinmiyor
+            - "asi_durumu_kedi" # Select: Tam, Eksik, Bilinmiyor
+            - "tuvalet_aliskanligi_kedi" # Select: Kum Eğitimi Var, Kısmen Var, Yok
+            - "kucak_kedisi_kedi" # Boolean: Evet, Hayır, Bazen (ruh haline göre)
+            - "ses_seviyesi_miyavlama_kedi" # Select: Sessiz, Orta, Konuşkan (çok miyavlar)
+            - "tirnak_kesme_toleransi_kedi" # Select: İyi, Orta, Zor
+            - "mobilya_tirmalama_egilimi_kedi" # Select: Az, Orta, Çok (tırmalama tahtasıyla yönlendirilebilir)
+            - "ilk_sahip_uygunlugu_kedi" # Select: Uygun, Deneyim Gerektirebilir (bazı ırklar), Uygun Değil
+            - "alerji_potansiyeli_insan_kedi" # Select: Düşük (bazı ırklar), Orta, Yüksek
+            - "renk_desen_kedi" # Text: örn. Siyah, Beyaz, Sarı, Gri, Çizgili (Tabby), Benekli, Calico, Tortoiseshell
+            - "karakter_ozellikleri_kedi" # MultiSelect: Meraklı, Sevecen, Bağımsız, Sakin, Korkak, Zeki, Uykucu, Lider, Oyuncu
+            - "avcilik_icgudusu_kedi" # Select: Düşük, Orta, Yüksek
+            - "su_ile_iliskisi_kedi" # Select: Sever (nadir), Nötr, Sevmez
+            - "mikrocip_durumu_kedi" # Boolean: Var, Yok
+        platform_ayarlari:
+          varsayilan_ilan_suresi: "50 gün"
+          oncelik_katsayisi: 1.4 # Popüler kategori
+          moderasyon_seviyesi: "Düşük"
+          ozel_dogrulama_gerekliligi: "Safkan ve özel sağlık durumu olan ırklar için belge istenebilir (örn: FIP geçmişi)."
+        istatistikler:
+          beklenen_performans_metrikleri:
+            - "Ortalama ilan görüntülenme: Yüksek"
+            - "Sahiplenme oranı hedefi: %65"
+            - "Ortalama sahiplenme süresi: 25 gün"
+            - "Yavru kedi ilanları için talep: Çok Yüksek"
+
+      kus:
+        temel_kimlik:
+          ad: "Kuş"
+          slug: "kus"
+          aciklama: "Cıvıltıları, renkli tüyleri ve bazı türlerinin konuşma yetenekleriyle evlere neşe katan kanatlı dostlardır. Doğru bakımla uzun yıllar eşlik edebilirler."
+          gorsel_kimlik:
+            renk_kodu: "#06b6d4"
+            ikon_adi: "fas fa-dove" # Generic bird icon, can be fas fa-kiwi-bird or other specifics if available
+            emoji: "🐦"
+        arama_sistemi:
+          alternatif_kelimeler:
+            - "kanarya"
+            - "muhabbet kuşu"
+            - "papağan"
+            - "saka"
+            - "güvercin"
+            - "bülbül"
+            - "cik cik"
+            - "kanatlı"
+            - "tüylü dost"
+            - "ötücü kuş"
+            - "konuşan kuş"
+            - "ev kuşu"
+            - "kafes kuşu"
+            - "uçan hayvan"
+            - "gökyüzü"
+            - "jako"
+            - "sultan papağanı"
+            - "hint bülbülü"
+            - "forpus"
+            - "sevda papağanı"
+        akilli_filtreler:
+          ozel_filtre_alanlari:
+            - "tur_kus" # Select: Muhabbet Kuşu, Sultan Papağanı, Kanarya, Jako Papağanı, Hint Bülbülü, Cennet Papağanı, Forpus vb.
+            - "yas_grubu_kus" # Select: Yavru (bilezik yaşı), Genç, Yetişkin
+            - "cinsiyet_kus" # Select: Erkek, Dişi, Bilinmiyor (DNA testi gerekebilir)
+            - "konusma_kabiliyeti_kus" # Select: Yok, Birkaç Kelime, Cümle Kurabilir, Çok İyi Konuşur, Taklitçi
+            - "ses_seviyesi_otme_kus" # Select: Sessiz, Orta (melodik), Gürültülü (yüksek sesli)
+            - "egitim_seviyesi_kus" # Select: Eğitimsiz, Ele Alışkın, Numara Yapabilir, Serbest Uçuş Eğitimli
+            - "sosyallik_diger_kuslarla_kus" # Select: Tek Yaşamalı, Kendi Türüyle İyi, Karma Türlerle İyi (dikkatli)
+            - "sosyallik_insanlarla_kus" # Select: Utangaç, Alışkın, Çok Sosyal (ilgi bekler)
+            - "kafes_boyutu_ihtiyaci_kus" # Select: Küçük (tek kuş için min.), Orta, Büyük, Salma (aviary)
+            - "bakim_ihtiyaci_temizlik_kus" # Select: Düşük, Orta (günlük altlık), Yüksek (büyük kafes)
+            - "bakim_ihtiyaci_beslenme_kus" # Text: Özel diyet gereksinimi (meyve, sebze, özel tohum karışımları)
+            - "ucma_alani_ihtiyaci_kus" # Select: Kafes Yeterli, Odada Güvenli Serbest Uçuş Gerekli
+            - "el_ile_temas_toleransi_kus" # Select: Sever (kaşınmayı), Alışkın, Sevmez (sadece izler)
+            - "muzik_ve_seslere_tepkisi_kus" # Text: örn. Müzikle öter, yüksek sesten korkar, televizyon izler
+            - "renk_cesitliligi_kus" # Text: örn. Mavi, Yeşil, Sarı, Beyaz, Alaca, Pastel tonlar
+            - "ortalama_omur_beklentisi_kus" # Text: Türüne göre (örn. Muhabbet: 5-8 yıl, Jako: 40-60 yıl)
+            - "hastalik_gecmisi_kus" # Text: Bilinen bir rahatsızlığı var mı?
+            - "tek_mi_cift_mi_sahiplendiriliyor_kus" # Select: Tek, Çift Olarak (eş tutmuş), Grup Olarak
+            - "oyuncak_tercihleri_kus" # Text: örn. Zil, Ayna, Salıncak, Kemirme oyuncakları, Zeka oyuncakları
+            - "gunluk_ilgi_suresi_ihtiyaci_kus" # Text: örn. En az 1 saat direkt etkileşim
+            - "isirma_egilimi_kus" # Select: Yok, Nadir (korkunca), Dikkat Edilmeli (eğitimle düzelebilir)
+            - "yem_markasi_tercihi_kus" # Text: Alışık olduğu yem markası
+            - "vitamin_takviyesi_ihtiyaci_kus" # Boolean: Evet (düzenli), Hayır, Duruma Göre
+            - "gece_ortusu_kullanimi_kus" # Boolean: Evet (uyku düzeni için), Hayır
+            - "banyo_aliskanligi_kus" # Select: Sever (su püskürtme, banyoluk), Bazen, Sevmez
+            - "mevsimsel_davranis_degisikligi_kus" # Text: örn. Tüy dökümü, üreme dönemi davranışları
+            - "CITES_belgesi_durumu_kus" # Select: Gerekmiyor, Var, Başvurusu Yapıldı (koruma altındaki türler için)
+        platform_ayarlari:
+          varsayilan_ilan_suresi: "60 gün"
+          oncelik_katsayisi: 1.1
+          moderasyon_seviyesi: "Orta" # CITES gibi belgeler kontrol edilebilir
+          ozel_dogrulama_gerekliligi: "CITES belgesi gerektiren türler için evet (Jako, bazı Amazon papağanları vb.)."
+        istatistikler:
+          beklenen_performans_metrikleri:
+            - "Ortalama ilan görüntülenme: Orta"
+            - "Sahiplenme oranı hedefi: %50"
+            - "Ortalama sahiplenme süresi: 30 gün"
+            - "Konuşan papağan türleri için ilgi: Yüksek"
+
+      balik:
+        temel_kimlik:
+          ad: "Balık"
+          slug: "balik"
+          aciklama: "Sessiz ve huzurlu bir ortam yaratan, renkleri ve hareketleriyle akvaryumları canlandıran su altı canlılarıdır. Farklı türleri ve bakım ihtiyaçları bulunur."
+          gorsel_kimlik:
+            renk_kodu: "#3b82f6"
+            ikon_adi: "fas fa-fish"
+            emoji: "🐠"
+        arama_sistemi:
+          alternatif_kelimeler:
+            - "japon balığı"
+            - "beta balığı"
+            - "lepistes"
+            - "akvaryum balığı"
+            - "sazan"
+            - "melek balığı"
+            - "ciklet"
+            - "vatoz"
+            - "su canlısı"
+            - "yüzgeçli"
+            - "pul"
+            - "akvaryum"
+            - "deniz canlısı" # Tatlı su olsa da kullanılır
+            - "süs balığı"
+            - "tetra"
+            - "discus"
+            - "koi"
+            - "molly"
+            - "kılıçkuyruk"
+            - "neon tetra"
+        akilli_filtreler:
+          ozel_filtre_alanlari:
+            - "tur_balik" # Select: Japon Balığı, Beta, Lepistes, Melek Balığı, Ciklet (Malawi, Tanganyika), Discus, Koi, Vatoz vb.
+            - "su_tipi_balik" # Select: Tatlı Su, Tuzlu Su, Acı Su
+            - "boyut_yetiskin_balik" # Text: örn. 5 cm, 15 cm, 30+ cm
+            - "yasam_suresi_beklentisi_balik" # Text: örn. 2-3 yıl, 5-10 yıl, 15+ yıl
+            - "renk_desen_balik" # Text: örn. Kırmızı, Mavi, Sarı, Siyah, Beyaz, Çizgili, Benekli
+            - "akvaryum_boyutu_min_balik" # Text: örn. 20 Litre, 100 Litre, 500+ Litre
+            - "su_sicakligi_ideal_balik" # Text: örn. 22-26°C
+            - "ph_degeri_ideal_balik" # Text: örn. 6.5-7.5
+            - "sertlik_degeri_ideal_balik" # Text: örn. Yumuşak, Orta Sert, Sert
+            - "beslenme_tipi_balik" # Select: Otçul, Etçil, Hepçil (Omnivor)
+            - "yem_tercihi_balik" # Text: Pul yem, Granül yem, Canlı yem, Dondurulmuş yem
+            - "sosyallik_diger_baliklarla_balik" # Select: Barışçıl (karma akvaryum), Agresif (tek tür veya uyumlu türler), Sürü Balığı
+            - "bakim_zorlugu_balik" # Select: Kolay (başlangıç), Orta, Zor (deneyim gerektirir)
+            - "ureme_davranisi_balik" # Text: örn. Canlı doğuran, Yumurta döken, Ağızda kuluçka yapan
+            - "hastaliklara_yatkinlik_balik" # Text: Beyaz benek, Mantar vb. (türüne özel)
+            - "bitkili_akvaryum_uyumu_balik" # Select: Uygun (bitkilere zarar vermez), Dikkatli (bazı bitkileri yiyebilir), Uygun Değil
+            - "filtreleme_ihtiyaci_balik" # Select: Düşük, Orta, Yüksek (güçlü filtre)
+            - "isiklandirma_ihtiyaci_balik" # Select: Düşük, Orta, Yüksek (bitkili veya mercan)
+            - "tek_mi_grup_mu_sahiplendiriliyor_balik" # Select: Tek, Çift, Sürü (min. 5 adet)
+            - "maksimum_buyume_potansiyeli_balik" # Text: Akvaryumda ulaşabileceği maksimum boy
+            - "karakter_ozellikleri_balik" # Text: Sakin, Hareketli, Bölgeci, Utangaç
+            - "karantina_gecmisi_balik" # Boolean: Yeni alındı karantinada, Karantinası tamamlandı
+            - "su_degisimi_sikligi_onerilen_balik" # Text: Haftalık %20, İki haftada bir %30 vb.
+            - "ekipman_gereksinimi_ozel_balik" # Text: Isıtıcı, Hava motoru, UV filtre, Protein skimmer vb.
+            - "agresiflik_seviyesi_balik" # Select: Barışçıl, Yarı Agresif, Agresif
+            - "yuzme_seviyesi_balik" # Select: Dip, Orta Su, Yüzey
+            - "koken_bolgesi_balik" # Text: Amazon, Afrika Gölleri, Asya vb.
+        platform_ayarlari:
+          varsayilan_ilan_suresi: "40 gün"
+          oncelik_katsayisi: 0.9
+          moderasyon_seviyesi: "Düşük"
+          ozel_dogrulama_gerekliligi: "Nadide veya ithalatı kısıtlı türler için belge istenebilir."
+        istatistikler:
+          beklenen_performans_metrikleri:
+            - "Ortalama ilan görüntülenme: Düşük-Orta"
+            - "Sahiplenme oranı hedefi: %40"
+            - "Ortalama sahiplenme süresi: 35 gün"
+            - "Özel türler ve büyük akvaryumlar için niş bir kitle"
+
+      kemirgen:
+        temel_kimlik:
+          ad: "Kemirgen"
+          slug: "kemirgen"
+          aciklama: "Küçük boyutları, sevimli görünümleri ve genellikle kolay bakımlarıyla bilinen popüler evcil hayvanlardır. Çocuklar için iyi bir başlangıç olabilirler."
+          gorsel_kimlik:
+            renk_kodu: "#f97316"
+            ikon_adi: "fas fa-otter" # Placeholder, more like fas fa-paw with small animal context
+            emoji: "🐹"
+        arama_sistemi:
+          alternatif_kelimeler:
+            - "hamster"
+            - "ginepig" # Guinea Pig
+            - "tavşan" # Tavşanlar aslında Lagomorpha takımındandır, ama popüler olarak kemirgenlerle anılır
+            - "fare" # Laboratuvar faresi, süs faresi
+            - "sincap" # Evcil sincap türleri
+            - "chinchilla"
+            - "degu"
+            - "gerbil"
+            - "kemirici"
+            - "minik dost"
+            - "kafes hayvanı"
+            - "sevimli kemirgen"
+            - "bunny"
+            - "rat"
+            - "kobay"
+            - "cüce hamster"
+            - "surinam hamsterı"
+            - "şinşila"
+            - "yer faresi"
+        akilli_filtreler:
+          ozel_filtre_alanlari:
+            - "tur_kemirgen" # Select: Hamster (Suriye, Cüce), Guinea Pig, Tavşan (Hollanda Lop, Angora), Fare, Sıçan (Rat), Chinchilla, Degu, Gerbil
+            - "yas_grubu_kemirgen" # Select: Yavru, Genç, Yetişkin
+            - "cinsiyet_kemirgen" # Select: Erkek, Dişi
+            - "boyut_kemirgen" # Select: Küçük (Hamster), Orta (Guinea Pig), Büyük (Bazı Tavşanlar)
+            - "sosyallik_kendi_turuyle_kemirgen" # Select: Tek Yaşamalı (Suriye Hamster), Çift/Grup Halinde Yaşamalı (Guinea Pig, Fareler)
+            - "sosyallik_insanlarla_kemirgen" # Select: Utangaç, Ele Alışkın, Çok Sosyal
+            - "aktivite_zamani_kemirgen" # Select: Gece Aktif (Hamster), Gündüz Aktif (Guinea Pig), Alacakaranlık Aktif
+            - "kafes_boyutu_ihtiyaci_kemirgen" # Select: Küçük, Orta, Büyük, Çok Katlı, Oyun Alanlı
+            - "bakim_ihtiyaci_temizlik_kemirgen" # Select: Düşük, Orta (günlük/haftalık kafes temizliği)
+            - "bakim_ihtiyaci_beslenme_kemirgen" # Text: Özel pelet yem, taze sebze/meyve, saman
+            - "kemirme_ihtiyaci_kemirgen" # Select: Orta, Yüksek (kemirme taşları/oyuncakları gerekli)
+            - "egzersiz_ihtiyaci_kemirgen" # Select: Kafes İçi Tekerlek, Oda İçinde Serbest Dolaşım (gözetimli)
+            - "el_ile_temas_toleransi_kemirgen" # Select: Sever, Alışkın, Sevmez (stres olabilir)
+            - "ses_seviyesi_kemirgen" # Select: Sessiz, Nadiren Ses Çıkarır (cıyaklama, vıklama), Orta
+            - "ortalama_omur_beklentisi_kemirgen" # Text: Türüne göre (örn. Hamster: 1-3 yıl, Tavşan: 8-12 yıl)
+            - "hastalik_gecmisi_kemirgen" # Text: Bilinen bir rahatsızlığı var mı? (Diş sorunları, solunum yolu enf.)
+            - "tek_mi_grup_mu_sahiplendiriliyor_kemirgen" # Select: Tek, Çift, Grup
+            - "oyuncak_tercihleri_kemirgen" # Text: Tekerlek, Tünel, Kemirme blokları, Saklanma yerleri
+            - "tuvalet_aliskanligi_kemirgen" # Select: Belirli Köşeye Yapar (bazı türler), Gelişigüzel
+            - "tuy_bakimi_ihtiyaci_kemirgen" # Select: Gerekmez, Az (uzun tüylü tavşanlar)
+            - "ısırma_egilimi_kemirgen" # Select: Yok, Nadir (korkunca/yanlış tutulunca), Dikkat Edilmeli
+            - "koku_seviyesi_kemirgen" # Select: Düşük, Orta (düzenli temizlikle kontrol altında)
+            - "çocuk_uyumu_kemirgen" # Select: İyi (nazik çocuklarla), Dikkatli Olunmalı (küçük ve hassas olabilirler)
+            - "veteriner_ihtiyaci_kemirgen" # Select: Rutin Kontrol, Özel Kemirgen Veterineri Gerekli
+            - "seyahat_uyumu_kemirgen" # Select: Kısa Mesafeler Uygun, Stres Olabilir, Tavsiye Edilmez
+            - "karakter_ozellikleri_kemirgen" # MultiSelect: Meraklı, Oyuncu, Sakin, Ürkek, Sosyal, Bağımsız
+            - "dis_uzamasi_problemi_kemirgen" # Boolean: Evet (sürekli kemirme materyali gerekir), Hayır
+        platform_ayarlari:
+          varsayilan_ilan_suresi: "35 gün"
+          oncelik_katsayisi: 1.2
+          moderasyon_seviyesi: "Düşük"
+          ozel_dogrulama_gerekliligi: "Tavşanlar için özel bakım bilgisi teyidi istenebilir (Lagomorpha oldukları için)."
+        istatistikler:
+          beklenen_performans_metrikleri:
+            - "Ortalama ilan görüntülenme: Orta-Yüksek"
+            - "Sahiplenme oranı hedefi: %60"
+            - "Ortalama sahiplenme süresi: 15-20 gün"
+            - "Özellikle çocuklar için popüler bir tercih."
+
+      surungen:
+        temel_kimlik:
+          ad: "Sürüngen"
+          slug: "surungen"
+          aciklama: "Farklı görünümleri ve yaşam tarzlarıyla ilgi çeken, özel bakım ve ortam gereksinimleri olan egzotik hayvanlardır. Bilinçli ve deneyimli sahipler ararlar."
+          gorsel_kimlik:
+            renk_kodu: "#059669"
+            ikon_adi: "fas fa-frog" # Placeholder, more like fas fa-dragon for general reptile
+            emoji: "🦎"
+        arama_sistemi:
+          alternatif_kelimeler:
+            - "kertenkele"
+            - "yılan"
+            - "kaplumbağa" # Su ve kara kaplumbağaları
+            - "iguana"
+            - "bukalemun"
+            - "gekko" # Gecko
+            - "varan"
+            - "boa"
+            - "piton"
+            - "sakallı ejder" # Bearded Dragon
+            - "leopar geko"
+            - "mısır yılanı"
+            - "kraliyet pitonu"
+            - "sulcata"
+            - "reptile"
+            - "teraryum hayvanı"
+            - "soğukkanlı"
+            - "pullu dost"
+            - "egzotik sürüngen"
+        akilli_filtreler:
+          ozel_filtre_alanlari:
+            - "tur_surungen" # Select: Sakallı Ejder, Leopar Geko, Mısır Yılanı, Kraliyet Pitonu, Su Kaplumbağası (Kırmızı Yanaklı), Kara Kaplumbağası (Tosbağa), İguana, Bukalemun vb.
+            - "yas_grubu_surungen" # Select: Yavru (Hatchling), Genç (Juvenile), Yetişkin (Adult)
+            - "cinsiyet_surungen" # Select: Erkek, Dişi, Bilinmiyor (bazı türlerde zor)
+            - "boyut_yetiskin_surungen" # Text: örn. 15 cm, 1 metre, 3+ metre
+            - "yasam_suresi_beklentisi_surungen" # Text: örn. 5-10 yıl, 20-30 yıl, 50+ yıl (kaplumbağalar)
+            - "beslenme_tipi_surungen" # Select: Otçul (Kaplumbağa, İguana), Etçil (Yılanlar), Böcekçil (Gekolar, Bukalemunlar), Hepçil
+            - "yem_tercihi_surungen" # Text: Canlı böcek (cırcır, un kurdu), Dondurulmuş kemirgen, Taze sebze/meyve, Özel pelet yem
+            - "teraryum_vivaryum_boyutu_min_surungen" # Text: örn. 40x30x30 cm, 120x60x60 cm
+            - "isitmaya_ihtiyaci_surungen" # Select: Gündüz Isıtma Lambası, Gece Isıtma Lambası, Taban Isıtıcı Ped
+            - "uvb_isik_ihtiyaci_surungen" # Boolean: Evet (hayati), Hayır (bazı yılan türleri)
+            - "nem_ihtiyaci_surungen" # Select: Düşük (çöl türleri), Orta, Yüksek (tropikal türler)
+            - "substrat_zemin_malzemesi_tercihi_surungen" # Text: Hindistan cevizi torfu, Kum, Gazete kağıdı, Özel sürüngen tabanlığı
+            - "sosyallik_kendi_turuyle_surungen" # Select: Tek Yaşamalı (çoğu), Çift Olarak (bazı gekolar), Grup (bazı kertenkeleler)
+            - "el_ile_temas_toleransi_surungen" # Select: Alışkın ve Sakin, Stres Olabilir, Sadece Gözetim İçin
+            - "saldirganlik_potansiyeli_surungen" # Select: Düşük (genellikle sakin), Savunmacı (korkunca ısırabilir), Dikkatli Olunmalı
+            - "zehir_durumu_surungen" # Select: Zehirsiz, Hafif Zehirli (insan için tehlikesiz), Zehirli (deneyim ve izin gerektirir) - Platformda zehirli hayvan ilanı olmayacak varsayımıyla bu filtre bilgilendirme amaçlı olabilir.
+            - "bakim_zorlugu_surungen" # Select: Kolay (başlangıç türleri), Orta, Zor (çok özel ihtiyaçlar)
+            - "CITES_belgesi_durumu_surungen" # Select: Gerekmiyor, Var, Başvurusu Yapıldı (birçok sürüngen türü CITES kapsamında)
+            - "ureme_gecmisi_surungen" # Text: Daha önce üredi mi?
+            - "karakter_ozellikleri_surungen" # Text: Sakin, Meraklı, Utangaç, Bölgeci
+            - "renk_morflari_surungen" # Text: Albino, Melanistik, Hypo vb. (genetik renk varyasyonları)
+            - "su_kabı_ihtiyaci_surungen" # Select: Küçük su kabı, Büyük yüzme alanı (su kaplumbağaları)
+            - "saklanma_alani_ihtiyaci_surungen" # Boolean: Evet (mağara, kütük vb. stres azaltır)
+            - "deri_degistirme_sikligi_surungen" # Text: Türüne ve yaşına göre değişir
+            - "kis_uykusu_hibernasyon_durumu_surungen" # Boolean: Evet (bazı kaplumbağa ve yılan türleri), Hayır
+            - "veteriner_bilgisi_surungen" # Text: Sürüngen konusunda deneyimli veteriner tavsiyesi
+            - "ilk_sahip_uygunlugu_surungen" # Select: Başlangıç türleri uygun, Araştırma ve deneyim gerektirir, Kesinlikle uygun değil
+        platform_ayarlari:
+          varsayilan_ilan_suresi: "75 gün"
+          oncelik_katsayisi: 0.8
+          moderasyon_seviyesi: "Yüksek" # CITES belgeleri ve bakım koşulları denetlenmeli
+          ozel_dogrulama_gerekliligi: "Evet, CITES belgesi, bakım ortamı fotoğrafları ve deneyim teyidi kesinlikle gerekli."
+        istatistikler:
+          beklenen_performans_metrikleri:
+            - "Ortalama ilan görüntülenme: Düşük"
+            - "Sahiplenme oranı hedefi: %30 (bilinçli sahiplendirme önemli)"
+            - "Ortalama sahiplenme süresi: 45+ gün"
+            - "Niş bir kitleye hitap eder, ancak sadık bir topluluğu vardır."
+
+      egzotik:
+        temel_kimlik:
+          ad: "Egzotik (Diğer Memeliler, Amfibiler, Omurgasızlar)"
+          slug: "egzotik"
+          aciklama: "Standart evcil hayvan kategorilerine girmeyen, özel bilgi, deneyim ve yasal düzenlemelere tabi olabilen benzersiz hayvanlardır."
+          gorsel_kimlik:
+            renk_kodu: "#dc2626"
+            ikon_adi: "fas fa-pastafarianism" # Placeholder, a generic unique icon
+            emoji: "🌟"
+        arama_sistemi:
+          alternatif_kelimeler:
+            - "şeker planör" # Sugar Glider
+            - "kirpi" # Evcil Afrika kirpisi
+            - "gelincik" # Ferret
+            - "akrep" # İmparator akrebi gibi
+            - "örümcek" # Tarantula gibi
+            - "kurbağa" # Zehirli ok kurbağası gibi (platformda sahiplendirilmesi tartışmalı)
+            - "semender"
+            - "aksolotl"
+            - "böcek" # Peygamberdevesi, sopa böceği
+            - "yengeç" # Evcil yengeç türleri
+            - "salyangoz" # Dev Afrika salyangozu
+            - "mini domuz"
+            - "farklı hayvan"
+            - "sıradışı pet"
+            - "özel bakım hayvanı"
+            - "koleksiyon hayvanı"
+            - "amfibi"
+            - "omurgasız"
+            - "terra-fauna"
+        akilli_filtreler:
+          ozel_filtre_alanlari:
+            - "tur_ana_grup_egzotik" # Select: Memeli, Amfibi, Omurgasız (Eklembacaklı, Yumuşakça vb.)
+            - "tur_detay_egzotik" # Text: örn. Şeker Planör (Petaurus breviceps), Afrika Cüce Kirpisi (Atelerix albiventris), Tarantula (örn. Brachypelma smithi)
+            - "yas_grubu_egzotik" # Text: Türüne göre (örn. aylık, yıllık)
+            - "cinsiyet_egzotik" # Select: Erkek, Dişi, Bilinmiyor, Hermafrodit
+            - "boyut_yetiskin_egzotik" # Text: Türüne göre (örn. 10cm, 30cm)
+            - "yasam_suresi_beklentisi_egzotik" # Text: Türüne göre
+            - "beslenme_tipi_egzotik" # Text: Özel diyet (örn. nektar, böcek, özel formül mama)
+            - "yem_tercihi_egzotik" # Text
+            - "yasam_ortami_tipi_egzotik" # Select: Teraryum, Vivaryum, Akvaryum, Özel Kafes
+            - "ortam_boyutu_min_egzotik" # Text
+            - "sicaklik_ihtiyaci_egzotik" # Text: örn. 20-25°C, ısıtma pedi/lambası gerekir
+            - "nem_ihtiyaci_egzotik" # Text: Yüksek nem, düşük nem, düzenli fıslatma
+            - "isik_ihtiyaci_egzotik" # Text: Özel UVB, gece/gündüz döngüsü
+            - "sosyallik_kendi_turuyle_egzotik" # Select: Tek Yaşamalı, Grup Halinde, Koloni
+            - "el_ile_temas_toleransi_egzotik" # Select: Uygun, Stres Olur (gözlem hayvanı), Tehlikeli Olabilir
+            - "zehir_toksisite_durumu_egzotik" # Text: Zehirsiz, Hafif toksik, Alerjen olabilir (platform politikasına göre ele alınmalı)
+            - "bakim_zorlugu_egzotik" # Select: Orta (bilgi gerektirir), Zor (ileri düzey deneyim), Çok Zor (profesyonel)
+            - "CITES_belgesi_durumu_egzotik" # Select: Gerekmiyor, Var, Başvurusu Yapıldı (birçok egzotik tür CITES kapsamında)
+            - "yasal_durum_turkiye_egzotik" # Text: Sahiplenilmesi/satışı yasal mı, özel izin gerekiyor mu?
+            - "karakter_ozellikleri_egzotik" # Text: Türüne özgü davranışlar
+            - "ureme_potansiyeli_esaret_egzotik" # Text: Esaret altında ürer mi, zor mu?
+            - "gurultu_seviyesi_egzotik" # Text: Sessiz, türüne özgü sesler
+            - "koku_durumu_egzotik" # Text: Kokusuz, özel koku, temizlikle yönetilebilir
+            - "ilk_sahip_uygunlugu_egzotik" # Select: Kesinlikle uygun değil, Çok ileri düzey deneyim gerektirir
+            - "veteriner_destegi_bulunabilirlik_egzotik" # Select: Egzotik hayvan veterineri yaygın, Nadir bulunur, Çok zor
+            - "karantina_suresi_onerilen_egzotik" # Text: Yeni alımda önerilen karantina
+            - "tasima_kosullari_egzotik" # Text: Nakliye sırasında dikkat edilmesi gerekenler
+            - "alerji_riski_insan_egzotik" # Text: Tüy, salgı vb. alerji yapabilir mi?
+        platform_ayarlari:
+          varsayilan_ilan_suresi: "90 gün"
+          oncelik_katsayisi: 0.7
+          moderasyon_seviyesi: "Çok Yüksek" # Yasal durum, CITES, bakım koşulları titizlikle incelenmeli
+          ozel_dogrulama_gerekliligi: "Kesinlikle evet. Türün yasallığı, CITES belgesi, sahibinin deneyimi, yaşam alanı fotoğrafları/videoları, özel bakım bilgisi teyidi."
+        istatistikler:
+          beklenen_performans_metrikleri:
+            - "Ortalama ilan görüntülenme: Çok Düşük (çok niş)"
+            - "Sahiplenme oranı hedefi: %10-20 (çok bilinçli ve özel sahiplendirme)"
+            - "Ortalama sahiplenme süresi: 60+ gün"
+            - "Platformun itibarını ve sorumluluğunu en çok etkileyebilecek kategori."
+
+      diger:
+        temel_kimlik:
+          ad: "Diğer (Çiftlik Hayvanları, Özel Durumlar)"
+          slug: "diger"
+          aciklama: "Yukarıdaki kategorilere girmeyen, genellikle çiftlik hayvanı statüsünde olan veya çok özel durumlarda sahiplendirilmesi gereken hayvanlardır."
+          gorsel_kimlik:
+            renk_kodu: "#6b7280"
+            ikon_adi: "fas fa-paw" # Generic animal icon
+            emoji: "❓"
+        arama_sistemi:
+          alternatif_kelimeler:
+            - "çiftlik hayvanı"
+            - "at"
+            - "eşek"
+            - "keçi"
+            - "koyun"
+            - "tavuk"
+            - "ördek"
+            - "kaz"
+            - "hindi"
+            - "lama"
+            - "alpaka"
+            - "arı" # Koloni sahiplendirme?
+            - "kurtarılmış hayvan"
+            - "özel ihtiyaçlı hayvan"
+            - "yardım bekleyen"
+            - "geçici yuva arayan (çok özel)"
+            - "sıradışı dost"
+            - "köy hayvanı"
+            - "bahçe hayvanı"
+        akilli_filtreler:
+          ozel_filtre_alanlari: # Bu kategori için filtreler daha genel ve esnek olmalı
+            - "hayvan_tur_diger" # Text: örn. At, Keçi, Tavuk, Alpaka
+            - "amac_diger" # Select: Evcil Hayvan Olarak, Hobi Amaçlı Çiftlik, Üretim Dışı (emekli), Terapi Hayvanı
+            - "yas_grubu_diger" # Text: Türüne göre
+            - "cinsiyet_diger" # Select: Erkek, Dişi, İğdiş Edilmiş
+            - "boyut_yetiskin_diger" # Text: Türüne göre
+            - "barinma_ihtiyaci_diger" # Text: Ahır, Kümes, Geniş Arazi, Özel Çit Sistemi
+            - "beslenme_ihtiyaci_diger" # Text: Ot, Yem, Özel Karışımlar
+            - "su_ihtiyaci_diger" # Text: Günlük miktar, temiz su kaynağı
+            - "sosyallik_kendi_turuyle_diger" # Text: Sürü hayvanı mı, tek yaşayabilir mi?
+            - "sosyallik_insanlarla_diger" # Text: İnsana alışkın mı, ürkek mi?
+            - "saglik_durumu_genel_diger" # Text: Aşıları, bilinen hastalıkları
+            - "nakliye_durumu_diger" # Text: Sahibi tarafından mı, alıcı tarafından mı organize edilecek?
+            - "yasal_izin_gerekliligi_diger" # Text: Türüne ve bölgeye göre (belediye izni vb.)
+            - "bakim_deneyimi_sart_diger" # Boolean: Evet, Hayır
+            - "alan_buyuklugu_min_diger" # Text: Gerekli minimum arazi/barınak alanı
+            - "ekipman_ihtiyaci_diger" # Text: Özel ekipman (sağım makinesi, eyer vb.)
+            - "karakter_ozellikleri_diger" # Text: Sakin, Uysal, Lider vb.
+            - "ureme_amaci_diger" # Boolean: Üreme amaçlı mı, değil mi?
+            - "ses_gurultu_seviyesi_diger" # Text: Türüne göre
+            - "komsu_uyumu_diger" # Text: Yakın komşuluk durumunda sorun olur mu?
+            - "hobi_ciftciligi_uygunlugu_diger" # Boolean: Evet, Hayır
+            - "egitim_seviyesi_diger" # Text: Temel komutlar, binicilik eğitimi vb.
+            - "kullanim_amaci_gecmis_diger" # Text: Yarış atı, süt keçisi vb.
+            - "emeklilik_durumu_diger" # Boolean: Emekliye ayrılmış mı?
+            - "acil_yuva_durumu_diger" # Boolean: Acil mi?
+            - "gecici_yuva_imkani_diger" # Boolean: Geçici yuva da kabul edilir mi?
+            - "sponsorluk_imkani_diger" # Boolean: Bakım sponsoru aranıyor mu?
+        platform_ayarlari:
+          varsayilan_ilan_suresi: "100 gün" # Genellikle daha uzun sürebilir
+          oncelik_katsayisi: 0.5
+          moderasyon_seviyesi: "Yüksek" # Yasal durum, refah koşulları, amaç netliği önemli
+          ozel_dogrulama_gerekliligi: "Evet. Özellikle büyük çiftlik hayvanları için yer ve bakım koşulları, yasal izinler, nakliye planı teyit edilmeli."
+        istatistikler:
+          beklenen_performans_metrikleri:
+            - "Ortalama ilan görüntülenme: Çok Düşük (çok özel kitle)"
+            - "Sahiplenme oranı hedefi: %5-15 (çok spesifik eşleşmeler)"
+            - "Ortalama sahiplenme süresi: 90+ gün"
+            - "Platformun sosyal sorumluluk ve çeşitlilik yönünü gösterir."
